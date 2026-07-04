@@ -25,6 +25,11 @@ preview inside Tauri v2 on an actual Android device — including the WebView
 android-extras pattern) and the CAMERA runtime permission via the
 MediaPermissionDialog flow.
 
+**Test matrix (the family's standing rig, same as Echoes/Compass):** desktop +
+the Weaver's Galaxy **S25 Ultra** + T-Red's **S22 Ultra** — two Samsung WebView
+generations, which is exactly the spread the spike needs. If camera preview
+holds on the S22's older WebView, it holds everywhere the family ships.
+
 - **Spike passes** → full green light; follow the 8 phases in
   `AudHDities-Resonance/canvasguide-concepts.md`.
 - **Spike fails after honest effort** → we keep Expo without shame, port the
