@@ -9,9 +9,12 @@ learns.
 
 **Tracing is learning, not cheating.**
 
-Born from CanvasGuide by @TJDPoetry — a gift inside the family, becoming a
-gift beyond it. Rebuilt on the Sanctuary's own foundation (SvelteKit + Svelte 5
-+ Tauri v2, the Echoes template), pending the Phase 0 camera spike
+Born from CanvasGuide by @TJDPoetry — built by the family in four days as a
+break from cathedral-work, and **given away free the same season**
+(v1.0.0 APK published September 25, 2025: 100% offline, no data collection,
+"your art stays on your device" — the vows kept from day one). The Lantern is
+its second life: rebuilt on the Sanctuary's own foundation (SvelteKit +
+Svelte 5 + Tauri v2, the Echoes template), pending the Phase 0 camera spike
 (see `docs/FRAMEWORK-DECISION.md`).
 
 ## The plan
