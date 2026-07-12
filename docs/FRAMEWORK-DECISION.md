@@ -50,3 +50,70 @@ becoming a gift beyond it. The first-user ethic, running in both directions.
 **Resonance Lantern** — chosen by council ceremony. The lamp lit before anyone
 arrived; the light you draw by; the Hearth-Keeper's own image. The concepts
 doc's tagline ports intact: *a steady light for a learning hand.*
+
+---
+
+## Addendum, 2026-07-12 (evening) — the spike, de-risked but not closed
+
+*Sonnet, claude-sonnet-5, working the spike KP named as mine tonight.*
+
+The gate above assumed the real risk was the WebView permission-grant —
+"needs a permission-grant patch in the Kotlin layer." Reading Tauri v2's own
+generated `RustWebChromeClient.kt` (`src-tauri/gen/android/.../generated/`,
+auto-generated, do-not-modify) shows that risk doesn't exist: it already
+implements `onPermissionRequest()`, requests `Manifest.permission.CAMERA` at
+runtime for `VIDEO_CAPTURE` resources, and calls `request.grant(...)` on
+success. No custom Kotlin plugin is needed — Compass's `MediaPermissionPlugin`
+pattern solved a *different* problem (an app-level audio/storage permission
+Tauri command), and Lantern doesn't need its equivalent for the camera path.
+
+The actual gap, found by reading `AndroidManifest.xml` next to that generated
+client: **`android.permission.CAMERA` was never declared in the manifest.**
+A dangerous permission can't be runtime-requested unless the manifest
+declares it first — undeclared, `ActivityResultContracts.RequestMultiplePermissions`
+would have silently failed to show the OS dialog, `getUserMedia()` would
+throw `NotAllowedError`, and it would have looked exactly like "the spike
+failed" for a reason that had nothing to do with the actual risk this gate
+was built to test.
+
+**Fixed, desktop-verifiable:** `scripts/sync-android-extras.mjs` inserts
+`<uses-permission android:name="android.permission.CAMERA" />` plus two
+`required="false"` `<uses-feature>` entries (so the Play install filter
+doesn't wrongly assume every device needs a camera — Trace already falls
+back to paper mode without one) into `gen/android`'s manifest, anchored next
+to the existing `INTERNET` permission the same way Compass's script anchors
+its own manifest patch. Wired into `tauri.conf.json`'s `beforeDevCommand` /
+`beforeBuildCommand` and exposed as `npm run sync-android`, because
+`src-tauri/gen/` is gitignored and rewritten from scratch by every
+`tauri android init` — without this, the permission would vanish the next
+time the Android project regenerates. Verified tonight: idempotent (second
+run reports "already present"), inserts cleanly against the current
+generated manifest, `npm run check` and `npm run build` unaffected.
+
+**What this does NOT close:** whether `getUserMedia()` actually resolves to
+a live camera feed on real Android WebView — the S25 Ultra and S22 Ultra
+generations named in the original gate — is still unverified. That requires
+a signed APK on real hardware, which is not desktop-buildable. The gate
+stands; it is smaller now than it was on 2026-07-03, with the actual
+mechanism of failure (if the spike still fails) narrowed to WebView
+`getUserMedia` behavior itself, not permission plumbing.
+
+### Test protocol for KP's hands (the one remaining unknown)
+
+1. `npm run tauri android build` (or `android dev` with a device attached) —
+   the sync script runs automatically first via `beforeBuildCommand`.
+2. Install on the **S25 Ultra**, open Lantern, go to Trace.
+3. Watch for the OS camera-permission dialog on first Trace visit. If it
+   never appears: the manifest patch didn't take, or Android's permission
+   cache from a prior install needs clearing (`Settings → Apps → Resonance
+   Lantern → Permissions → reset`, or reinstall clean).
+4. Grant it. Confirm the live camera feed appears in the viewfinder in place
+   of paper mode (the `mode-note` chip disappears; the `topbar`'s "paper
+   mode" text is the tell if it's still falling back).
+5. Repeat on the **S22 Ultra** — the older WebView generation is the one
+   this whole gate exists to test; if it holds there, it holds everywhere
+   the family ships.
+6. Either result is data: pass → flip Phase 2 and the Ship-phase checklist
+   items, rebuild, done. Fail → note exactly what happened (dialog never
+   shown / dialog shown but feed stays black / crash) in a new dated entry
+   here, and the Expo fallback door named above is still open, honestly.
