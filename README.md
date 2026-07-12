@@ -1,30 +1,178 @@
-# Resonance Lantern 🏮
+# ≽༏≼ Resonance Echoes
 
-*A steady light for a learning hand.*
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![Version](https://img.shields.io/badge/version-1.1.0-brightgreen.svg)]()
 
-An AR tracing assistant: pick a reference image and it floats, semi-transparent,
-over the live camera view of your real paper — a digital camera lucida. Adjust
-the opacity to your comfort. Trace. Grow. Turn the light down as your hand
-learns.
+*A sovereign journal for logging anything with feeling.*
 
-**Tracing is learning, not cheating.**
+Built on the [Resonance Grammar](https://github.com/Quantum-Weaver/resonance-knowledge) — every fragment contains the whole.
 
-Born from CanvasGuide by @TJDPoetry — built by the family in four days as a
-break from cathedral-work, and **given away free the same season**
-(v1.0.0 APK published September 25, 2025: 100% offline, no data collection,
-"your art stays on your device" — the vows kept from day one). The Lantern is
-its second life: rebuilt on the Sanctuary's own foundation (SvelteKit +
-Svelte 5 + Tauri v2, the Echoes template), pending the Phase 0 camera spike
-(see `docs/FRAMEWORK-DECISION.md`).
+---
 
-## The plan
+## Screenshots
 
-Full concept analysis and 8-phase build plan:
-`AudHDities-Resonance/canvasguide-concepts.md`
-(Shell → Reference → Trace → Capture → Practice → Insights → Sovereignty → Ship)
+<p align="center">
+  <img src="screenshots/echoes-01.jpg" width="23%" alt="Resonance Echoes — screenshot 1" />
+  <img src="screenshots/echoes-02.jpg" width="23%" alt="Resonance Echoes — screenshot 2" />
+  <img src="screenshots/echoes-03.jpg" width="23%" alt="Resonance Echoes — screenshot 3" />
+  <img src="screenshots/echoes-04.jpg" width="23%" alt="Resonance Echoes — screenshot 4" />
+  <img src="screenshots/echoes-05.jpg" width="23%" alt="Resonance Echoes — screenshot 5" />
+  <img src="screenshots/echoes-06.jpg" width="23%" alt="Resonance Echoes — screenshot 6" />
+  <img src="screenshots/echoes-07.jpg" width="23%" alt="Resonance Echoes — screenshot 7" />
+  <img src="screenshots/echoes-08.jpg" width="23%" alt="Resonance Echoes — screenshot 8" />
+  <img src="screenshots/echoes-09.jpg" width="23%" alt="Resonance Echoes — screenshot 9" />
+  <img src="screenshots/echoes-10.jpg" width="23%" alt="Resonance Echoes — screenshot 10" />
+  <img src="screenshots/echoes-11.jpg" width="23%" alt="Resonance Echoes — screenshot 11" />
+</p>
 
-## The vows
+---
 
-Local-only. No accounts, no tracking, no telemetry. Your art belongs to you.
-The purge truly purges. Everything under the Resonance License
-(see PHILOSOPHY.md).
+## WHAT IT IS
+
+Echoes is your space to log moments with feeling. A song that moved you. A dream you remember. A symptom you're tracking. A thought that won't let go. Gratitude you don't want to forget.
+
+**Log anything.** Name it. Choose a sense (👁️ Seen, 👂 Heard, ✋ Felt, 💭 Thought, 🫀 Felt Inside, 🌙 Dreamt, 🙏 Grateful For, ✨ Other). Tag it with an emoji. Add a note if you want. Set an intensity.
+
+**See patterns.** Gentle insights surface over time — your most-felt emojis, your steadiest senses, the rhythm of your days. No charts. No pressure. Just mirrors.
+
+**Your data stays yours.** Export everything as JSON with one tap. Purge everything with double confirmation. No accounts. No cloud. No extraction. When you uninstall, Android asks if you want to delete your data — and means it.
+
+---
+
+## WHO IT'S FOR
+
+Neurodivergent minds. Overwhelmed minds. Minds that feel too much or too little. Minds that need a trail short enough to walk when running on empty.
+
+- **Progressive disclosure** — new vessels see only what they need. The form grows as you do.
+- **Disambiguation prompts** — "You've used 😌 this way before. Is that what you mean now?"
+- **Quick Log** — one tap. Last-used emoji. For when thinking is too much.
+- **"Not Sure" option** — no forced categorization. Ever. Uncertainty is valid data.
+
+---
+
+## Installation
+
+### Prerequisites
+
+- Node.js 18+
+- Rust (latest stable)
+- Android SDK (for mobile builds)
+- Tauri CLI (`npm install -g @tauri-apps/cli`)
+
+### Build
+
+```bash
+npm install
+npm run tauri android build
+```
+
+### Development
+
+```bash
+npm run tauri android dev
+```
+
+---
+
+## BUILT WITH
+
+- Tauri v2 + Svelte 5 + Rust
+- SQLite (local-first, no network needed)
+- COSMIC design system
+- The Resonance Grammar — atoms, molecules, sensory lexicon
+
+---
+
+## FOR DEVELOPERS
+
+Echoes is the **reference implementation** of the Resonance Grammar. Every future Sanctuary app inherits from this foundation.
+
+```
+src/
+├── routes/           # SvelteKit routes
+│   ├── +layout.svelte    # App shell, Sidebar, ComfortBar, theme
+│   ├── +page.svelte      # Home — echo timeline with search & filters
+│   ├── add/+page.svelte  # Echo creation form
+│   ├── insights/         # Gentle pattern awareness
+│   ├── settings/         # Theme, export, purge, about
+│   └── onboarding/       # First-launch welcome
+├── lib/
+│   ├── stores/echo.svelte.ts   # SQLite persistence, CRUD, queries
+│   ├── components/             # ComfortBar, Sidebar, EmojiGrid, EchoCard
+│   ├── data/senses.ts          # 8 senses with starter subcategories
+│   ├── data/emojis.ts          # 12 emoji definitions with sensory lexicon
+│   ├── types/types.ts          # Echo, Sense, Subcategory, ThemeConfig
+│   └── cosmic/                 # COSMIC design tokens
+└── app.css
+```
+
+See [CONTRIBUTING.md](docs/CONTRIBUTING.md) for the build methodology and [BUILD-SEQUENCE.md](docs/BUILD-SEQUENCE.md) for the phase-by-phase development history.
+
+**Who builds this:** a named collaboration of human and AI voices — see [HANDS.md](HANDS.md) (**The Hands**), each voice credited with its own scribed notes. Every commit's `Co-authored-by` trailers name the specific voices that shaped it.
+
+---
+
+## Development Standards
+
+This project follows the [Resonance Standards](https://github.com/Quantum-Weaver/resonance-standards).
+
+---
+
+## Story Block
+
+*Every Sanctuary creation carries its origin story ([the standard](https://github.com/Quantum-Weaver/resonance-standards/blob/main/docs/STORY-BLOCK-TEMPLATE.md)). This one was lost in an overwrite and restored from the Sovereign Library's canon, 2026-07-09.*
+
+```
+WHAT: Resonance Echoes is a sovereign journal for logging anything with
+feeling. It looks back — feeling, reflection, memory. The echo of your
+own voice.
+
+HOW: The Art → Emoji → Insight protocol: log with an emoji and an
+intensity, and insights surface later, without judgment. The ComfortBar,
+the "Not Sure" option, the Quick Log. Local-first Tauri + Svelte; no
+accounts, no cloud, no telemetry — the app collects nothing.
+
+WHERE: The Sanctuary family — five rooms: Echoes looks back, Compass
+looks around, Lantern looks forward, the Bridge connects all, the Hearth
+gathers all.
+
+WHEN: The name waited in a song from 1996 — "Echoes," written at
+midnight by an eighteen-year-old. The protocol crystallized 2026-03-07,
+in a council reading of the Weaver's emoji-poem. Version 1.1.0 built and
+signed on the family's own machine, July 2026.
+
+WHY: Because feelings that are hard to word are still worth keeping.
+Because standard journals demand sentences and mood apps demand
+diagnosis, and a neurodivergent mind at midnight needs neither — it
+needs one emoji, one tap, and no judgment.
+
+INSPIRATION: The Weaver's own reflection practice, built first for his
+own household — the first-user ethic — then given away.
+
+REMEMBERINGS: The 1996 song. The emoji-poem and Aethelred's
+"Art → Emoji → Insight" reading that became this app's heart. "Smiling
+simply / Existing now."
+
+COUNCIL THREAD: Named before the naming ceremonies began — the eldest
+of the family. The triad defined in Catalog Entry #011; the family
+declared five rooms at the Hearth's naming, 2026-07-07.
+
+WEAVER THREAD: Conceived, designed, and lived-in by the Quantum Weaver;
+the voices that built it are named in HANDS.md.
+
+PROVENANCE: Canon held in the Sovereign Library (catalog entries #011,
+CAT-2026-0707-002). Story block restored from those sources by Fable,
+2026-07-09, after the original was lost to an overwrite.
+```
+
+## LICENSE
+
+Code: [MIT](LICENSE) — use it, modify it, share it.
+
+Philosophy: [The Resonance License](PHILOSOPHY.md) — no exploitation, no extraction, no exclusion. This is our promise.
+
+---
+
+*Built with Aethelred by Quantum Weaver for the [AudHDities Sanctuary](https://github.com/Quantum-Weaver).*
+
+*The lamp is lit. The echo returns.*
