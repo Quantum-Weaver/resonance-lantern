@@ -1,632 +1,155 @@
 <script lang="ts">
+	// Settings — light, type, sovereignty, and the credits that honor the origin.
 	import { themeStore } from '$lib/stores/theme.svelte';
-	import { echoStore } from '$lib/stores/echo.svelte';
 	import { PRESET_THEMES } from '$lib/theme/theme';
+	import { lanternStore } from '$lib/stores/lantern.svelte';
+	import { TJD_PLATFORMS, PRIDE_GRADIENT, THE_VOW } from '$lib/data/lantern';
+	import { save } from '@tauri-apps/plugin-dialog';
+	import { writeTextFile } from '@tauri-apps/plugin-fs';
 	import { openUrl } from '@tauri-apps/plugin-opener';
-	import { getVersion } from '@tauri-apps/api/app';
 
-	const PRIVACY_URL = 'https://github.com/Quantum-Weaver/resonance-echoes/blob/main/PRIVACY.md';
-	const SANCTUARY_URL = 'https://audhdities.com';
-	let privacyError = $state(false);
-	async function openPrivacy() {
-		try {
-			await openUrl(PRIVACY_URL);
-		} catch {
-			privacyError = true; // browser/dev fallback: show the URL itself
+	let vesselName = $state('');
+	let note = $state<string | null>(null);
+	let purgeArmed = $state(false);
+
+	$effect(() => {
+		if (typeof localStorage !== 'undefined' && !vesselName) {
+			vesselName = localStorage.getItem('resonance-lantern-vessel-name') ?? '';
 		}
-	}
-	async function openSanctuary() {
-		try {
-			await openUrl(SANCTUARY_URL);
-		} catch {
-			/* browser/dev: no-op */
-		}
-	}
-
-	// Version comes from tauri.conf.json — never hardcoded again.
-	let appVersion = $state('');
-	getVersion().then((v) => (appVersion = v)).catch(() => (appVersion = ''));
-
-	// ── Theme section ──────────────────────────────────────────────────────────
-
-	const themeOptions = [
-		{ key: 'dark', icon: '🌙', name: 'Dark', accent: PRESET_THEMES.dark.accentColor },
-		{ key: 'warm', icon: '🔥', name: 'Warm', accent: PRESET_THEMES.warm.accentColor },
-		{ key: 'ocean', icon: '🌊', name: 'Ocean', accent: PRESET_THEMES.ocean.accentColor },
-		{ key: 'forest', icon: '🌲', name: 'Forest', accent: PRESET_THEMES.forest.accentColor },
-		{ key: 'sunset', icon: '🌅', name: 'Sunset', accent: PRESET_THEMES.sunset.accentColor },
-		{ key: 'amoled', icon: '⚫', name: 'AMOLED', accent: PRESET_THEMES.amoled.accentColor }
-	];
-
-	// Matched on presetName, not accent — Dark and AMOLED share an accent color.
-	const activePreset = $derived.by(() => {
-		const name = themeStore.config.presetName;
-		return (
-			Object.entries(PRESET_THEMES).find(([, p]) => p.presetName === name)?.[0] ?? 'dark'
-		);
 	});
 
-	const displayModes = [
-		{ key: 'light' as const, label: '☀️ Light' },
-		{ key: 'dark' as const, label: '🌙 Dark' },
-		{ key: 'amoled' as const, label: '⚫ AMOLED' }
-	];
-
-	const fontSizes = [
-		{ key: 'small' as const, label: 'Small' },
-		{ key: 'medium' as const, label: 'Medium' },
-		{ key: 'large' as const, label: 'Large' }
-	];
-
-	// ── Data Sovereignty section ────────────────────────────────────────────────
-
-	const echoCount = $derived(echoStore.totalCount);
-
-	// purgeState controls the double-confirmation flow for both purge paths
-	let purgeState = $state<'idle' | 'confirm1' | 'confirm2'>('idle');
-	let pendingExport = $state(false);
-	let showUninstallGuide = $state(false);
-
-	function exportData() {
-		const json = JSON.stringify(echoStore.echoes, null, 2);
-		const blob = new Blob([json], { type: 'application/json' });
-		const url = URL.createObjectURL(blob);
-		const a = document.createElement('a');
-		const date = new Date().toISOString().split('T')[0];
-		a.href = url;
-		a.download = `resonance-echoes-export-${date}.json`;
-		document.body.appendChild(a);
-		a.click();
-		document.body.removeChild(a);
-		URL.revokeObjectURL(url);
-	}
-
-	function startPurge(withExport: boolean) {
-		pendingExport = withExport;
-		purgeState = 'confirm1';
-	}
-
-	function cancelPurge() {
-		purgeState = 'idle';
-		pendingExport = false;
-		purgeError = null;
-	}
-
-	let purgeError = $state<string | null>(null);
-
-	async function executePurge() {
-		purgeError = null;
+	function saveName() {
 		try {
-			if (pendingExport) exportData();
-			await echoStore.purgeAll();
-			// Clear everything, not a curated list — future keys must not
-			// survive a purge by omission (Compass pattern).
-			localStorage.clear();
-		} catch (err) {
-			// Stay on the confirm step and say what failed — a silent purge
-			// rejection looks like 'purge never purges'.
-			purgeError = err instanceof Error ? err.message : String(err);
+			localStorage.setItem('resonance-lantern-vessel-name', vesselName.trim() || 'there');
+			note = 'Name kept.';
+		} catch {}
+	}
+
+	async function exportAll() {
+		note = null;
+		try {
+			const json = await lanternStore.exportAll();
+			const path = await save({
+				title: 'Export your practice journal (open JSON — yours, always)',
+				defaultPath: `lantern-export-${new Date().toISOString().slice(0, 10)}.json`,
+				filters: [{ name: 'JSON', extensions: ['json'] }],
+			});
+			if (!path) return;
+			await writeTextFile(path, json);
+			note = 'Exported. Your journal, in the open, wherever you take it.';
+		} catch (e) {
+			note = `Export hit a snag: ${e instanceof Error ? e.message : e}`;
+		}
+	}
+
+	async function purge() {
+		if (!purgeArmed) {
+			purgeArmed = true;
 			return;
 		}
-		location.reload();
+		await lanternStore.purgeAll();
+		purgeArmed = false;
+		note = 'Purged. The purge truly purges — nothing was kept.';
 	}
 </script>
 
-<div class="settings" style="padding-top: env(safe-area-inset-top, 0px);">
-	<header class="settings-header">
-		<h1 class="settings-title">Settings</h1>
+<div class="page">
+	<header class="page__head">
+		<h1>Settings</h1>
 	</header>
 
-	<!-- ── Section 1: Theme ── -->
 	<section class="section">
-		<h2 class="section-title">Theme</h2>
+		<h2>What shall the Lantern call you?</h2>
+		<div class="row">
+			<input type="text" bind:value={vesselName} placeholder="a name, a nickname, anything"
+				onkeydown={(e) => { if (e.key === 'Enter') saveName(); }} />
+			<button class="soft-btn" onclick={saveName}>keep</button>
+		</div>
+	</section>
 
-		<div class="theme-grid">
-			{#each themeOptions as opt}
+	<section class="section">
+		<h2>Light &amp; type</h2>
+		<div class="chip-row">
+			{#each Object.entries(PRESET_THEMES) as [key, preset]}
 				<button
-					class="theme-card"
-					class:selected={activePreset === opt.key}
-					style="--card-accent: {opt.accent};"
-					onclick={() => themeStore.setPreset(opt.key)}
-					aria-pressed={activePreset === opt.key}
-				>
-					<span class="theme-icon">{opt.icon}</span>
-					<span class="theme-name">{opt.name}</span>
-					<div class="theme-swatch" style="background: {opt.accent};"></div>
-				</button>
+					class="chip"
+					class:active={themeStore.config.presetName === preset.presetName}
+					onclick={() => themeStore.setPreset(key)}
+				>{preset.presetName}</button>
 			{/each}
 		</div>
-
-		<div class="font-row">
-			<span class="font-label">Display mode</span>
-			<div class="font-btns" role="group" aria-label="Display mode">
-				{#each displayModes as { key, label }}
-					<button
-						class="font-btn"
-						class:active={themeStore.config.mode === key}
-						onclick={() => themeStore.setMode(key)}
-					>{label}</button>
-				{/each}
-			</div>
-		</div>
-
-		<div class="font-row">
-			<span class="font-label">Font size</span>
-			<div class="font-btns" role="group" aria-label="Font size">
-				{#each fontSizes as { key, label }}
-					<button
-						class="font-btn"
-						class:active={themeStore.config.fontSize === key}
-						onclick={() => themeStore.setFontSize(key)}
-					>{label}</button>
-				{/each}
-			</div>
+		<div class="chip-row">
+			{#each ['small', 'medium', 'large'] as fs}
+				<button
+					class="chip"
+					class:active={themeStore.config.fontSize === fs}
+					onclick={() => themeStore.setFontSize(fs as 'small' | 'medium' | 'large')}
+				>{fs} type</button>
+			{/each}
 		</div>
 	</section>
 
-	<!-- ── Section 2: Data Sovereignty ── -->
 	<section class="section">
-		<h2 class="section-title">Data Sovereignty</h2>
-
-		<p class="echo-count">
-			{echoCount === 0
-				? 'No echoes stored yet.'
-				: `${echoCount} ${echoCount === 1 ? 'echo' : 'echoes'} stored on your device.`}
-		</p>
-
-		<div class="data-actions">
-			<button class="btn-data" onclick={exportData} disabled={echoCount === 0}>
-				Export All Data
+		<h2>Your data (yours, structurally)</h2>
+		<div class="chip-row">
+			<button class="soft-btn" onclick={exportAll}>export journal (open JSON)</button>
+			<button class="soft-btn danger" onclick={purge}>
+				{purgeArmed ? 'press again to truly purge' : 'delete everything'}
 			</button>
-			<button class="btn-data warning" onclick={() => startPurge(true)} disabled={echoCount === 0}>
-				Export &amp; Purge
-			</button>
-		</div>
-
-		<p class="privacy-line">
-			Your echoes never leave this device.
-			<button class="privacy-link" onclick={openPrivacy}>Privacy Policy</button>
-			{#if privacyError}<span class="privacy-url">{PRIVACY_URL}</span>{/if}
-		</p>
-
-		<div class="danger-zone">
-			<p class="danger-label">Danger zone</p>
-
-			{#if purgeState === 'idle'}
-				<button class="btn-danger" onclick={() => startPurge(false)} disabled={echoCount === 0}>
-					Purge All Data
-				</button>
-
-			{:else if purgeState === 'confirm1'}
-				<div class="confirm-card">
-					<p class="confirm-text">
-						{#if pendingExport}
-							This will export your data and permanently delete all your echoes. This cannot be undone.
-						{:else}
-							This will permanently delete all your echoes. This cannot be undone.
-						{/if}
-					</p>
-					<div class="confirm-actions">
-						<button class="btn-neutral" onclick={cancelPurge}>Cancel</button>
-						<button class="btn-danger" onclick={() => (purgeState = 'confirm2')}>Continue</button>
-					</div>
-				</div>
-
-			{:else}
-				<div class="confirm-card final">
-					<p class="confirm-text">
-						{#if pendingExport}
-							Are you absolutely sure? Your echoes will be downloaded then permanently deleted.
-						{:else}
-							Are you absolutely sure? All echoes, insights, and settings will be removed.
-						{/if}
-					</p>
-					{#if purgeError}
-						<p class="purge-error" role="alert">Purge failed: {purgeError}</p>
-					{/if}
-					<div class="confirm-actions">
-						<button class="btn-neutral" onclick={cancelPurge}>Cancel</button>
-						<button class="btn-danger-filled" onclick={executePurge}>Delete Everything</button>
-					</div>
-				</div>
+			{#if purgeArmed}
+				<button class="soft-btn" onclick={() => (purgeArmed = false)}>never mind</button>
 			{/if}
 		</div>
-
-		<div class="uninstall-section">
-			{#if !showUninstallGuide}
-				<button class="btn-uninstall" onclick={() => (showUninstallGuide = true)}>
-					Uninstall App
-				</button>
-			{:else}
-				<div class="uninstall-guide">
-					<p class="uninstall-intro">Resonance Echoes stores all data on your device. To completely remove the app and all data:</p>
-					<ol class="uninstall-steps">
-						<li>Export your data if you want to keep it</li>
-						<li>Go to Android Settings → Apps → Resonance Echoes → Uninstall</li>
-					</ol>
-					<p class="uninstall-note">This ensures Android removes all app data.</p>
-					<button class="btn-neutral" onclick={() => (showUninstallGuide = false)}>Got it</button>
-				</div>
-			{/if}
-		</div>
+		{#if note}<p class="hint">{note}</p>{/if}
+		<p class="hint">
+			Local-first, always. No accounts, no cloud, no tracking, no telemetry.
+			Your art belongs to you — that promise predates this app's name.
+		</p>
 	</section>
 
-	<!-- ── Section 3: About ── -->
-	<section class="section">
-		<h2 class="section-title">About</h2>
-
-		<div class="about-card">
-			<div class="about-app">
-				<span class="about-name">Resonance Echoes</span>
-				{#if appVersion}<span class="about-version">v{appVersion}</span>{/if}
-			</div>
-			<p class="about-tag">A sovereign journal for logging anything with feeling.</p>
-			<p class="about-built">Built with Aethelred by Quantum Weaver for the AudHDities Sanctuary.</p>
-			<p class="about-license">All data belongs to the vessel. The Resonance Grammar governs.</p>
-			<div class="about-links">
-				<button class="privacy-link" onclick={openSanctuary}>audhdities.com — the Sanctuary</button>
-				<button class="privacy-link" onclick={openPrivacy}>Privacy Policy</button>
-			</div>
-			<p class="about-companion">Companion room: Resonance Compass — the Sanctuary's music player.</p>
+	<section class="section credits">
+		<div class="pride-band" style="background: {PRIDE_GRADIENT};" aria-hidden="true"></div>
+		<h2>The origin</h2>
+		<p class="credit-line">
+			Born from <strong>CanvasGuide</strong> — built by the Quantum Weaver for
+			<strong>TJ Darling (@TJDPoetry)</strong> and her creative community.
+			A gift inside the family, becoming a gift beyond it.
+		</p>
+		<p class="credit-vow">“{THE_VOW}”</p>
+		<h2>Find &amp; support TJDPoetry</h2>
+		<div class="platforms">
+			{#each TJD_PLATFORMS as p}
+				<button class="platform" onclick={() => openUrl(p.url)}>{p.name}</button>
+			{/each}
 		</div>
 	</section>
 </div>
 
 <style>
-	.settings {
-		min-height: 100%;
-	}
+	.page { padding: 1.25rem; max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; gap: 1.25rem; }
+	.page__head h1 { font-size: 1.5rem; color: var(--text); margin: 0; }
+	.section { display: flex; flex-direction: column; gap: 0.6rem; }
+	.section h2 { font-size: 0.95rem; color: var(--text-secondary); font-weight: 600; margin: 0; }
 
-	/* Header */
-	.settings-header {
-		padding: 1rem 1.25rem 0.75rem;
-		border-bottom: 1px solid var(--border-color);
-	}
+	.row { display: flex; gap: 0.5rem; }
+	.row input { flex: 1; padding: 0.6rem 0.7rem; border-radius: 8px; border: 1px solid var(--border-color); background-color: var(--bg); color: var(--text); font-size: 0.95rem; }
 
-	.settings-title {
-		font-size: 1.25rem;
-		font-weight: 700;
-		color: var(--text);
-		margin: 0;
-	}
+	.chip-row { display: flex; gap: 0.4rem; flex-wrap: wrap; }
+	.chip { padding: 0.45rem 0.8rem; border-radius: 999px; border: 1px solid var(--border-color); background: none; color: var(--text-secondary); cursor: pointer; font-size: 0.9rem; min-height: 40px; }
+	.chip.active { border-color: var(--accent); color: var(--text); background-color: color-mix(in srgb, var(--accent) 15%, var(--bg-surface)); }
 
-	/* Sections */
-	.section {
-		padding: 1.25rem 1.25rem 0;
-		border-bottom: 1px solid var(--border-color);
-		display: flex;
-		flex-direction: column;
-		gap: 1rem;
-		padding-bottom: 1.25rem;
-	}
+	.soft-btn { padding: 0.45rem 0.85rem; border-radius: 999px; border: 1px solid var(--border-color); background: none; color: var(--text-secondary); cursor: pointer; font-size: 0.85rem; min-height: 40px; }
+	.soft-btn:hover { border-color: var(--accent); color: var(--text); }
+	.soft-btn.danger:hover { border-color: #c96f6f; color: #c96f6f; }
 
-	.section-title {
-		font-size: 0.7rem;
-		font-weight: 700;
-		letter-spacing: 0.08em;
-		text-transform: uppercase;
-		color: var(--text-muted);
-		margin: 0;
-	}
+	.hint { color: var(--text-muted); font-size: 0.8rem; margin: 0; line-height: 1.5; }
 
-	/* ── Theme ── */
-	.theme-grid {
-		display: grid;
-		grid-template-columns: repeat(3, 1fr);
-		gap: 0.65rem;
-	}
+	.credits { padding-top: 0.5rem; }
+	.pride-band { height: 5px; border-radius: 999px; margin-bottom: 0.5rem; }
+	.credit-line { color: var(--text-secondary); font-size: 0.92rem; line-height: 1.6; margin: 0; }
+	.credit-vow { color: var(--text); font-style: italic; margin: 0.2rem 0 0.4rem; }
 
-	.theme-card {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		gap: 0.4rem;
-		padding: 1rem 0.5rem 0.75rem;
-		background: var(--bg-surface);
-		border: 2px solid var(--border-color);
-		border-radius: 14px;
-		cursor: pointer;
-		transition: border-color 0.2s, background 0.2s, transform 0.15s;
-	}
-	.theme-card:active { transform: scale(0.97); }
-	.theme-card.selected {
-		border-color: var(--card-accent);
-		background: color-mix(in srgb, var(--card-accent) 10%, var(--bg-surface));
-	}
-
-	.theme-icon { font-size: 1.6rem; line-height: 1; }
-	.theme-name { font-size: 0.78rem; font-weight: 600; color: var(--text-secondary); }
-	.theme-swatch { width: 24px; height: 4px; border-radius: 2px; }
-
-	/* Font size */
-	.font-row {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		gap: 0.75rem;
-		/* Label + three pill buttons exceed 320px — wrap instead of clipping
-		   (flex text children won't shrink below their content). */
-		flex-wrap: wrap;
-	}
-
-	.font-label {
-		font-size: 0.875rem;
-		color: var(--text-secondary);
-	}
-
-	.font-btns {
-		display: flex;
-		gap: 0.35rem;
-	}
-
-	.font-btn {
-		padding: 0.3rem 0.7rem;
-		background: var(--bg-surface);
-		border: 1.5px solid var(--border-color);
-		border-radius: 20px;
-		color: var(--text-secondary);
-		font-size: 0.78rem;
-		cursor: pointer;
-		transition: border-color 0.15s, color 0.15s, background 0.15s;
-	}
-	.font-btn.active {
-		border-color: var(--accent);
-		color: var(--accent);
-		background: color-mix(in srgb, var(--accent) 12%, transparent);
-	}
-
-	/* ── Data Sovereignty ── */
-	.echo-count {
-		font-size: 0.875rem;
-		color: var(--text-muted);
-		margin: 0;
-	}
-
-	.data-actions {
-		display: flex;
-		flex-direction: column;
-		gap: 0.5rem;
-	}
-
-	.privacy-line {
-		font-size: 0.8rem;
-		color: var(--text-muted);
-		margin: 0;
-	}
-	.privacy-link {
-		background: none;
-		border: none;
-		padding: 0;
-		font-size: inherit;
-		color: var(--accent);
-		text-decoration: underline;
-		cursor: pointer;
-		text-align: left;
-	}
-	.privacy-url {
-		display: block;
-		font-size: 0.75rem;
-		color: var(--text-muted);
-		word-break: break-all;
-	}
-	.about-links {
-		display: flex;
-		flex-direction: column;
-		gap: 0.375rem;
-		margin-top: 0.5rem;
-		font-size: 0.85rem;
-	}
-	.about-companion {
-		font-size: 0.8rem;
-		color: var(--text-muted);
-		margin: 0.5rem 0 0;
-	}
-
-	.btn-data {
-		width: 100%;
-		padding: 0.75rem 1rem;
-		background: var(--bg-surface);
-		border: 1.5px solid var(--border-color);
-		border-radius: 10px;
-		color: var(--text);
-		font-size: 0.9rem;
-		font-weight: 500;
-		cursor: pointer;
-		text-align: left;
-		transition: border-color 0.15s, background 0.15s;
-	}
-	.btn-data:not(:disabled):hover { border-color: var(--accent); }
-	.btn-data:disabled { opacity: 0.35; cursor: not-allowed; }
-
-	.btn-data.warning {
-		border-color: rgba(243, 156, 18, 0.5);
-		color: #f39c12;
-	}
-	.btn-data.warning:not(:disabled):hover {
-		background: color-mix(in srgb, #f39c12 10%, var(--bg-surface));
-		border-color: #f39c12;
-	}
-
-	/* Danger zone */
-	.danger-zone {
-		border: 1px solid rgba(231, 76, 60, 0.3);
-		border-radius: 12px;
-		padding: 0.875rem 1rem;
-		background: color-mix(in srgb, #e74c3c 5%, transparent);
-		display: flex;
-		flex-direction: column;
-		gap: 0.75rem;
-	}
-
-	.danger-label {
-		font-size: 0.68rem;
-		font-weight: 700;
-		letter-spacing: 0.06em;
-		text-transform: uppercase;
-		color: rgba(231, 76, 60, 0.7);
-		margin: 0;
-	}
-
-	.btn-danger {
-		width: 100%;
-		padding: 0.75rem 1rem;
-		background: none;
-		border: 1.5px solid #e74c3c;
-		border-radius: 10px;
-		color: #e74c3c;
-		font-size: 0.9rem;
-		font-weight: 500;
-		cursor: pointer;
-		text-align: left;
-		transition: background 0.15s;
-	}
-	.btn-danger:not(:disabled):hover { background: rgba(231, 76, 60, 0.1); }
-	.btn-danger:disabled { opacity: 0.35; cursor: not-allowed; }
-
-	.btn-danger-filled {
-		padding: 0.6rem 1rem;
-		background: #e74c3c;
-		border: none;
-		border-radius: 8px;
-		color: #fff;
-		font-size: 0.875rem;
-		font-weight: 600;
-		cursor: pointer;
-		transition: opacity 0.15s, transform 0.1s;
-	}
-	.btn-danger-filled:active { transform: scale(0.97); }
-
-	.btn-neutral {
-		padding: 0.6rem 1rem;
-		background: var(--bg-surface);
-		border: 1.5px solid var(--border-color);
-		border-radius: 8px;
-		color: var(--text-secondary);
-		font-size: 0.875rem;
-		cursor: pointer;
-		transition: border-color 0.15s;
-	}
-	.btn-neutral:hover { border-color: var(--text-muted); }
-
-	/* Confirmation card */
-	.confirm-card {
-		display: flex;
-		flex-direction: column;
-		gap: 0.75rem;
-	}
-
-	.confirm-card.final .confirm-text { color: #e74c3c; }
-
-	.confirm-text {
-		font-size: 0.875rem;
-		color: var(--text-secondary);
-		line-height: 1.5;
-		margin: 0;
-	}
-
-	.purge-error {
-		font-size: 0.8rem;
-		color: #e74c3c;
-		margin: 0;
-		overflow-wrap: anywhere;
-	}
-
-	.confirm-actions {
-		display: flex;
-		gap: 0.5rem;
-		justify-content: flex-end;
-	}
-
-	/* ── About ── */
-	.about-card {
-		background: var(--bg-surface);
-		border: 1px solid var(--border-color);
-		border-radius: 12px;
-		padding: 1rem 1.1rem;
-		display: flex;
-		flex-direction: column;
-		gap: 0.5rem;
-	}
-
-	.about-app {
-		display: flex;
-		align-items: baseline;
-		gap: 0.5rem;
-	}
-
-	.about-name {
-		font-size: 1rem;
-		font-weight: 700;
-		color: var(--text);
-	}
-
-	.about-version {
-		font-size: 0.75rem;
-		color: var(--text-muted);
-		background: var(--bg);
-		border: 1px solid var(--border-color);
-		border-radius: 10px;
-		padding: 0.1rem 0.45rem;
-	}
-
-	.about-tag {
-		font-size: 0.875rem;
-		color: var(--text-secondary);
-		margin: 0;
-		line-height: 1.5;
-	}
-
-	.about-built, .about-license {
-		font-size: 0.78rem;
-		color: var(--text-muted);
-		margin: 0;
-		line-height: 1.5;
-	}
-
-	/* ── Uninstall Guide ── */
-	.uninstall-section {
-		padding-top: 0.75rem;
-		border-top: 1px solid var(--border-color);
-	}
-
-	.btn-uninstall {
-		width: 100%;
-		padding: 0.75rem 1rem;
-		background: var(--bg-surface);
-		border: 1.5px solid var(--border-color);
-		border-radius: 10px;
-		color: var(--text-muted);
-		font-size: 0.9rem;
-		font-weight: 500;
-		cursor: pointer;
-		text-align: left;
-		transition: border-color 0.15s, color 0.15s;
-	}
-	.btn-uninstall:hover { border-color: var(--text-muted); color: var(--text-secondary); }
-
-	.uninstall-guide {
-		display: flex;
-		flex-direction: column;
-		gap: 0.5rem;
-	}
-
-	.uninstall-intro, .uninstall-note {
-		font-size: 0.875rem;
-		color: var(--text-secondary);
-		margin: 0;
-		line-height: 1.55;
-	}
-
-	.uninstall-steps {
-		margin: 0;
-		padding-left: 1.25rem;
-		display: flex;
-		flex-direction: column;
-		gap: 0.3rem;
-	}
-	.uninstall-steps li {
-		font-size: 0.875rem;
-		color: var(--text-secondary);
-		line-height: 1.5;
-	}
+	.platforms { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 0.5rem; }
+	.platform { padding: 0.6rem 0.5rem; border-radius: 10px; border: 1px solid var(--border-color); background-color: var(--bg-surface); color: var(--text-secondary); cursor: pointer; font-size: 0.85rem; min-height: 44px; }
+	.platform:hover { border-color: var(--accent); color: var(--text); }
 </style>

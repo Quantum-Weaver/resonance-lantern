@@ -1,7 +1,10 @@
 // The Lantern's shared language — the voice, the palette, the outlines.
-// The voice lines are TJ Darling's (@TJDPoetry) ORIGINALS, preserved verbatim
-// from CanvasGuide (2025) per the concepts analysis: "the credit line stays
-// exactly as the concepts doc wrote it." Do not rewrite her words.
+// PROVENANCE (corrected by the Weaver, 2026-07-11): CanvasGuide was BUILT BY
+// THE WEAVER (KP) FOR TJ Darling (@TJDPoetry) and her creative community —
+// a gift inside the family, carrying her name, palette, and platforms.
+// The voice lines below are the CanvasGuide originals, preserved verbatim
+// from that gift. The credit line stands: "Born from CanvasGuide, built for
+// @TJDPoetry — tracing is learning, not cheating."
 
 // ——— The vow (appears in onboarding verbatim — the app's resonance atom) ———
 export const THE_VOW = 'Tracing is learning, not cheating.';

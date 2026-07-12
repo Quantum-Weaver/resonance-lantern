@@ -1,15 +1,19 @@
 <script lang="ts">
+	// The ComfortBar — inherited from Resonance Echoes (the parent codebase),
+	// retuned as the Lantern's voice: warmth at every threshold. It greets,
+	// offers one of the CanvasGuide voice lines, and keeps Trace one tap away.
 	import { goto } from '$app/navigation';
 	import { page } from '$app/state';
 	import { onMount } from 'svelte';
 	import { uiStore } from '$lib/stores/ui.svelte';
-	import { echoStore } from '$lib/stores/echo.svelte';
+	import { lanternStore } from '$lib/stores/lantern.svelte';
+	import { pickTip, pickWelcome } from '$lib/data/lantern';
 
 	let expanded = $state(false);
 	let previousPath = $state(page.url.pathname);
 	let vesselName = $state('there');
+	let line = $state('');
 
-	// Collapse on route change only — not on initial mount (previousPath === currentPath).
 	$effect(() => {
 		const currentPath = page.url.pathname;
 		if (currentPath !== previousPath && expanded) {
@@ -18,7 +22,6 @@
 		previousPath = currentPath;
 	});
 
-	// Broadcast the panel state so the Sidebar can close itself when it opens.
 	$effect(() => {
 		uiStore.setComfortBarExpanded(expanded);
 	});
@@ -32,21 +35,16 @@
 
 	const greeting = $derived(`${getGreeting()}, ${vesselName}`);
 
-	// Live, not a stale placeholder (Compass pattern: the panel reflects real state).
 	const statsLine = $derived.by(() => {
-		const n = echoStore.totalCount;
-		if (n === 0) return 'No echoes yet — your journey begins here.';
-		return `${n} ${n === 1 ? 'echo' : 'echoes'} gathered so far.`;
+		const n = lanternStore.totalSessions;
+		if (n === 0) return line || 'Your artistic journey begins with a single trace';
+		return line || `${n} practice ${n === 1 ? 'session' : 'sessions'} in your journal.`;
 	});
 
 	onMount(() => {
-		vesselName = localStorage.getItem('resonance-echoes-vessel-name') ?? 'there';
+		vesselName = localStorage.getItem('resonance-lantern-vessel-name') ?? 'there';
+		line = Math.random() < 0.5 ? pickTip() : pickWelcome();
 	});
-
-	function onQuickAdd() {
-		// Phase 1 will wire this to the echo form
-		goto('/add');
-	}
 
 	function toggleExpanded() {
 		expanded = !expanded;
@@ -60,8 +58,8 @@
 			<div class="comfort-bar__greeting">{greeting}</div>
 			<div class="comfort-bar__stats">{statsLine}</div>
 			<div class="comfort-bar__actions">
-				<button class="cb-action primary" onclick={onQuickAdd}>+ Quick Add</button>
-				<button class="cb-action" onclick={() => goto('/insights')}>Insights</button>
+				<button class="cb-action primary" onclick={() => goto('/trace')}>Start tracing</button>
+				<button class="cb-action" onclick={() => goto('/practice')}>Practice</button>
 				<button class="cb-action" onclick={() => goto('/settings')}>Settings</button>
 			</div>
 		</div>
@@ -70,8 +68,8 @@
 			<button class="comfort-bar__greeting-btn" onclick={toggleExpanded}>
 				{greeting}
 			</button>
-			<button class="comfort-bar__quick-add" onclick={onQuickAdd} aria-label="Quick add echo">
-				+
+			<button class="comfort-bar__trace" onclick={() => goto('/trace')} aria-label="Start tracing">
+				✎ trace
 			</button>
 		</div>
 	{/if}
@@ -88,19 +86,16 @@
 		border-top: 1px solid var(--border-color);
 		padding-bottom: env(safe-area-inset-bottom, 0px);
 		transition: background-color 0.2s ease;
-		/* Own compositor layer: large relayouts elsewhere could leave a stale
-		   painted copy of this fixed bar in the Android WebView (the "ghost
-		   bar" artifact seen in Compass before the same fix). */
 		transform: translateZ(0);
 	}
 
-	/* Minimized */
 	.comfort-bar__minimized {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
 		height: 48px;
 		padding: 0 1rem;
+		gap: 0.75rem;
 	}
 
 	.comfort-bar__greeting-btn {
@@ -111,29 +106,28 @@
 		cursor: pointer;
 		padding: 0;
 		text-align: left;
+		min-width: 0;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
 	}
 
 	.comfort-bar__greeting-btn:hover {
 		color: var(--text);
 	}
 
-	.comfort-bar__quick-add {
-		width: 36px;
-		height: 36px;
-		border-radius: 50%;
+	.comfort-bar__trace {
+		padding: 0.45rem 0.9rem;
+		border-radius: 999px;
+		border: 1px solid var(--border-color);
 		background-color: var(--accent);
 		color: #fff;
-		border: none;
-		font-size: 1.5rem;
-		line-height: 1;
+		font-size: 0.85rem;
 		cursor: pointer;
-		display: flex;
-		align-items: center;
-		justify-content: center;
 		flex-shrink: 0;
+		min-height: 36px;
 	}
 
-	/* Expanded */
 	.comfort-bar__expanded {
 		padding: 0.75rem 1rem 1rem;
 		display: flex;

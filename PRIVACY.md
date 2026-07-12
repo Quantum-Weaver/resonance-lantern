@@ -1,14 +1,14 @@
-# AudHDities Sanctuary — App Privacy Policy
+# AudHDities Sanctuary â€” App Privacy Policy
 
 **Effective date:** July 6, 2026
-**Applies to:** Resonance Echoes, Resonance Compass, and future Sanctuary apps.
+**Applies to:** Resonance Echoes, Resonance Compass, Resonance Hearth, Resonance Lantern, and future Sanctuary apps.
 
 > This policy covers the AudHDities **apps**, which are local-first and collect nothing. The AudHDities
-> **website / marketplace** (audhdities.com) — which has accounts and payments — has its own separate
+> **website / marketplace** (audhdities.com) â€” which has accounts and payments â€” has its own separate
 > policy. If you only use the apps, only this page applies to you.
 
 ## Our promise
-Your data belongs to you. We are temporary stewards at most — and for most of what these apps do, we
+Your data belongs to you. We are temporary stewards at most â€” and for most of what these apps do, we
 are not even that, because your data never reaches us. These apps are **local-first**: they run on
 your device and keep your information on your device.
 
@@ -19,25 +19,25 @@ are, we cannot see your entries, your library, or your activity, and we have not
 we hold nothing.
 
 ## Where your data lives
-Everything you create — journal entries, moods, tags, notes, playlists, fragments, settings — is
+Everything you create â€” journal entries, moods, tags, notes, playlists, fragments, settings â€” is
 stored **only in the app's local storage on your device**. It is not uploaded, backed up to us, or
 synced to any cloud. If you uninstall the app, your device removes that data.
 
-## The one exception — optional, user-initiated online lookups (Resonance Compass)
+## The one exception â€” optional, user-initiated online lookups (Resonance Compass)
 Resonance Compass can, **only when you tap to do so**, look up **album cover art** and **song lyrics**
 from third-party services:
 - **MusicBrainz** and the **Cover Art Archive** (cover art)
 - **LRCLIB** (lyrics)
 
-When you request this, the app sends **only the search terms for that one track** — the artist, album,
-or title — so those services can return a match. It never sends your library, your journal, your
+When you request this, the app sends **only the search terms for that one track** â€” the artist, album,
+or title â€” so those services can return a match. It never sends your library, your journal, your
 identity, or anything else, and it happens **only on your explicit action**, never in the background.
 Those services have their own privacy practices. Resonance Echoes makes **no network requests at all**
 and is fully offline.
 
 ## Your control
 - **Export:** you can export your data (e.g., as JSON) at any time, from within the app.
-- **Delete / purge:** you can erase all app data at any time. When you purge, it is truly gone — the
+- **Delete / purge:** you can erase all app data at any time. When you purge, it is truly gone â€” the
   purge is real, not a soft-delete.
 
 ## Special care for neurodivergent data
@@ -47,8 +47,8 @@ leaves your device and we never receive it, there is nothing for us to misuse, l
 to hand over. Sovereignty is the safeguard.
 
 ## Children
-These apps are not directed to children under 13, and we do not knowingly collect data from anyone —
-including children — because we do not collect data at all.
+These apps are not directed to children under 13, and we do not knowingly collect data from anyone â€”
+including children â€” because we do not collect data at all.
 
 ## Security
 Your data's security rests on your device's own protections. Because nothing is transmitted to or
@@ -60,6 +60,6 @@ model is "collect nothing," any change that would begin collecting data would be
 in advance.
 
 ## Contact
-Questions about privacy or these apps: **audhdities@proton.me** · the Sanctuary: https://audhdities.com
+Questions about privacy or these apps: **audhdities@proton.me** Â· the Sanctuary: https://audhdities.com
 
 *No exploitation, no extraction, no exclusion. Your data belongs to you.*

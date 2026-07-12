@@ -3,7 +3,7 @@
 	import { page } from '$app/state';
 	import { goto } from '$app/navigation';
 	import { themeStore } from '$lib/stores/theme.svelte';
-	import { echoStore } from '$lib/stores/echo.svelte';
+	import { lanternStore } from '$lib/stores/lantern.svelte';
 	import { getThemeColors } from '$lib/theme/theme';
 	import { onMount } from 'svelte';
 	import Sidebar from '$lib/components/Sidebar.svelte';
@@ -11,13 +11,15 @@
 
 	let { children } = $props();
 
-	// Hide chrome during the immersive onboarding flow
+	// Hide chrome during onboarding AND while tracing — nothing may obstruct
+	// the viewfinder (concepts §4.3: the camera lucida loop is sacred).
 	const isOnboarding = $derived(page.url.pathname === '/onboarding');
+	const isTracing = $derived(page.url.pathname === '/trace');
 
 	onMount(async () => {
 		themeStore.loadTheme();
-		await echoStore.initDB();
-		const done = localStorage.getItem('onboarding_complete');
+		await lanternStore.initDB();
+		const done = localStorage.getItem('lantern_onboarding_complete');
 		if (!done && page.url.pathname !== '/onboarding') {
 			goto('/onboarding');
 		}
@@ -26,7 +28,6 @@
 	const config = $derived(themeStore.config);
 	const colors = $derived(getThemeColors(config));
 
-	// rem units are relative to <html>, not .app-shell — must update root font-size
 	$effect(() => {
 		const fs = themeStore.config.fontSize;
 		document.documentElement.style.fontSize =
@@ -46,15 +47,15 @@
 		--border-color: {colors.border};
 	"
 >
-	{#if !isOnboarding}
+	{#if !isOnboarding && !isTracing}
 		<Sidebar />
 	{/if}
 
-	<main class="main-content" class:full-screen={isOnboarding}>
+	<main class="main-content" class:full-screen={isOnboarding || isTracing}>
 		{@render children()}
 	</main>
 
-	{#if !isOnboarding}
+	{#if !isOnboarding && !isTracing}
 		<ComfortBar />
 	{/if}
 </div>
@@ -71,9 +72,6 @@
 
 	.main-content {
 		flex: 1;
-		/* min-width: 0 is the load-bearing guard: flex children default to
-		   min-width auto, so any wide descendant would stretch the shell
-		   past the viewport instead of being contained. */
 		min-width: 0;
 		max-width: 100%;
 		overflow-y: auto;

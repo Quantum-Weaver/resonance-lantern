@@ -11,10 +11,10 @@
 	let open = $state(false);
 	let isMobile = $state(true);
 
-	// SVG icons for chrome (Compass pattern) — they follow currentColor and size
-	// consistently across Android emoji fonts. Emoji stays for content, not chrome.
 	const navItems: { href: string; icon: IconName; label: string }[] = [
 		{ href: '/', icon: 'home', label: 'Home' },
+		{ href: '/trace', icon: 'trace', label: 'Trace' },
+		{ href: '/practice', icon: 'practice', label: 'Practice' },
 		{ href: '/insights', icon: 'insights', label: 'Insights' },
 		{ href: '/settings', icon: 'settings', label: 'Settings' }
 	];
@@ -48,8 +48,6 @@
 	{open ? '✕' : '☰'}
 </button>
 
-<!-- Backdrop — dismisses the sidebar on outside interaction whenever it's open,
-     desktop or mobile, since the hamburger toggle is always visible on both. -->
 {#if open}
 	<!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
 	<div
@@ -60,12 +58,9 @@
 	></div>
 {/if}
 
-<!-- Sidebar panel -->
 <nav class="sidebar" class:open aria-label="Main navigation">
 	<div class="sidebar__header">
-		<!-- cosmic-sparkle-text adds the animated glow; the scoped accent color
-		     below outranks its light-gray color so light mode stays readable. -->
-		<span class="sidebar__wordmark cosmic-sparkle-text">Echoes</span>
+		<span class="sidebar__wordmark cosmic-sparkle-text">Lantern</span>
 	</div>
 
 	<ul class="sidebar__nav">
@@ -108,8 +103,6 @@
 		position: fixed;
 		inset: 0;
 		z-index: 49;
-		/* Transparent (Compass pattern): dismissal surface, not a dimmer —
-		   the drawer is small and the content should stay readable. */
 		background-color: transparent;
 	}
 
