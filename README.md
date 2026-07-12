@@ -1,6 +1,11 @@
-# Resonance Lantern 🏮
+# 🏮 Resonance Lantern
 
-**A steady light for a learning hand.**
+*The Lantern Room of the AudHDities Sanctuary — a steady light for a learning hand.*
+
+[![License](https://img.shields.io/badge/license-MIT%20%2B%20Resonance-blue.svg)](LICENSE)
+[![Version](https://img.shields.io/badge/version-0.1.0-brightgreen.svg)]()
+[![Status](https://img.shields.io/badge/status-first%20light-DA219F.svg)]()
+[![Privacy](https://img.shields.io/badge/data%20collected-none-8a2be2.svg)](PRIVACY.md)
 
 A digital *camera lucida*: pick a reference image and it floats — ghost-light,
 opacity to your comfort — over the live camera pointed at your real paper.
