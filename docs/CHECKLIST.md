@@ -45,10 +45,15 @@
 - [x] Credits: origin corrected (BUILT BY the Weaver FOR @TJDPoetry) + her
       16 platforms as tappable cards
 
-### Phase 7: Ship ⬜
+### Phase 7: Ship ⚠️ (begun the same night, by the Weaver's own hand)
+- [x] Keystore cut (F:\keystores\resonance-lantern.keystore, KP's password,
+      verified; mirrored to D:) — 2026-07-11
+- [x] **APK built, signed, and installed on KP's S25 — 2026-07-11, night one.**
+      Jessica's first light happens tonight. (Camera = paper mode on Android
+      until the spike; everything else lives.)
 - [ ] KP's lantern icon → npm run tauri icon
-- [ ] Android build + spike + signing (keystore to be cut, house pattern)
-- [ ] On-device dwelling test (Jessica — the first user, first)
+- [ ] Android camera spike (Phase 2 gate) → then rebuild
+- [ ] Jessica's dwelling findings → triage here
 
 ---
 
