@@ -4,8 +4,9 @@
   import IconSettings from './IconSettings.svelte';
   import IconTrace from './IconTrace.svelte';
   import IconPractice from './IconPractice.svelte';
+  import IconProjector from './IconProjector.svelte';
 
-  export type IconName = 'home' | 'insights' | 'settings' | 'trace' | 'practice';
+  export type IconName = 'home' | 'insights' | 'settings' | 'trace' | 'practice' | 'projector';
 
   let {
     name,
@@ -23,6 +24,7 @@
     'settings': IconSettings,
     'trace': IconTrace,
     'practice': IconPractice,
+    'projector': IconProjector,
   };
 
   const Component = $derived(components[name]);

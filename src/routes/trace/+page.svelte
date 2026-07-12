@@ -26,6 +26,7 @@
 
 	let overlayUrl = $state<string | null>(null);
 	let overlayName = $state<string | null>(null);
+	let overlayPath = $state<string | null>(null); // file-backed refs carry over to the Projector
 	let controlsOpen = $state(true);
 	let opacity = $state(lanternStore.getPref('opacity', 0.4));
 	let imgZoom = $state(lanternStore.getPref('imgZoom', 1));
@@ -67,8 +68,23 @@
 		if (overlayUrl?.startsWith('blob:')) URL.revokeObjectURL(overlayUrl);
 		overlayUrl = URL.createObjectURL(blob);
 		overlayName = path.split(/[\\/]/).pop() ?? 'reference';
+		overlayPath = path;
 		await lanternStore.touchRef(overlayName, path);
 		await beginSession();
+	}
+
+	// Hand the current reference to the Projector room (Jessica's wish —
+	// project it straight onto the physical canvas; no camera involved).
+	async function project() {
+		if (sessionId) await lanternStore.endSession(sessionId);
+		const outlineId = page.url.searchParams.get('outline');
+		if (overlayPath) {
+			goto(`/projector?ref=${encodeURIComponent(overlayPath)}`);
+		} else if (outlineId) {
+			goto(`/projector?outline=${outlineId}`);
+		} else {
+			goto('/projector');
+		}
 	}
 
 	async function beginSession() {
@@ -196,6 +212,7 @@
 					{#if cameraOn}
 						<button class="chip" onclick={capture}>📸 capture</button>
 					{/if}
+					<button class="chip" onclick={project}>project</button>
 				</div>
 
 				<label class="slider-row">

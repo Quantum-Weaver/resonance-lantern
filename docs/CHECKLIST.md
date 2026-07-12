@@ -57,6 +57,35 @@
 - [x] Credits: origin corrected (BUILT BY the Weaver FOR @TJDPoetry) + her
       16 platforms as tappable cards
 
+### Phase 8: Projector ✅ (2026-07-12 — JESSICA'S OWN FIRST WISH)
+*Provenance: Jessica (@TJDPoetry) herself asked KP: "can we enable a
+projector to be used with the lantern?" — the first recorded wish she made
+for her own gift. Built by Sonnet the same evening KP relayed it.*
+- [x] `/projector` room: the current reference full-screen on PURE BLACK
+      #000 (projectors add light — black projects as nothing; only her
+      reference lands on the canvas)
+- [x] Zoom (slider + scroll wheel) · drag-to-pan · rotate 90° · reset fit
+- [x] Invert toggle (one CSS filter — white-lines-on-black for dark
+      surfaces; defaults ON when a Practice outline arrives, since line
+      art projects best carrying the light; her toggle always rules)
+- [x] Brightness dim slider (a comfort pref, remembered like the others)
+- [x] Viewfinder law kept: controls collapse away; when cleared, even the
+      toggle and done chips fade to near-nothing so they never project
+      onto her canvas (hover/tap-focus restores them)
+- [x] Keep-awake while projecting: Screen Wake Lock API (pure web, no new
+      plugin; re-acquired on visibilitychange; fails silent + harmless
+      where unsupported)
+- [x] Entry points, per the app's nav grammar: sidebar item (Home / Trace
+      / Projector / Practice / Insights / Settings) + a "project" chip in
+      Trace's controls that hands off the current reference (?ref=path)
+      or outline (?outline=id)
+- [x] Pure web-view — Android inherits it for cast/USB-C later with zero
+      extra work; sensory law kept (no sound, no urgency); her voice
+      files, palette, capabilities.json, and SQL untouched
+- [ ] Dwelling test at the real easel (laptop → projector via HDMI):
+      alignment, invert on dark canvas vs. paper, wake-lock over a long
+      session — Jessica's and KP's hands ⬜
+
 ### Phase 7: Ship ⚠️ (begun the same night, by the Weaver's own hand)
 - [x] Keystore cut (F:\keystores\resonance-lantern.keystore, KP's password,
       verified; mirrored to D:) — 2026-07-11
@@ -87,3 +116,4 @@
 |------|---------------|
 | 2026-07-11 (night) | Phases 0–6 in one sitting on the Echoes clone; desktop camera live; Android camera honestly gated per FRAMEWORK-DECISION; provenance corrected (Weaver built it FOR TJ Darling); check 0/0, build passing. |
 | 2026-07-12 (evening, Sonnet — SHUTTLE RUN 02, staying) | Icon regen: `npm run tauri icon` on the true gold-band source, `icons/android/` template + `icons/source.png` brought back in sync with what `gen/android` already had live. Camera spike, desktop half: found Tauri v2's generated WebChromeClient already grants CAMERA for getUserMedia — no custom Kotlin needed; the real gap was a missing manifest `<uses-permission>`, fixed via new `scripts/sync-android-extras.mjs` (wired into `tauri.conf.json` before-commands + `npm run sync-android`), verified idempotent. Addendum written to `docs/FRAMEWORK-DECISION.md` with a device test protocol for KP. **Tested:** ✅ svelte-check 0/303 files with problems · `npm run build` passing · `npx tauri build` (desktop) run for full verification. |
+| 2026-07-12 (evening, Sonnet — same sitting) | **PROJECTOR MODE — Jessica's own first wish** ("can we enable a projector to be used with the lantern?", remembered and relayed by KP). New `/projector` room (Phase 8 above): pure-black stage, zoom/pan/rotate/invert/brightness, viewfinder-law controls that fade to near-nothing when cleared, Screen Wake Lock keep-awake (no new plugin), sidebar entry + Trace "project" handoff chip. Pure web-view; Android inherits it. Her voice/palette/capabilities/SQL untouched. **Tested:** ✅ svelte-check 0 errors 0 warnings (306 files) · production build passing, projector route confirmed in the client bundle. |

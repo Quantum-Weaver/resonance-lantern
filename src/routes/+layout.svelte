@@ -11,10 +11,13 @@
 
 	let { children } = $props();
 
-	// Hide chrome during onboarding AND while tracing — nothing may obstruct
-	// the viewfinder (concepts §4.3: the camera lucida loop is sacred).
+	// Hide chrome during onboarding, while tracing, AND while projecting —
+	// nothing may obstruct the viewfinder (concepts §4.3: the camera lucida
+	// loop is sacred), and nothing may land on her canvas but the reference.
 	const isOnboarding = $derived(page.url.pathname === '/onboarding');
 	const isTracing = $derived(page.url.pathname === '/trace');
+	const isProjecting = $derived(page.url.pathname === '/projector');
+	const isFullScreen = $derived(isOnboarding || isTracing || isProjecting);
 
 	onMount(async () => {
 		themeStore.loadTheme();
@@ -47,15 +50,15 @@
 		--border-color: {colors.border};
 	"
 >
-	{#if !isOnboarding && !isTracing}
+	{#if !isFullScreen}
 		<Sidebar />
 	{/if}
 
-	<main class="main-content" class:full-screen={isOnboarding || isTracing}>
+	<main class="main-content" class:full-screen={isFullScreen}>
 		{@render children()}
 	</main>
 
-	{#if !isOnboarding && !isTracing}
+	{#if !isFullScreen}
 		<ComfortBar />
 	{/if}
 </div>
