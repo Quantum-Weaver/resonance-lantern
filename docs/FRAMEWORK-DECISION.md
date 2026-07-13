@@ -117,3 +117,15 @@ mechanism of failure (if the spike still fails) narrowed to WebView
    items, rebuild, done. Fail → note exactly what happened (dialog never
    shown / dialog shown but feed stays black / crash) in a new dated entry
    here, and the Expo fallback door named above is still open, honestly.
+
+### 2026-07-12, night — THE GATE OPENS (S25 leg)
+
+KP's hands, real hardware, the new build: **the camera permission dialog
+appeared on first Trace visit, and the live camera feed opened great.**
+`getUserMedia` delivers on Samsung WebView (S25 Ultra generation). The
+2026-07-03 gate's central risk is answered YES on the newer generation;
+the missing-manifest fix (same day, desktop half) was the entire story.
+Remaining: the S22 Ultra leg (older WebView generation — protocol step
+5), and dwelling findings D1–D5 in the CHECKLIST (notably D5: the panel
+overlaps the reference on device — viewfinder law). The Expo fallback
+door, held open honestly for nine days, can begin to swing shut.
