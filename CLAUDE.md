@@ -1,9 +1,8 @@
-```markdown
-# CLAUDE.md — Resonance Knowledge System
+# CLAUDE.md — Resonance Lantern
 
-**The Resonance Grammar** — atoms, molecules, categories, and sensory lexicon. The vocabulary of the AudHDities Sanctuary. Every Sanctuary app references this system for shared meaning.
+**Resonance Lantern** is the Lantern Room — a digital *camera lucida*: a reference image floats ghost-light over the live camera pointed at real paper, opacity as a comfort control. "Tracing is learning, not cheating." Born from CanvasGuide, built for TJ Darling (@TJDPoetry) and her creative community; her voice, pride palette, and platforms preserved verbatim.
 
-**Stack:** Rust + SQLite + MCP (rmcp crate)
+**Stack:** Svelte 5 + Tauri v2 + Rust + SQLite (lantern.db) + Tailwind CSS v4 + COSMIC design tokens — an Echoes v1.1 clone, rebranded; Echoes itself unaltered
 
 **Authors:** Quantum Weaver (human) + Aethelred (sovereign AI)
 
@@ -11,47 +10,45 @@
 
 ## SESSION PROTOCOL
 
-1. Read `docs/CHECKLIST.md` for current state
-2. One phase at a time
-3. Update CHECKLIST.md after every session
+1. Read `docs/CHECKLIST.md` for current state (phases follow canvasguide-concepts.md §5)
+2. Read `docs/FRAMEWORK-DECISION.md` — the family-stack decision and the Android camera spike record
+3. One phase at a time — complete, verify, update, move on
+4. `npm run check` / `cargo build` — zero errors before commit
+5. Human tests every phase before merge
 
-## What This Is
+---
 
-The Knowledge System is the shared vocabulary. Apps like Resonance Echoes and Resonance Compass reference it for:
-- Emoji definitions with sensory lexicon
-- Sense categories and subcategories
-- Atom/molecule relationships
-- The Resonance Grammar itself
-
-## Project Structure
+## PROJECT STRUCTURE
 
 ```
 src/
-├── schema/          # SQL migration files
-│   └── 001_initial.sql  # atoms, molecules, categories, senses, emoji_defs
-├── seed/            # Seed data
-│   └── seed.sql     # Starter emoji definitions, 8 senses with subcategories
-├── mcp/             # MCP server (future phase)
-│   └── main.rs      # query_atom, query_emoji, query_sense tools
-docs/
-├── RESONANCE-GRAMMAR.md  # The full protocol specification
-├── CHECKLIST.md          # Build state
-└── SCHEMA.md             # Database schema documentation
+├── routes/
+│   ├── +page.svelte      # Home
+│   ├── trace/            # The heart: live camera + ghost overlay, capture
+│   ├── practice/         # Starter shapes — invitation, not curriculum; no streaks
+│   ├── projector/        # Projection mode
+│   ├── insights/         # Gentle mirrors
+│   ├── settings/         # Theme, presets, export/purge
+│   └── onboarding/       # The vow, verbatim
+├── lib/              # stores, components, cosmic tokens
+└── app.css
+
+src-tauri/src/        # lib.rs + main.rs (no audio engine)
 ```
 
-## Essential Rules
+---
 
-- One definition per object — defined once, referenced everywhere
-- Never repeat a definition
-- Every atom has a sensory lexicon entry
-- Every emoji has a definition that bridges neurotypes
-- The Grammar is the single source of truth
+## ESSENTIAL RULES
 
-## Android: Tauri v2 Capabilities (CRITICAL)
+1. Navigation: `goto()` — never `window.location.href`; state via Svelte 5 runes
+2. Android: all four explicit `sql:allow-*` capability entries; no non-ASCII SQL DEFAULTs
+3. Camera: Tauri v2's generated `RustWebChromeClient.kt` already implements `onPermissionRequest()` + CAMERA runtime grant for `VIDEO_CAPTURE` — **no custom Kotlin plugin**; manifest extras sync via `npm run sync-android` wired into `beforeDevCommand`/`beforeBuildCommand` (FRAMEWORK-DECISION addendum, 2026-07-12)
+4. Paper mode is the honored fallback whenever no camera resolves — never block the tracing
+5. Opacity is a comfort control, not a difficulty setting — no scores, no streaks, no shame mechanics
+6. Icons: after any `tauri android init`, re-apply from `resonance-assets/logo-icons/lantern.png` (gen/android regenerates and can silently revert)
 
-- `src-tauri/capabilities/default.json` must include explicit `sql:allow-*` permissions — `sql:default` alone grants zero operation access
-- Required for SQLite: `sql:allow-load`, `sql:allow-execute`, `sql:allow-select`, `sql:allow-close`
-- Every new Tauri plugin needs its own `allow-*` entries in capabilities, not just `plugin:default`
-- SQLite databases use internal app storage — no Android manifest permissions needed for database access
-- Never use non-ASCII characters (emoji, special symbols) as DEFAULT values in SQL migration strings — they can fail silently through the Rust JNI bridge on Android
-```
+---
+
+## CURRENT STATE
+
+Phase 0 shell complete 2026-07-11; APK signed and installed on KP's S25 that same night (Jessica's first light). Desktop camera + ghost overlay live. Android camera spike: desktop half proven 2026-07-12; **device half pending KP's hands** (real S25/S22 test — protocol in the FRAMEWORK-DECISION addendum). Camera = paper mode on Android until the spike lands. Jessica's dwelling findings triage pending.
