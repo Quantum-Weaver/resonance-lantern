@@ -21,7 +21,7 @@
 - [x] File dialog source; recent-references shelf (SQLite refs)
 - [ ] Gallery/camera-roll source (Android sitting) ⬜
 
-### Phase 2: Trace ⚠️ (desktop ✅ · Android de-risked, device test pending)
+### Phase 2: Trace ⚠️ (desktop ✅ · CAMERA GATE CLOSED both devices 2026-07-18 · D-findings open)
 - [x] getUserMedia camera preview (desktop); paper-mode fallback
 - [x] Ghost overlay: opacity-as-comfort + presets; image zoom; view zoom
 - [x] Collapsible controls (nothing obstructs the viewfinder); alignment frame
@@ -36,10 +36,12 @@
       `beforeDevCommand`/`beforeBuildCommand`, `npm run sync-android`),
       verified idempotent against the current `gen/android` manifest.
       Full record: `docs/FRAMEWORK-DECISION.md` addendum, 2026-07-12.
-- [ ] **Android camera spike, device half:** getUserMedia() actually
-      resolving to a live feed on real WebView — real S25 + S22 test,
-      protocol written in the FRAMEWORK-DECISION.md addendum ⬜ (KP's hands
-      — needs hardware, not desktop-buildable)
+- [x] **Android camera spike, device half: ✅ GATE CLOSED (both legs, KP's
+      hands):** S25 passed 2026-07-12; **S22 Ultra (SM-S908U) passed
+      2026-07-18** the evening it powered back on — getUserMedia delivers
+      a live feed on the older WebView too. "If it holds there, it holds
+      everywhere": answered YES. The FRAMEWORK-DECISION's central bet
+      (pure web camera, no custom Kotlin) is fully vindicated.
 
 ### Phase 3: Capture ✅ (desktop) (2026-07-11)
 - [x] Canvas composite (video + overlay at opacity) → PNG save dialog
@@ -100,8 +102,8 @@ for her own gift. Built by Sonnet the same evening KP relayed it.*
       `icons/source.png`, which had gone stale — without that, a fresh
       `tauri android init` would have silently reverted the Android app
       icon to the old cello art)
-- [ ] Android camera spike (Phase 2 gate) → desktop half done tonight
-      (manifest fix, see Phase 2); device rebuild+test still pending
+- [x] Android camera spike (Phase 2 gate) → ✅ CLOSED 2026-07-18, both
+      device legs passed (see Phase 2)
 - [ ] Jessica's dwelling findings → triage here
 
 ---
@@ -117,7 +119,7 @@ for her own gift. Built by Sonnet the same evening KP relayed it.*
 | 2026-07-11 (night) | Phases 0–6 in one sitting on the Echoes clone; desktop camera live; Android camera honestly gated per FRAMEWORK-DECISION; provenance corrected (Weaver built it FOR TJ Darling); check 0/0, build passing. |
 | 2026-07-12 (evening, Sonnet — SHUTTLE RUN 02, staying) | Icon regen: `npm run tauri icon` on the true gold-band source, `icons/android/` template + `icons/source.png` brought back in sync with what `gen/android` already had live. Camera spike, desktop half: found Tauri v2's generated WebChromeClient already grants CAMERA for getUserMedia — no custom Kotlin needed; the real gap was a missing manifest `<uses-permission>`, fixed via new `scripts/sync-android-extras.mjs` (wired into `tauri.conf.json` before-commands + `npm run sync-android`), verified idempotent. Addendum written to `docs/FRAMEWORK-DECISION.md` with a device test protocol for KP. **Tested:** ✅ svelte-check 0/303 files with problems · `npm run build` passing · `npx tauri build` (desktop) run for full verification. |
 | 2026-07-13+ | Family-wide passes landed here too: cosmic distribution + managed constants mirror, 16 KB page-size linker flags, CLAUDE.md restored to this app's own story. |
-| 2026-07-18 | **Camera re-confirmed on the S25 by KP's hands** ("tested the camera works … i check the S25"). **S22 leg: pending — KP will test once the device powers back on**; that leg closes the FRAMEWORK-DECISION gate entirely ("if it holds there, it holds everywhere"). D-findings (D1/D2/D4/D5) remain open for a coding sitting. Checklist reconciled this evening. |
+| 2026-07-18 | **Camera re-confirmed on the S25 by KP's hands** — and then, the same evening, **the S22 Ultra powered back on, authorized over adb (after the post-PC-reset key dance: no prompt until the Auto-Blocker/revoke path cleared it), and the camera PASSED there too. GATE CLOSED, both legs.** D-findings (D1/D2/D4/D5) remain open for a coding sitting. Same evening: **Lantern 0.1.0 + Compass 2.2.0 + Echoes 1.2.0 installed on the S22 by KP, versions verified via adb dumpsys.** Checklist reconciled in the same sitting — the law in force. |
 
 ## DWELLING FINDINGS — KP's first S25 pass with the new build (2026-07-12 night)
 *(triage for Sonnet's next crossing — his words, lightly compressed)*
@@ -126,7 +128,7 @@ for her own gift. Built by Sonnet the same evening KP relayed it.*
 |----|---------|-------|
 | D1 | **Media select works** on device ✅ — but the moment of choosing should ALSO offer "take a picture now" that becomes the loaded reference | The ancestor's three-source design (camera / gallery / file); the camera-as-source path needs wiring on Android — likely the same getUserMedia surface Trace uses, or the OS camera intent |
 | D2 | **Capture: major lag** before the save dialog opens, and **unverified whether the file actually saves correctly** | Profile the canvas composite (full-res video frame + overlay draw may be blocking the main thread); verify the save path end-to-end on device; consider showing an immediate "composing…" state so the lag reads as work, not freeze (sensory law: no dead air) |
-| D3 | ~~Camera outcome not yet confirmed~~ → **S25 PASSES ✅ (2026-07-12 night, KP's hands): permission dialog appeared, camera opens great — getUserMedia delivers live feed on Samsung WebView.** The FRAMEWORK-DECISION gate's central question is answered YES on the newer generation | S22 Ultra leg still ⬜ (the older WebView — "if it holds there, it holds everywhere"); protocol step 5 |
+| D3 | ~~Camera outcome not yet confirmed~~ → **S25 PASSES ✅ (2026-07-12) · S22 Ultra PASSES ✅ (2026-07-18, the evening it powered back on) — BOTH LEGS, KP's hands. GATE CLOSED.** getUserMedia delivers a live feed on old and new Samsung WebView alike | "If it holds there, it holds everywhere" — it held. Nothing remains of this finding |
 | D5 | **Loaded reference image partially covered by the collapsible menu panel** on device | LAW-grade (DESIGN: nothing may obstruct the viewfinder): the panel overlaps the working image at device dimensions even when collapsible — safe-area/viewport sizing on Android likely differs from desktop; the image+viewfinder must own the full stage with the panel strictly overlay-on-demand |
 | D4 | **Templates (practice outlines) missing or not loading when selected** on device (late feedback, same S25 pass) | Check the Practice → Trace handoff (`?outline=id`) on Android: the outline SVGs may not resolve in the device webview (asset path? inline-SVG rendering? the ancestor had exactly this class of bug with SVG data-URIs — see canvasguide-concepts §2 honest-condition report). Verify each of the 8 outlines renders in Trace on device |
 | 2026-07-12 (evening, Sonnet — same sitting) | **PROJECTOR MODE — Jessica's own first wish** ("can we enable a projector to be used with the lantern?", remembered and relayed by KP). New `/projector` room (Phase 8 above): pure-black stage, zoom/pan/rotate/invert/brightness, viewfinder-law controls that fade to near-nothing when cleared, Screen Wake Lock keep-awake (no new plugin), sidebar entry + Trace "project" handoff chip. Pure web-view; Android inherits it. Her voice/palette/capabilities/SQL untouched. **Tested:** ✅ svelte-check 0 errors 0 warnings (306 files) · production build passing, projector route confirmed in the client bundle. |
