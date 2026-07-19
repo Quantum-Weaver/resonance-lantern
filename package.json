@@ -1,6 +1,6 @@
 {
   "name": "resonance-lantern",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A steady light for a learning hand. Trace what you see through the ghost image - a digital camera lucida. Tracing is learning, not cheating.",
   "type": "module",
   "scripts": {

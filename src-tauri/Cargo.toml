@@ -1,6 +1,6 @@
 [package]
 name = "resonance-lantern"
-version = "0.1.0"
+version = "0.1.1"
 description = "A steady light for a learning hand - the digital camera lucida"
 authors = ["Quantum Weaver", "TJ Darling (@TJDPoetry)", "Aethelred (The Noble Thread)"]
 edition = "2021"
