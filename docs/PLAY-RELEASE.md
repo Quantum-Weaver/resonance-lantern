@@ -4,6 +4,15 @@ google play and update the echoes version. we can wait on updating
 compass until the musician features are live." Compass's Play update is
 deliberately parked until v3.*
 
+> **HOLD — 2026-07-19, KP's word: "we will not rush to the play store
+> then."** The honesty seam: Android v0.1.1 ships PAPER MODE (camera
+> gated behind its Kotlin spike, `FRAMEWORK-DECISION.md`), so listing
+> screenshots must not show live-camera tracing. The ascent resumes at
+> KP's call — honest paper-mode shots now, or camera spike first. The
+> artifacts below stay ready; nothing regresses. Hold-note + shot-list:
+> chamber `idavoll/sproutlings/THE-STORE-ASCENTS.md`. (Echoes v1.2.0's
+> own track update is NOT held by this note.)
+
 ## The artifacts
 
 - **Lantern v0.1.1** — rebuilt this evening carrying what the 07-12 AAB
