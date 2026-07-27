@@ -52,7 +52,7 @@ preserved verbatim in this rebuild.
 Built on a clone of **Resonance Echoes** v1.1.0 (Echoes unaltered) — the same
 descent as Resonance Hearth. Tauri v2 · SvelteKit · Svelte 5 · Tailwind 4 ·
 SQLite (local). Ancestor preserved untouched in the excavator's landfill;
-concept analysis in `AudHDities-Resonance/canvasguide-concepts.md`.
+concept analysis in `resonance-chamber/constellation/weaver/mimirs-well/design-lineage/catchall-concepts-2026-07/canvasguide-concepts.md` (re-homed at the 2026-07-18 dispersal).
 
 ```bash
 npm install
