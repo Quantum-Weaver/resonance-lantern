@@ -51,4 +51,4 @@ src-tauri/src/        # lib.rs + main.rs (no audio engine)
 
 ## CURRENT STATE
 
-Phase 0 shell complete 2026-07-11; APK signed and installed on KP's S25 that same night (Jessica's first light). Desktop camera + ghost overlay live. Android camera spike: desktop half proven 2026-07-12; **device half pending KP's hands** (real S25/S22 test — protocol in the FRAMEWORK-DECISION addendum). Camera = paper mode on Android until the spike lands. Jessica's dwelling findings triage pending.
+Phase 0 shell complete 2026-07-11; APK signed and installed on KP's S25 that same night (Jessica's first light). Desktop camera + ghost overlay live. Android camera spike: desktop half proven 2026-07-12; **device half PROVEN 2026-07-18 on both phones** (S25 + S22). The signed v0.1.1 build predates the spike and ships paper mode; the next build carries the camera. Jessica's dwelling findings triage pending (D5 LAW-grade first: nothing may obstruct the viewfinder).

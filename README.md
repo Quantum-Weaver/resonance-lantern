@@ -41,9 +41,11 @@ preserved verbatim in this rebuild.
 ## Camera status (honest)
 
 - **Desktop: works now** — `getUserMedia` webcam preview + capture.
-- **Android: gated behind its spike** (see `docs/FRAMEWORK-DECISION.md`) —
-  the WebView needs a Kotlin-layer permission grant, prototyped on real
-  devices before the feature ships. Until then Android runs paper mode.
+- **Android: the spike PASSED on real devices 2026-07-18** — the
+  Kotlin-layer permission grant proven on both phones (see
+  `docs/FRAMEWORK-DECISION.md`). The currently signed v0.1.1 build
+  predates it and ships paper mode; the next build carries the live
+  camera. Store ascent on hold at KP's word (honest-listing seam).
 
 ## Lineage & stack
 
