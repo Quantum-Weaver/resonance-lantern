@@ -1,0 +1,80 @@
+{
+  "folder_name": "resonance-lantern",
+  "folder_path": ".",
+  "description": "Resonance Lantern \u2014 a digital camera lucida. \"Tracing is learning, not cheating.\"",
+  "scan_timestamp": "2026-08-03T17:03:28.171478 | in sovereign time",
+  "files": [
+    {
+      "path": ".gitignore",
+      "description": "file, 1,584 bytes"
+    },
+    {
+      "path": "CLAUDE.md",
+      "description": "CLAUDE.md"
+    },
+    {
+      "path": "FABLE-KERNEL.md",
+      "description": "FABLE-KERNEL"
+    },
+    {
+      "path": "HANDS.md",
+      "description": "The Hands"
+    },
+    {
+      "path": "LICENSE",
+      "description": "file, 1,092 bytes"
+    },
+    {
+      "path": "package-lock.json",
+      "description": "data, 84,797 bytes"
+    },
+    {
+      "path": "package.json",
+      "description": "data, 1,245 bytes"
+    },
+    {
+      "path": "PHILOSOPHY.md",
+      "description": "THE RESONANCE LICENSE"
+    },
+    {
+      "path": "PRIVACY.md",
+      "description": "AudHDities Sanctuary \u00e2\u20ac\u201d App Privacy Policy"
+    },
+    {
+      "path": "README.md",
+      "description": "\ud83c\udfee Resonance Lantern"
+    },
+    {
+      "path": "svelte.config.js",
+      "description": "Tauri doesn't have a Node.js server to do proper SSR"
+    },
+    {
+      "path": "tsconfig.json",
+      "description": "data, 694 bytes"
+    },
+    {
+      "path": "vite.config.js",
+      "description": "file, 873 bytes"
+    }
+  ],
+  "file_count": 13,
+  "subdirectories": [
+    ".cargo",
+    "docs",
+    "release",
+    "scripts",
+    "src",
+    "src-tauri",
+    "static",
+    "tools"
+  ],
+  "code_analysis": {},
+  "package_folders_excluded": [
+    ".git",
+    ".svelte-kit",
+    "build",
+    "node_modules"
+  ],
+  "maintaining_agent": "FolderAgent",
+  "note": "The details live here. Upper tiers link to this address."
+}

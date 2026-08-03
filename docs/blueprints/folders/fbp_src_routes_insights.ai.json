@@ -1,0 +1,36 @@
+{
+  "folder_name": "insights",
+  "folder_path": "src/routes/insights",
+  "description": "1 files, 0 subfolders",
+  "scan_timestamp": "2026-08-03T17:03:28.212577 | in sovereign time",
+  "files": [
+    {
+      "path": "src/routes/insights/+page.svelte",
+      "description": "surface, 3,997 bytes"
+    }
+  ],
+  "file_count": 1,
+  "subdirectories": [],
+  "code_analysis": {
+    "+page.svelte": {
+      "language": "svelte",
+      "lines": 95,
+      "uses_runes": [
+        "$derived",
+        "$state"
+      ],
+      "imports": [
+        "$lib/data/lantern",
+        "$lib/stores/lantern.svelte",
+        "svelte"
+      ],
+      "invokes": [],
+      "uses_window_location": false,
+      "media_calls": [],
+      "opacity_controls": 0
+    }
+  },
+  "package_folders_excluded": [],
+  "maintaining_agent": "FolderAgent",
+  "note": "The details live here. Upper tiers link to this address."
+}

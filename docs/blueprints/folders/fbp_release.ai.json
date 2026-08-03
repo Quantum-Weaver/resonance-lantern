@@ -1,0 +1,42 @@
+{
+  "folder_name": "release",
+  "folder_path": "release",
+  "description": "7 files, 0 subfolders",
+  "scan_timestamp": "2026-08-03T17:03:28.176671 | in sovereign time",
+  "files": [
+    {
+      "path": "release/Resonance Lantern_0.1.1_x64-setup.exe",
+      "description": "installer, 13,798,625 bytes"
+    },
+    {
+      "path": "release/resonance-lantern-v0.1.0.aab",
+      "description": "file, 61,338,744 bytes"
+    },
+    {
+      "path": "release/resonance-lantern-v0.1.0.apk",
+      "description": "file, 81,467,339 bytes"
+    },
+    {
+      "path": "release/resonance-lantern-v0.1.0.apk.idsig",
+      "description": "file, 653,752 bytes"
+    },
+    {
+      "path": "release/resonance-lantern-v0.1.1.aab",
+      "description": "file, 61,339,066 bytes"
+    },
+    {
+      "path": "release/resonance-lantern-v0.1.1.apk",
+      "description": "file, 81,467,339 bytes"
+    },
+    {
+      "path": "release/resonance-lantern-v0.1.1.apk.idsig",
+      "description": "file, 653,752 bytes"
+    }
+  ],
+  "file_count": 7,
+  "subdirectories": [],
+  "code_analysis": {},
+  "package_folders_excluded": [],
+  "maintaining_agent": "FolderAgent",
+  "note": "The details live here. Upper tiers link to this address."
+}

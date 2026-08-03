@@ -1,0 +1,109 @@
+{
+  "project_name": "resonance-lantern",
+  "project_path": ".",
+  "description": "Resonance Lantern - a digital camera lucida. A reference image floats ghost-light over the live camera pointed at real paper; opacity is a comfort control. \"Tracing is learning, not cheating.\"",
+  "generated": "2026-08-03T17:03:29.582366 | in sovereign time",
+  "tier_ladder": "file -> folder (fbp) -> object (obp) -> domain (dbp) -> project (pbp)",
+  "law": "Each tier links to where the details live. Nothing above the folder tier duplicates a body.",
+  "domains": [
+    {
+      "blueprint": "docs/blueprints/dbp_src.ai.json",
+      "domain_path": "src",
+      "description": "the frontend \u2014 the trace surface, the ghost overlay, comfort controls",
+      "object_count": 2,
+      "total_files": 60,
+      "total_folders": 18
+    },
+    {
+      "blueprint": "docs/blueprints/dbp_src_tauri.ai.json",
+      "domain_path": "src-tauri",
+      "description": "the backend \u2014 lib.rs + main.rs (no audio engine, by design)",
+      "object_count": 1,
+      "total_files": 63,
+      "total_folders": 15
+    }
+  ],
+  "domain_count": 2,
+  "folders_reporting_directly": [
+    {
+      "blueprint": "docs/blueprints/folders/fbp_root.ai.json",
+      "folder_path": ".",
+      "description": "Resonance Lantern \u2014 a digital camera lucida. \"Tracing is learning, not cheating.\"",
+      "file_count": 13,
+      "subdirectory_count": 8
+    },
+    {
+      "blueprint": "docs/blueprints/folders/fbp_cargo.ai.json",
+      "folder_path": ".cargo",
+      "description": "1 files, 0 subfolders",
+      "file_count": 1,
+      "subdirectory_count": 0
+    },
+    {
+      "blueprint": "docs/blueprints/folders/fbp_docs.ai.json",
+      "folder_path": "docs",
+      "description": "the voiced documents \u2014 checklist, framework decision, release",
+      "file_count": 6,
+      "subdirectory_count": 1
+    },
+    {
+      "blueprint": "docs/blueprints/folders/fbp_release.ai.json",
+      "folder_path": "release",
+      "description": "7 files, 0 subfolders",
+      "file_count": 7,
+      "subdirectory_count": 0
+    },
+    {
+      "blueprint": "docs/blueprints/folders/fbp_scripts.ai.json",
+      "folder_path": "scripts",
+      "description": "1 files, 0 subfolders",
+      "file_count": 1,
+      "subdirectory_count": 0
+    },
+    {
+      "blueprint": "docs/blueprints/folders/fbp_static.ai.json",
+      "folder_path": "static",
+      "description": "12 files, 0 subfolders",
+      "file_count": 12,
+      "subdirectory_count": 0
+    },
+    {
+      "blueprint": "docs/blueprints/folders/fbp_tools.ai.json",
+      "folder_path": "tools",
+      "description": "2 files, 0 subfolders",
+      "file_count": 2,
+      "subdirectory_count": 0
+    }
+  ],
+  "analysis": [
+    {
+      "blueprint": "docs/blueprints/analysis_surfaces.ai.json",
+      "description": "the surfaces \u2014 every screen the hand reaches"
+    },
+    {
+      "blueprint": "docs/blueprints/analysis_guards.ai.json",
+      "description": "Lantern's ESSENTIAL RULES, tested \u2014 a regression guard"
+    },
+    {
+      "blueprint": "docs/blueprints/reconciliation.ai.json",
+      "description": "declared versus present - 0 findings"
+    }
+  ],
+  "the_app": {
+    "surfaces": 7,
+    "camera_surfaces": [
+      "/trace"
+    ],
+    "versions": {
+      "package.json": "0.1.1",
+      "Cargo.toml": "0.1.1",
+      "tauri.conf.json": "0.1.1"
+    },
+    "guards_all_passing": true
+  },
+  "totals": {
+    "folders_blueprinted": 40,
+    "files_described": 165
+  },
+  "maintaining_agent": "ProjectAgent"
+}

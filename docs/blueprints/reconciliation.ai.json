@@ -1,0 +1,13 @@
+{
+  "report": "declared versus present",
+  "law": "Findings are REPORTED, never repaired.",
+  "checked_against": [
+    "CLAUDE.md ESSENTIAL RULES",
+    "CLAUDE.md PROJECT STRUCTURE block"
+  ],
+  "total_findings": 0,
+  "by_kind": {},
+  "findings": [],
+  "note": "Zero findings is a real result, not an empty section.",
+  "scan_timestamp": "2026-08-03T17:03:29.580983 | in sovereign time"
+}

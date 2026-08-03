@@ -1,0 +1,69 @@
+{
+  "analysis": "guards",
+  "scan_timestamp": "2026-08-03T17:03:29.579536 | in sovereign time",
+  "description": "Lantern's ESSENTIAL RULES, tested \u2014 a regression guard",
+  "not_checked": "rule 4 \u2014 paper mode is the honored fallback whenever no camera resolves. A behaviour under a condition this reader cannot create. A hand proves it; 'nothing may obstruct the viewfinder' deserves an eye, not a substring.",
+  "note": "A guard's value is the day it fires, not the day it passes.",
+  "total": 5,
+  "all_passing": true,
+  "guards": [
+    {
+      "rule": 1,
+      "law": "goto(), never window.location.href",
+      "silent_failure": false,
+      "passing": true,
+      "found": "none"
+    },
+    {
+      "rule": 2,
+      "law": "Android: all four sql:allow-* capabilities \u00b7 no non-ASCII SQL DEFAULTs",
+      "silent_failure": true,
+      "passing": true,
+      "address": "src-tauri/capabilities/default.json",
+      "missing_capabilities": "none",
+      "non_ascii_defaults": "none"
+    },
+    {
+      "rule": 3,
+      "law": "Camera: NO custom Kotlin plugin (Tauri v2's generated RustWebChromeClient.kt already grants CAMERA for VIDEO_CAPTURE); extras sync via npm run sync-android, wired into beforeDevCommand/beforeBuildCommand",
+      "silent_failure": true,
+      "passing": true,
+      "custom_kotlin_found": "none  [correct \u2014 its ARRIVAL is the failure]",
+      "sync_script": "scripts/sync-android-extras.mjs",
+      "sync_present": true,
+      "wired_into": {
+        "beforeDevCommand": true,
+        "beforeBuildCommand": true
+      },
+      "note": "A negative rule: this guard watches for the plugin's ARRIVAL, not its absence. gen/ is excluded \u2014 Tauri's own generated Kotlin is expected and is not a custom plugin."
+    },
+    {
+      "rule": 5,
+      "law": "opacity is a comfort control, not a difficulty setting \u2014 no scores, no streaks, no shame mechanics",
+      "silent_failure": false,
+      "passing": true,
+      "words_watched": [
+        "streak",
+        "combo",
+        "score",
+        "highscore",
+        "leaderboard",
+        "rank",
+        "badge",
+        "achievement",
+        "penalty"
+      ],
+      "found": "none",
+      "note": "A promise about what this app will never do to its user, tested as an ABSENCE \u2014 the only honest way to test one. A hit is a question for a hand, not proof: a word can appear in a comment or a variable that means something else."
+    },
+    {
+      "rule": 6,
+      "law": "icons re-applied from resonance-assets/logo-icons/lantern.png after any tauri android init (gen/android can silently revert them)",
+      "silent_failure": true,
+      "passing": true,
+      "icon_source": "C:\\_superposition\\resonance-assets\\logo-icons\\lantern.png",
+      "source_present": true,
+      "note": "Reaches into a sibling repo. If the source is not visible from here this reader reports that it could not see it \u2014 never that the icon is wrong."
+    }
+  ]
+}

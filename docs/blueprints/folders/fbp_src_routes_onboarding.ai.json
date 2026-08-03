@@ -1,0 +1,36 @@
+{
+  "folder_name": "onboarding",
+  "folder_path": "src/routes/onboarding",
+  "description": "1 files, 0 subfolders",
+  "scan_timestamp": "2026-08-03T17:03:28.214091 | in sovereign time",
+  "files": [
+    {
+      "path": "src/routes/onboarding/+page.svelte",
+      "description": "surface, 4,386 bytes"
+    }
+  ],
+  "file_count": 1,
+  "subdirectories": [],
+  "code_analysis": {
+    "+page.svelte": {
+      "language": "svelte",
+      "lines": 127,
+      "uses_runes": [
+        "$state"
+      ],
+      "imports": [
+        "$app/navigation",
+        "$lib/data/lantern",
+        "$lib/stores/theme.svelte",
+        "$lib/theme/theme"
+      ],
+      "invokes": [],
+      "uses_window_location": false,
+      "media_calls": [],
+      "opacity_controls": 0
+    }
+  },
+  "package_folders_excluded": [],
+  "maintaining_agent": "FolderAgent",
+  "note": "The details live here. Upper tiers link to this address."
+}

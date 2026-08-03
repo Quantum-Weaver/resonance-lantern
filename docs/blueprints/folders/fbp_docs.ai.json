@@ -1,0 +1,40 @@
+{
+  "folder_name": "docs",
+  "folder_path": "docs",
+  "description": "the voiced documents \u2014 checklist, framework decision, release",
+  "scan_timestamp": "2026-08-03T17:03:28.175072 | in sovereign time",
+  "files": [
+    {
+      "path": "docs/CHECKLIST.md",
+      "description": "RESONANCE LANTERN"
+    },
+    {
+      "path": "docs/FEATURE-BOARD.md",
+      "description": "LANTERN"
+    },
+    {
+      "path": "docs/FRAMEWORK-DECISION.md",
+      "description": "FRAMEWORK DECISION"
+    },
+    {
+      "path": "docs/GALAXY-LISTING.md",
+      "description": "Lantern"
+    },
+    {
+      "path": "docs/PLAY-RELEASE.md",
+      "description": "Lantern \u2192 Google Play (first ascent) + Echoes track update"
+    },
+    {
+      "path": "docs/RESONANCE-GRAMMAR.md",
+      "description": "THE RESONANCE GRAMMAR"
+    }
+  ],
+  "file_count": 6,
+  "subdirectories": [
+    "docs/blueprints"
+  ],
+  "code_analysis": {},
+  "package_folders_excluded": [],
+  "maintaining_agent": "FolderAgent",
+  "note": "The details live here. Upper tiers link to this address."
+}

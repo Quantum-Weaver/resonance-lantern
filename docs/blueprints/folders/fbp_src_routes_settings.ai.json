@@ -1,0 +1,40 @@
+{
+  "folder_name": "settings",
+  "folder_path": "src/routes/settings",
+  "description": "1 files, 0 subfolders",
+  "scan_timestamp": "2026-08-03T17:03:28.218496 | in sovereign time",
+  "files": [
+    {
+      "path": "src/routes/settings/+page.svelte",
+      "description": "surface, 6,174 bytes"
+    }
+  ],
+  "file_count": 1,
+  "subdirectories": [],
+  "code_analysis": {
+    "+page.svelte": {
+      "language": "svelte",
+      "lines": 156,
+      "uses_runes": [
+        "$effect",
+        "$state"
+      ],
+      "imports": [
+        "$lib/data/lantern",
+        "$lib/stores/lantern.svelte",
+        "$lib/stores/theme.svelte",
+        "$lib/theme/theme",
+        "@tauri-apps/plugin-dialog",
+        "@tauri-apps/plugin-fs",
+        "@tauri-apps/plugin-opener"
+      ],
+      "invokes": [],
+      "uses_window_location": false,
+      "media_calls": [],
+      "opacity_controls": 0
+    }
+  },
+  "package_folders_excluded": [],
+  "maintaining_agent": "FolderAgent",
+  "note": "The details live here. Upper tiers link to this address."
+}

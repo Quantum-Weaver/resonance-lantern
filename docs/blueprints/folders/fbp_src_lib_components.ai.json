@@ -1,0 +1,83 @@
+{
+  "folder_name": "components",
+  "folder_path": "src/lib/components",
+  "description": "3 files, 1 subfolders",
+  "scan_timestamp": "2026-08-03T17:03:28.183102 | in sovereign time",
+  "files": [
+    {
+      "path": "src/lib/components/ComfortBar.svelte",
+      "description": "surface, 4,837 bytes"
+    },
+    {
+      "path": "src/lib/components/GradientPulse.svelte",
+      "description": "surface, 1,005 bytes"
+    },
+    {
+      "path": "src/lib/components/Sidebar.svelte",
+      "description": "surface, 4,183 bytes"
+    }
+  ],
+  "file_count": 3,
+  "subdirectories": [
+    "src/lib/components/icons"
+  ],
+  "code_analysis": {
+    "ComfortBar.svelte": {
+      "language": "svelte",
+      "lines": 202,
+      "uses_runes": [
+        "$derived",
+        "$effect",
+        "$state"
+      ],
+      "imports": [
+        "$app/navigation",
+        "$app/state",
+        "$lib/data/lantern",
+        "$lib/stores/lantern.svelte",
+        "$lib/stores/ui.svelte",
+        "svelte"
+      ],
+      "invokes": [],
+      "uses_window_location": false,
+      "media_calls": [],
+      "opacity_controls": 0
+    },
+    "GradientPulse.svelte": {
+      "language": "svelte",
+      "lines": 55,
+      "uses_runes": [
+        "$props"
+      ],
+      "imports": [
+        "svelte"
+      ],
+      "invokes": [],
+      "uses_window_location": false,
+      "media_calls": [],
+      "opacity_controls": 0
+    },
+    "Sidebar.svelte": {
+      "language": "svelte",
+      "lines": 190,
+      "uses_runes": [
+        "$effect",
+        "$state"
+      ],
+      "imports": [
+        "$app/navigation",
+        "$app/state",
+        "$lib/components/icons/Icons.svelte",
+        "$lib/stores/ui.svelte",
+        "svelte"
+      ],
+      "invokes": [],
+      "uses_window_location": false,
+      "media_calls": [],
+      "opacity_controls": 0
+    }
+  },
+  "package_folders_excluded": [],
+  "maintaining_agent": "FolderAgent",
+  "note": "The details live here. Upper tiers link to this address."
+}

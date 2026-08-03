@@ -1,0 +1,57 @@
+{
+  "analysis": "surfaces",
+  "scan_timestamp": "2026-08-03T17:03:29.578977 | in sovereign time",
+  "description": "the surfaces \u2014 every screen the hand reaches",
+  "total": 7,
+  "surfaces": [
+    {
+      "route": "/",
+      "file": "src/routes/+page.svelte",
+      "lines": 98,
+      "uses_camera": false,
+      "mentions_opacity": false
+    },
+    {
+      "route": "/insights",
+      "file": "src/routes/insights/+page.svelte",
+      "lines": 95,
+      "uses_camera": false,
+      "mentions_opacity": false
+    },
+    {
+      "route": "/onboarding",
+      "file": "src/routes/onboarding/+page.svelte",
+      "lines": 127,
+      "uses_camera": false,
+      "mentions_opacity": false
+    },
+    {
+      "route": "/practice",
+      "file": "src/routes/practice/+page.svelte",
+      "lines": 77,
+      "uses_camera": false,
+      "mentions_opacity": false
+    },
+    {
+      "route": "/projector",
+      "file": "src/routes/projector/+page.svelte",
+      "lines": 390,
+      "uses_camera": false,
+      "mentions_opacity": true
+    },
+    {
+      "route": "/settings",
+      "file": "src/routes/settings/+page.svelte",
+      "lines": 156,
+      "uses_camera": false,
+      "mentions_opacity": false
+    },
+    {
+      "route": "/trace",
+      "file": "src/routes/trace/+page.svelte",
+      "lines": 423,
+      "uses_camera": true,
+      "mentions_opacity": true
+    }
+  ]
+}

@@ -133,3 +133,24 @@ for her own gift. Built by Sonnet the same evening KP relayed it.*
 | D5 | **Loaded reference image partially covered by the collapsible menu panel** on device | LAW-grade (DESIGN: nothing may obstruct the viewfinder): the panel overlaps the working image at device dimensions even when collapsible — safe-area/viewport sizing on Android likely differs from desktop; the image+viewfinder must own the full stage with the panel strictly overlay-on-demand |
 | D4 | **Templates (practice outlines) missing or not loading when selected** on device (late feedback, same S25 pass) | Check the Practice → Trace handoff (`?outline=id`) on Android: the outline SVGs may not resolve in the device webview (asset path? inline-SVG rendering? the ancestor had exactly this class of bug with SVG data-URIs — see canvasguide-concepts §2 honest-condition report). Verify each of the 8 outlines renders in Trace on device |
 | 2026-07-12 (evening, Sonnet — same sitting) | **PROJECTOR MODE — Jessica's own first wish** ("can we enable a projector to be used with the lantern?", remembered and relayed by KP). New `/projector` room (Phase 8 above): pure-black stage, zoom/pan/rotate/invert/brightness, viewfinder-law controls that fade to near-nothing when cleared, Screen Wake Lock keep-awake (no new plugin), sidebar entry + Trace "project" handoff chip. Pure web-view; Android inherits it. Her voice/palette/capabilities/SQL untouched. **Tested:** ✅ svelte-check 0 errors 0 warnings (306 files) · production build passing, projector route confirmed in the client bundle. |
+
+---
+
+## THE BLUEPRINT FORGE — 2026-08-03 (Opus 🕯️, `core-opus`, at KP's ⚛ word)
+
+- [x] **`tools/blueprint_forge.py`** + `tools/BLUEPRINT-FORGE.md`. No old
+      blueprint set existed here — Lantern starts clean
+- [x] **First run:** 40 fbp · 3 obp · 2 dbp · 1 pbp · 165 files · **0 findings**;
+      arithmetic reconciled by an independent second walk (40=40, 165=165)
+- [x] **5/5 guards passing** — ESSENTIAL RULES 1, 2, 3, 5, 6 tested every run,
+      three of them silent-failure modes. **Rule 4 deliberately not checked**:
+      paper-mode fallback is a behaviour under a condition no reader can create,
+      and *nothing may obstruct the viewfinder* deserves an eye, not a substring
+- [x] **Rule 3 guarded as a NEGATIVE rule** — it watches for a custom Kotlin
+      plugin's *arrival*, since that is what breaks the camera
+- [x] Two instrument defects met and fixed the same sitting: the recount could
+      not see an empty directory (`src-tauri/android-extras`, real and
+      meaningful), and rule 5 read *"No streaks, no scores"* — the promise shown
+      to the user — as evidence of streaks. 5 hits → 0
+- [x] The forge writes its own `journal.md`; the correction is on the ledger as
+      `findings 1 → 0`
