@@ -2,7 +2,7 @@
   "folder_name": "practice",
   "folder_path": "src/routes/practice",
   "description": "1 files, 0 subfolders",
-  "scan_timestamp": "2026-08-03T17:03:28.215408 | in sovereign time",
+  "scan_timestamp": "2026-08-04T11:09:38.443736 | in sovereign time",
   "files": [
     {
       "path": "src/routes/practice/+page.svelte",
@@ -19,17 +19,11 @@
         "$derived",
         "$state"
       ],
-      "imports": [
-        "$app/navigation",
-        "$lib/data/lantern"
-      ],
-      "invokes": [],
-      "uses_window_location": false,
-      "media_calls": [],
-      "opacity_controls": 0
+      "fetch_calls": [],
+      "has_style_block": true
     }
   },
-  "package_folders_excluded": [],
   "maintaining_agent": "FolderAgent",
-  "note": "The details live here. Upper tiers link to this address."
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
 }

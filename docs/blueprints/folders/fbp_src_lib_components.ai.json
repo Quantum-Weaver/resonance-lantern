@@ -2,7 +2,7 @@
   "folder_name": "components",
   "folder_path": "src/lib/components",
   "description": "3 files, 1 subfolders",
-  "scan_timestamp": "2026-08-03T17:03:28.183102 | in sovereign time",
+  "scan_timestamp": "2026-08-04T11:09:38.399985 | in sovereign time",
   "files": [
     {
       "path": "src/lib/components/ComfortBar.svelte",
@@ -30,18 +30,8 @@
         "$effect",
         "$state"
       ],
-      "imports": [
-        "$app/navigation",
-        "$app/state",
-        "$lib/data/lantern",
-        "$lib/stores/lantern.svelte",
-        "$lib/stores/ui.svelte",
-        "svelte"
-      ],
-      "invokes": [],
-      "uses_window_location": false,
-      "media_calls": [],
-      "opacity_controls": 0
+      "fetch_calls": [],
+      "has_style_block": true
     },
     "GradientPulse.svelte": {
       "language": "svelte",
@@ -49,13 +39,8 @@
       "uses_runes": [
         "$props"
       ],
-      "imports": [
-        "svelte"
-      ],
-      "invokes": [],
-      "uses_window_location": false,
-      "media_calls": [],
-      "opacity_controls": 0
+      "fetch_calls": [],
+      "has_style_block": true
     },
     "Sidebar.svelte": {
       "language": "svelte",
@@ -64,20 +49,11 @@
         "$effect",
         "$state"
       ],
-      "imports": [
-        "$app/navigation",
-        "$app/state",
-        "$lib/components/icons/Icons.svelte",
-        "$lib/stores/ui.svelte",
-        "svelte"
-      ],
-      "invokes": [],
-      "uses_window_location": false,
-      "media_calls": [],
-      "opacity_controls": 0
+      "fetch_calls": [],
+      "has_style_block": true
     }
   },
-  "package_folders_excluded": [],
   "maintaining_agent": "FolderAgent",
-  "note": "The details live here. Upper tiers link to this address."
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
 }

@@ -1,8 +1,8 @@
 {
   "folder_name": "routes",
   "folder_path": "src/routes",
-  "description": "the surfaces \u2014 trace, practice, projector, insights",
-  "scan_timestamp": "2026-08-03T17:03:28.210432 | in sovereign time",
+  "description": "3 files, 6 subfolders",
+  "scan_timestamp": "2026-08-04T11:09:38.439754 | in sovereign time",
   "files": [
     {
       "path": "src/routes/+layout.svelte",
@@ -35,20 +35,8 @@
         "$effect",
         "$props"
       ],
-      "imports": [
-        "$app/navigation",
-        "$app/state",
-        "$lib/components/ComfortBar.svelte",
-        "$lib/components/Sidebar.svelte",
-        "$lib/stores/lantern.svelte",
-        "$lib/stores/theme.svelte",
-        "$lib/theme/theme",
-        "svelte"
-      ],
-      "invokes": [],
-      "uses_window_location": false,
-      "media_calls": [],
-      "opacity_controls": 0
+      "fetch_calls": [],
+      "has_style_block": true
     },
     "+layout.ts": {
       "language": "typescript",
@@ -57,10 +45,12 @@
       "exported_consts": [
         "ssr"
       ],
+      "interfaces": [],
       "types": [],
-      "imports": [],
-      "uses_window_location": false,
-      "media_calls": []
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
     },
     "+page.svelte": {
       "language": "svelte",
@@ -68,19 +58,11 @@
       "uses_runes": [
         "$state"
       ],
-      "imports": [
-        "$app/navigation",
-        "$lib/data/lantern",
-        "$lib/stores/lantern.svelte",
-        "svelte"
-      ],
-      "invokes": [],
-      "uses_window_location": false,
-      "media_calls": [],
-      "opacity_controls": 0
+      "fetch_calls": [],
+      "has_style_block": true
     }
   },
-  "package_folders_excluded": [],
   "maintaining_agent": "FolderAgent",
-  "note": "The details live here. Upper tiers link to this address."
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
 }
