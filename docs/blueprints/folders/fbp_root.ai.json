@@ -2,7 +2,7 @@
   "folder_name": "resonance-lantern",
   "folder_path": ".",
   "description": "The Lantern Room of the AudHDities Sanctuary",
-  "scan_timestamp": "2026-08-04T11:09:38.380048 | in sovereign time",
+  "scan_timestamp": "2026-08-04T19:12:52.012824 | in sovereign time",
   "files": [
     {
       "path": ".gitignore",
@@ -81,8 +81,10 @@
         "CURRENT STATE"
       ],
       "links_external": 0,
+      "links_site_absolute": [],
       "links_internal": [],
       "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
       "code_fences": 1,
       "table_rows": 0,
       "checkboxes": {
@@ -106,8 +108,10 @@
         "Read first"
       ],
       "links_external": 0,
+      "links_site_absolute": [],
       "links_internal": [],
       "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
       "code_fences": 0,
       "table_rows": 0,
       "checkboxes": {
@@ -131,13 +135,16 @@
         "Sonnet"
       ],
       "links_external": 0,
+      "links_site_absolute": [],
       "links_internal": [
         {
           "target": "PHILOSOPHY.md",
-          "resolves": true
+          "resolves": true,
+          "outside_checkout": false
         }
       ],
       "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
       "code_fences": 0,
       "table_rows": 0,
       "checkboxes": {
@@ -201,8 +208,10 @@
         "ACKNOWLEDGMENT"
       ],
       "links_external": 0,
+      "links_site_absolute": [],
       "links_internal": [],
       "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
       "code_fences": 0,
       "table_rows": 0,
       "checkboxes": {
@@ -231,8 +240,10 @@
         "Contact"
       ],
       "links_external": 0,
+      "links_site_absolute": [],
       "links_internal": [],
       "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
       "code_fences": 0,
       "table_rows": 0,
       "checkboxes": {
@@ -255,13 +266,16 @@
         "License"
       ],
       "links_external": 4,
+      "links_site_absolute": [],
       "links_internal": [
         {
           "target": "PHILOSOPHY.md",
-          "resolves": true
+          "resolves": true,
+          "outside_checkout": false
         }
       ],
       "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
       "code_fences": 1,
       "table_rows": 0,
       "checkboxes": {

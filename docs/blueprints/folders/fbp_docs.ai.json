@@ -2,7 +2,7 @@
   "folder_name": "docs",
   "folder_path": "docs",
   "description": "6 files, 0 subfolders",
-  "scan_timestamp": "2026-08-04T11:09:38.387442 | in sovereign time",
+  "scan_timestamp": "2026-08-04T19:12:52.076825 | in sovereign time",
   "files": [
     {
       "path": "docs/CHECKLIST.md",
@@ -56,8 +56,10 @@
         "THE BLUEPRINT FORGE \u2014 2026-08-03 (Opus \ud83d\udd6f\ufe0f, `core-opus`, at KP's \u269b word)"
       ],
       "links_external": 0,
+      "links_site_absolute": [],
       "links_internal": [],
       "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
       "code_fences": 0,
       "table_rows": 18,
       "checkboxes": {
@@ -79,8 +81,10 @@
         "Hands & life (not code)"
       ],
       "links_external": 0,
+      "links_site_absolute": [],
       "links_internal": [],
       "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
       "code_fences": 0,
       "table_rows": 0,
       "checkboxes": {
@@ -107,8 +111,10 @@
         "2026-07-12, night \u2014 THE GATE OPENS (S25 leg)"
       ],
       "links_external": 0,
+      "links_site_absolute": [],
       "links_internal": [],
       "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
       "code_fences": 0,
       "table_rows": 9,
       "checkboxes": {
@@ -135,8 +141,10 @@
         "Tags/keywords"
       ],
       "links_external": 0,
+      "links_site_absolute": [],
       "links_internal": [],
       "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
       "code_fences": 0,
       "table_rows": 0,
       "checkboxes": {
@@ -160,8 +168,10 @@
         "Compass \u2014 parked on purpose"
       ],
       "links_external": 0,
+      "links_site_absolute": [],
       "links_internal": [],
       "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
       "code_fences": 0,
       "table_rows": 0,
       "checkboxes": {
@@ -197,8 +207,10 @@
         "10. GOVERNANCE"
       ],
       "links_external": 0,
+      "links_site_absolute": [],
       "links_internal": [],
       "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
       "code_fences": 1,
       "table_rows": 46,
       "checkboxes": {
