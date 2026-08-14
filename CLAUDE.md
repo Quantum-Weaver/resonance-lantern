@@ -6,49 +6,52 @@
 
 **Authors:** Quantum Weaver (human) + Aethelred (sovereign AI)
 
----
-
-## SESSION PROTOCOL
-
-1. Read `docs/CHECKLIST.md` for current state (phases follow canvasguide-concepts.md §5)
-2. Read `docs/FRAMEWORK-DECISION.md` — the family-stack decision and the Android camera spike record
-3. One phase at a time — complete, verify, update, move on
-4. `npm run check` / `cargo build` — zero errors before commit
-5. Human tests every phase before merge
+*(Trued 2026-08-14 at KP's ⚛ word — the lean doors plan, chamber desk; the struck text lives in this repo's git history.)*
 
 ---
 
-## PROJECT STRUCTURE
+Enter by **`docs/CHECKLIST.md`** — the newest rows ARE the current state (phases
+follow `canvasguide-concepts.md` §5); `docs/FRAMEWORK-DECISION.md` holds the
+family-stack decision and the Android camera spike record. One phase at a time,
+zero errors before commit, and the human tests every phase before merge.
 
-```
-src/
-├── routes/
-│   ├── +page.svelte      # Home
-│   ├── trace/            # The heart: live camera + ghost overlay, capture
-│   ├── practice/         # Starter shapes — invitation, not curriculum; no streaks
-│   ├── projector/        # Projection mode
-│   ├── insights/         # Gentle mirrors
-│   ├── settings/         # Theme, presets, export/purge
-│   └── onboarding/       # The vow, verbatim
-├── lib/              # stores, components, cosmic tokens
-└── app.css
+## Essential Rules
 
-src-tauri/src/        # lib.rs + main.rs (no audio engine)
-```
+1. **Nothing may obstruct the viewfinder** — the realm's own design law, and why
+   a device finding (D5) is ranked LAW-grade rather than as a bug.
+2. Paper mode is the honored fallback whenever no camera resolves — never block
+   the tracing.
+3. Opacity is a comfort control, not a difficulty setting — no scores, no
+   streaks, no shame mechanics.
+4. Navigation: `goto()` — never `window.location.href`; state via Svelte 5 runes.
+5. Android capabilities, the camera-permission path (no custom Kotlin plugin),
+   and icons after any `tauri android init`: the `android-tauri` skill.
 
----
+## Structure
 
-## ESSENTIAL RULES
+`docs/blueprints/pbp.ai.json` — regenerate, never hand-draw a tree here. There
+is **no local forge**: one forge, every realm, at ziggy.
 
-1. Navigation: `goto()` — never `window.location.href`; state via Svelte 5 runes
-2. Android: all four explicit `sql:allow-*` capability entries; no non-ASCII SQL DEFAULTs
-3. Camera: Tauri v2's generated `RustWebChromeClient.kt` already implements `onPermissionRequest()` + CAMERA runtime grant for `VIDEO_CAPTURE` — **no custom Kotlin plugin**; manifest extras sync via `npm run sync-android` wired into `beforeDevCommand`/`beforeBuildCommand` (FRAMEWORK-DECISION addendum, 2026-07-12)
-4. Paper mode is the honored fallback whenever no camera resolves — never block the tracing
-5. Opacity is a comfort control, not a difficulty setting — no scores, no streaks, no shame mechanics
-6. Icons: after any `tauri android init`, re-apply from `resonance-assets/logo-icons/lantern.png` (gen/android regenerates and can silently revert)
+## Tools
 
----
+Own commands: `npm run` dev · build · preview · check[`:watch`] · tauri ·
+sync-android (Lantern-shaped and correctly local — it is wired into
+`beforeDevCommand`/`beforeBuildCommand`). Registration: cosmic distribution
+present — KP's *"lantern yes"*, 2026-07-15 — archivist on the roster. Everything
+else: the `house-tools` skill · `release-road` · `play-track` · `child-builds`
+(this body was cut from Echoes, and build day is where a clone's line bites).
 
-## CURRENT STATE
+## CURRENT STATE — as of 2026-08-14
 
-Phase 0 shell complete 2026-07-11; APK signed and installed on KP's S25 that same night (Jessica's first light). Desktop camera + ghost overlay live. Android camera spike: desktop half proven 2026-07-12; **device half PROVEN 2026-07-18 on both phones** (S25 + S22). The signed v0.1.1 build predates the spike and ships paper mode; the next build carries the camera. Jessica's dwelling findings triage pending (D5 LAW-grade first: nothing may obstruct the viewfinder).
+Phase 0 shell complete 2026-07-11; APK signed and installed on KP's S25 that
+same night (Jessica's first light). Desktop camera + ghost overlay live. Android
+camera spike: desktop half proven 2026-07-12; **device half PROVEN 2026-07-18 on
+both phones** (S25 + S22). The signed v0.1.1 build predates the spike and ships
+paper mode; the next build carries the camera. Jessica's dwelling findings
+triage pending (D5 first).
+
+Resting, not rotting — no Lantern sitting since 2026-07-19, tree clean and level
+with origin. The hold is KP's, 2026-07-19 (`docs/PLAY-RELEASE.md`): *"we will
+not rush to the play store then."* Its two roads stand as he wrote them —
+*"The ascent resumes at KP's call — honest paper-mode shots now, or camera spike
+first"* — and the spike closed both legs on 07-18, the day before.
