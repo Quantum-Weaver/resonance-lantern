@@ -29,7 +29,7 @@ zero errors before commit, and the human tests every phase before merge.
 
 ## Structure
 
-`docs/blueprints/pbp.ai.json` — regenerate, never hand-draw a tree here. There
+`docs/blueprints/lantern/pbp.ai.json` — regenerate, never hand-draw a tree here. There
 is **no local forge**: one forge, every realm, at ziggy.
 
 ## Tools
