@@ -1,0 +1,32 @@
+{
+  "tier": "folder",
+  "folder_name": "projector",
+  "folder_path": "src/routes/projector",
+  "self": "lantern/src/routes/projector/fbp.ai.json",
+  "parent": "lantern/src/routes/obp.ai.json",
+  "description": "1 files, 0 subfolders",
+  "files": [
+    {
+      "path": "src/routes/projector/+page.svelte",
+      "description": "surface, 10,398 bytes"
+    }
+  ],
+  "file_count": 1,
+  "subdirectories": [],
+  "code_analysis": {
+    "+page.svelte": {
+      "language": "svelte",
+      "lines": 390,
+      "uses_runes": [
+        "$effect",
+        "$state"
+      ],
+      "fetch_calls": [],
+      "has_style_block": true
+    }
+  },
+  "folders_not_walked": [],
+  "scan_timestamp": "2026-08-21T15:19:45.435193 | in sovereign time",
+  "maintaining_agent": "FolderAgent",
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

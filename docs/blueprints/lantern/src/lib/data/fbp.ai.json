@@ -1,0 +1,56 @@
+{
+  "tier": "folder",
+  "folder_name": "data",
+  "folder_path": "src/lib/data",
+  "self": "lantern/src/lib/data/fbp.ai.json",
+  "parent": "lantern/src/lib/obp.ai.json",
+  "description": "1 files, 0 subfolders",
+  "files": [
+    {
+      "path": "src/lib/data/lantern.ts",
+      "description": "The Lantern's shared language"
+    }
+  ],
+  "file_count": 1,
+  "subdirectories": [],
+  "code_analysis": {
+    "lantern.ts": {
+      "language": "typescript",
+      "lines": 158,
+      "exported_functions": [],
+      "exported_consts": [
+        "THE_VOW",
+        "THE_TAGLINE",
+        "ENCOURAGEMENTS",
+        "SAVE_MESSAGES",
+        "ART_TIPS",
+        "WELCOMES",
+        "pickEncouragement",
+        "pickSaveMessage",
+        "pickTip",
+        "pickWelcome",
+        "PRIDE_COLORS",
+        "PRIDE_GRADIENT",
+        "TJD_PLATFORMS",
+        "OPACITY_PRESETS",
+        "OUTLINES",
+        "outlineDataUri",
+        "outlineById"
+      ],
+      "interfaces": [
+        "PlatformLink",
+        "OpacityPreset",
+        "Outline"
+      ],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    }
+  },
+  "folders_not_walked": [],
+  "scan_timestamp": "2026-08-21T15:19:45.400227 | in sovereign time",
+  "maintaining_agent": "FolderAgent",
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

@@ -1,0 +1,85 @@
+{
+  "tier": "object",
+  "object_name": "lib",
+  "object_path": "src/lib",
+  "self": "lantern/src/lib/obp.ai.json",
+  "parent": "lantern/src/dbp.ai.json",
+  "description": "0 files, 7 subfolders",
+  "folders": [
+    {
+      "blueprint": "lantern/src/lib/fbp.ai.json",
+      "folder_path": "src/lib",
+      "description": "0 files, 7 subfolders",
+      "file_count": 0,
+      "subdirectory_count": 7
+    },
+    {
+      "blueprint": "lantern/src/lib/components/fbp.ai.json",
+      "folder_path": "src/lib/components",
+      "description": "3 files, 1 subfolders",
+      "file_count": 3,
+      "subdirectory_count": 1
+    },
+    {
+      "blueprint": "lantern/src/lib/components/icons/fbp.ai.json",
+      "folder_path": "src/lib/components/icons",
+      "description": "7 files, 0 subfolders",
+      "file_count": 7,
+      "subdirectory_count": 0
+    },
+    {
+      "blueprint": "lantern/src/lib/cosmic/fbp.ai.json",
+      "folder_path": "src/lib/cosmic",
+      "description": "12 files, 0 subfolders",
+      "file_count": 12,
+      "subdirectory_count": 0
+    },
+    {
+      "blueprint": "lantern/src/lib/data/fbp.ai.json",
+      "folder_path": "src/lib/data",
+      "description": "1 files, 0 subfolders",
+      "file_count": 1,
+      "subdirectory_count": 0
+    },
+    {
+      "blueprint": "lantern/src/lib/stores/fbp.ai.json",
+      "folder_path": "src/lib/stores",
+      "description": "3 files, 0 subfolders",
+      "file_count": 3,
+      "subdirectory_count": 0
+    },
+    {
+      "blueprint": "lantern/src/lib/styles/fbp.ai.json",
+      "folder_path": "src/lib/styles",
+      "description": "1 files, 1 subfolders",
+      "file_count": 1,
+      "subdirectory_count": 1
+    },
+    {
+      "blueprint": "lantern/src/lib/styles/generated/fbp.ai.json",
+      "folder_path": "src/lib/styles/generated",
+      "description": "21 files, 0 subfolders",
+      "file_count": 21,
+      "subdirectory_count": 0
+    },
+    {
+      "blueprint": "lantern/src/lib/theme/fbp.ai.json",
+      "folder_path": "src/lib/theme",
+      "description": "1 files, 0 subfolders",
+      "file_count": 1,
+      "subdirectory_count": 0
+    },
+    {
+      "blueprint": "lantern/src/lib/types/fbp.ai.json",
+      "folder_path": "src/lib/types",
+      "description": "1 files, 0 subfolders",
+      "file_count": 1,
+      "subdirectory_count": 0
+    }
+  ],
+  "folder_count": 10,
+  "total_files": 50,
+  "integration_timestamp": "2026-08-21T15:19:45.572034 | in sovereign time",
+  "maintaining_agent": "ObjectAgent",
+  "note": "Links only. Every folder's details live at its own address."
+}

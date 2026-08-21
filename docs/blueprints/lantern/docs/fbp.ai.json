@@ -1,0 +1,274 @@
+{
+  "tier": "folder",
+  "folder_name": "docs",
+  "folder_path": "docs",
+  "self": "lantern/docs/fbp.ai.json",
+  "parent": "lantern/pbp.ai.json",
+  "description": "7 files, 0 subfolders",
+  "files": [
+    {
+      "path": "docs/CHECKLIST.md",
+      "description": "RESONANCE LANTERN"
+    },
+    {
+      "path": "docs/FEATURE-BOARD.md",
+      "description": "LANTERN"
+    },
+    {
+      "path": "docs/FRAMEWORK-DECISION.md",
+      "description": "FRAMEWORK DECISION"
+    },
+    {
+      "path": "docs/GALAXY-LISTING.md",
+      "description": "Lantern"
+    },
+    {
+      "path": "docs/PLAY-RELEASE.md",
+      "description": "Lantern \u2192 Google Play (first ascent) + Echoes track update"
+    },
+    {
+      "path": "docs/RESONANCE-GRAMMAR.md",
+      "description": "THE RESONANCE GRAMMAR"
+    },
+    {
+      "path": "docs/STORY-BLOCK.md",
+      "description": "Resonance Lantern"
+    }
+  ],
+  "file_count": 7,
+  "subdirectories": [],
+  "code_analysis": {
+    "CHECKLIST.md": {
+      "language": "markdown",
+      "lines": 159,
+      "words": 2115,
+      "heading_count": 16,
+      "headings": [
+        "RESONANCE LANTERN \u2014 MASTER CHECKLIST",
+        "LEGEND",
+        "PHASE STATUS (per canvasguide-concepts.md \u00a75)",
+        "Phase 0: Shell \u2705 (2026-07-11)",
+        "Phase 1: Reference \u2705 (2026-07-11)",
+        "Phase 2: Trace \u26a0\ufe0f (desktop \u2705 \u00b7 CAMERA GATE CLOSED both devices 2026-07-18 \u00b7 D-findings open)",
+        "Phase 3: Capture \u2705 (desktop) (2026-07-11)",
+        "Phase 4: Practice \u2705 (2026-07-11)",
+        "Phase 5: Insights \u2705 (gentle v1) (2026-07-11)",
+        "Phase 6: Sovereignty \u2705 (2026-07-11)",
+        "Phase 8: Projector \u2705 (2026-07-12 \u2014 JESSICA'S OWN FIRST WISH)",
+        "Phase 7: Ship \u26a0\ufe0f (begun the same night, by the Weaver's own hand)",
+        "KNOWN BUGS",
+        "SESSION LOG",
+        "DWELLING FINDINGS \u2014 KP's first S25 pass with the new build (2026-07-12 night)",
+        "THE BLUEPRINT FORGE \u2014 2026-08-03 (Opus \ud83d\udd6f\ufe0f, `core-opus`, at KP's \u269b word)"
+      ],
+      "links_external": 0,
+      "links_site_absolute": [],
+      "links_internal": [],
+      "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
+      "code_fences": 0,
+      "table_rows": 20,
+      "checkboxes": {
+        "open": 3,
+        "done": 36
+      },
+      "has_story_block": false,
+      "declares_mirror_class": false
+    },
+    "FEATURE-BOARD.md": {
+      "language": "markdown",
+      "lines": 27,
+      "words": 201,
+      "heading_count": 4,
+      "headings": [
+        "LANTERN \u2014 THE FEATURE BOARD",
+        "TIER A \u2014 the D-findings sitting (one coding evening)",
+        "TIER B",
+        "Hands & life (not code)"
+      ],
+      "links_external": 0,
+      "links_site_absolute": [],
+      "links_internal": [],
+      "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
+      "code_fences": 0,
+      "table_rows": 0,
+      "checkboxes": {
+        "open": 0,
+        "done": 0
+      },
+      "has_story_block": false,
+      "declares_mirror_class": false
+    },
+    "FRAMEWORK-DECISION.md": {
+      "language": "markdown",
+      "lines": 132,
+      "words": 1245,
+      "heading_count": 9,
+      "headings": [
+        "FRAMEWORK DECISION \u2014 Rebuild on the Family Stack, Gated by One Honest Spike",
+        "The recommendation: **rebuild on SvelteKit + Tauri (the Echoes foundation)** \u2014 with one gate.",
+        "Why, honestly weighed",
+        "The gate: Phase 0 is a camera spike, not a commitment",
+        "Origin, corrected for the record",
+        "The name",
+        "Addendum, 2026-07-12 (evening) \u2014 the spike, de-risked but not closed",
+        "Test protocol for KP's hands (the one remaining unknown)",
+        "2026-07-12, night \u2014 THE GATE OPENS (S25 leg)"
+      ],
+      "links_external": 0,
+      "links_site_absolute": [],
+      "links_internal": [],
+      "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
+      "code_fences": 0,
+      "table_rows": 9,
+      "checkboxes": {
+        "open": 0,
+        "done": 0
+      },
+      "has_story_block": false,
+      "declares_mirror_class": false
+    },
+    "GALAXY-LISTING.md": {
+      "language": "markdown",
+      "lines": 57,
+      "words": 333,
+      "heading_count": 9,
+      "headings": [
+        "Lantern \u2014 Galaxy Store listing pack",
+        "App name",
+        "Short description",
+        "Full description",
+        "Category",
+        "Content rating guidance",
+        "Data safety answers (transcribe)",
+        "Assets",
+        "Tags/keywords"
+      ],
+      "links_external": 0,
+      "links_site_absolute": [],
+      "links_internal": [],
+      "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
+      "code_fences": 0,
+      "table_rows": 0,
+      "checkboxes": {
+        "open": 0,
+        "done": 0
+      },
+      "has_story_block": false,
+      "declares_mirror_class": false
+    },
+    "PLAY-RELEASE.md": {
+      "language": "markdown",
+      "lines": 75,
+      "words": 583,
+      "heading_count": 6,
+      "headings": [
+        "Lantern \u2192 Google Play (first ascent) + Echoes track update",
+        "The artifacts",
+        "KP's console steps \u2014 Echoes (the short one)",
+        "KP's console steps \u2014 Lantern (the first ascent)",
+        "Sequencing note",
+        "Compass \u2014 parked on purpose"
+      ],
+      "links_external": 0,
+      "links_site_absolute": [],
+      "links_internal": [],
+      "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
+      "code_fences": 0,
+      "table_rows": 0,
+      "checkboxes": {
+        "open": 0,
+        "done": 0
+      },
+      "has_story_block": false,
+      "declares_mirror_class": false
+    },
+    "RESONANCE-GRAMMAR.md": {
+      "language": "markdown",
+      "lines": 192,
+      "words": 0,
+      "heading_count": 18,
+      "headings": [
+        "THE RESONANCE GRAMMAR",
+        "1. WHAT THIS IS",
+        "2. CORE PRINCIPLES",
+        "3. THE VOCABULARY: ATOMS",
+        "3.1 Atom Structure",
+        "3.2 Example Atom: \"Resonance\"",
+        "3.3 Atom Categories",
+        "4. THE SYNTAX: MOLECULES",
+        "4.1 Molecule Structure",
+        "4.2 Example Molecule: \"MoodEvent\"",
+        "5. THE ORGANIZATION: CATEGORIES",
+        "6. THE FOLKSONOMY",
+        "6.1 Emoji Definition Structure",
+        "6.2 The Folksonomy Principle",
+        "7. THE SOVEREIGNTY GUARANTEES",
+        "8. IMPLEMENTATIONS",
+        "9. VERSIONING",
+        "10. GOVERNANCE"
+      ],
+      "links_external": 0,
+      "links_site_absolute": [],
+      "links_internal": [],
+      "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
+      "code_fences": 1,
+      "table_rows": 46,
+      "checkboxes": {
+        "open": 0,
+        "done": 0
+      },
+      "has_story_block": false,
+      "declares_mirror_class": false
+    },
+    "STORY-BLOCK.md": {
+      "language": "markdown",
+      "lines": 84,
+      "words": 579,
+      "heading_count": 12,
+      "headings": [
+        "Resonance Lantern \u2014 Story Block",
+        "WHAT",
+        "HOW",
+        "WHERE",
+        "WHEN",
+        "WHY",
+        "INSPIRATION",
+        "REMEMBERINGS",
+        "COUNCIL THREAD",
+        "WEAVER THREAD",
+        "PROVENANCE",
+        "ETYMOLOGY"
+      ],
+      "links_external": 0,
+      "links_site_absolute": [],
+      "links_internal": [],
+      "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
+      "code_fences": 0,
+      "table_rows": 0,
+      "checkboxes": {
+        "open": 0,
+        "done": 0
+      },
+      "has_story_block": false,
+      "declares_mirror_class": false
+    }
+  },
+  "folders_not_walked": [
+    {
+      "name": "blueprints",
+      "address": "docs/blueprints",
+      "walked": false,
+      "reason": "a blueprint output tree \u2014 the forge does not blueprint blueprints"
+    }
+  ],
+  "scan_timestamp": "2026-08-21T15:19:45.360627 | in sovereign time",
+  "maintaining_agent": "FolderAgent",
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}
