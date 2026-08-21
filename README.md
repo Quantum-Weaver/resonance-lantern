@@ -3,7 +3,7 @@
 *The Lantern Room of the AudHDities Sanctuary — a steady light for a learning hand.*
 
 [![License](https://img.shields.io/badge/license-MIT%20%2B%20Resonance-blue.svg)](LICENSE)
-[![Version](https://img.shields.io/badge/version-0.1.0-brightgreen.svg)]()
+[![Version](https://img.shields.io/badge/version-0.1.1-brightgreen.svg)]()
 [![Status](https://img.shields.io/badge/status-first%20light-DA219F.svg)]()
 [![Privacy](https://img.shields.io/badge/data%20collected-none-8a2be2.svg)](PRIVACY.md)
 
@@ -30,6 +30,10 @@ preserved verbatim in this rebuild.
   dots, and a 🎲 — invitation, not curriculum. No streaks, no scores.
 - **Insights** — a practice journal, shown gently: sessions, minutes with
   pencil in hand, most-practiced. Presence of practice, never pressure.
+- **Projector** — the current reference or practice outline full-screen on
+  pure black, for tracing at a real easel: zoom, pan, rotate, invert, a
+  brightness dim, keep-awake while projecting. Jessica's own first wish for
+  the app, built 2026-07-12 (`docs/CHECKLIST.md` Phase 8).
 - **The voice** — CanvasGuide's original encouragements, tips, and welcomes,
   surfacing at every threshold. *"Every artist was once a beginner brave
   enough to start."*
@@ -37,6 +41,20 @@ preserved verbatim in this rebuild.
   theme, because "you belong here" deserves to be rendered in hex codes.
 - **Sovereignty** — local-first, no accounts, no tracking; export your
   journal as open JSON; a purge that truly purges. Your art belongs to you.
+
+## THE STORY
+
+*This section required by the [Story Block Standard](https://github.com/Quantum-Weaver/resonance-standards).*
+
+Resonance Lantern is a rebuild of **CanvasGuide** — a four-day side project
+the Weaver threw together as a break from building the Sanctuary itself, a
+gift for TJ Darling (@TJDPoetry) and her creative community. Named by the
+Council, 2026-07-03, it completes the original triad: Echoes looks back,
+Compass looks around, Lantern looks forward. Rebuilt on the family's own
+stack rather than kept in Expo, gated by one honest camera spike that closed
+on real devices, 2026-07-18.
+
+📖 [Full Story Block](docs/STORY-BLOCK.md)
 
 ## Camera status (honest)
 
