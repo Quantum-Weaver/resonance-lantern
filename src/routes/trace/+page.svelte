@@ -23,6 +23,8 @@
 	let stream: MediaStream | null = null;
 	let cameraOn = $state(false);
 	let cameraTried = $state(false);
+	/** WHY the camera did not answer — told plainly, never swallowed. */
+	let cameraTrouble = $state<string | null>(null);
 
 	let overlayUrl = $state<string | null>(null);
 	let overlayName = $state<string | null>(null);
@@ -38,19 +40,56 @@
 	$effect(() => lanternStore.setPref('imgZoom', imgZoom));
 	$effect(() => lanternStore.setPref('viewZoom', viewZoom));
 
-	async function tryCamera() {
-		cameraTried = true;
+	/** Open a camera stream — and if the DEFAULT camera fails (a ghost
+	 *  device, unplugged but remembered, bit this house: a dead C920
+	 *  standing in front of a healthy Brio), walk EVERY camera before
+	 *  yielding to paper. */
+	async function openStream(): Promise<MediaStream> {
 		try {
-			stream = await navigator.mediaDevices.getUserMedia({
+			return await navigator.mediaDevices.getUserMedia({
 				video: { facingMode: 'environment', width: { ideal: 1920 } },
 				audio: false,
 			});
+		} catch (first) {
+			const name = first instanceof DOMException ? first.name : '';
+			if (name === 'NotAllowedError') throw first; // a walk cannot help a refusal
+			const devs = (await navigator.mediaDevices.enumerateDevices()).filter(
+				(d) => d.kind === 'videoinput'
+			);
+			for (const d of devs) {
+				try {
+					return await navigator.mediaDevices.getUserMedia({
+						video: { deviceId: { exact: d.deviceId }, width: { ideal: 1920 } },
+						audio: false,
+					});
+				} catch {
+					/* this one is dead too — the next may answer */
+				}
+			}
+			throw first;
+		}
+	}
+
+	async function tryCamera() {
+		cameraTried = true;
+		try {
+			stream = await openStream();
 			if (video) {
 				video.srcObject = stream;
 				await video.play();
 				cameraOn = true;
+				cameraTrouble = null;
 			}
 		} catch (e) {
+			const name = e instanceof DOMException ? e.name : '';
+			cameraTrouble =
+				name === 'NotAllowedError'
+					? 'the system declined the camera — check Windows camera privacy (desktop apps)'
+					: name === 'NotFoundError'
+						? 'no camera was found on this device'
+						: name === 'NotReadableError'
+							? 'the camera could not start — busy in another app, or an unplugged default device'
+							: `the camera did not answer${e instanceof Error && e.message ? ` — ${e.message}` : ''}`;
 			console.warn('[trace] camera unavailable, paper mode:', e);
 			cameraOn = false;
 		}
@@ -184,7 +223,8 @@
 	<div class="topbar">
 		<button class="chip" onclick={leave}>← done</button>
 		{#if !cameraOn && cameraTried}
-			<span class="mode-note">paper mode — camera unavailable here (Android camera arrives with its spike)</span>
+			<span class="mode-note">paper mode — {cameraTrouble ?? 'camera unavailable here'}</span>
+			<button class="chip" onclick={tryCamera}>try camera</button>
 		{/if}
 		{#if message}
 			<span class="celebrate">{message}</span>

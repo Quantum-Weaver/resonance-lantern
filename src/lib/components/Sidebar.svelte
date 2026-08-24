@@ -1,15 +1,15 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
 	import { page } from '$app/state';
-	import { onMount } from 'svelte';
 	import { uiStore } from '$lib/stores/ui.svelte';
 	import Icons from '$lib/components/icons/Icons.svelte';
 	import type { IconName } from '$lib/components/icons/Icons.svelte';
 
-	// Default-collapsed on every platform (Compass pattern): the content is the
-	// destination, the nav is a drawer — even on desktop.
-	let open = $state(false);
-	let isMobile = $state(true);
+	// Default-collapsed on every platform (the family pattern): the content
+	// is the destination, the nav is a drawer that disappears entirely —
+	// even on desktop. The ☰ lives in the ComfortBar, never floating
+	// (Echoes' bought lesson: a floating toggle buried the Settings foot).
+	const open = $derived(uiStore.navOpen);
 
 	const navItems: { href: string; icon: IconName; label: string }[] = [
 		{ href: '/', icon: 'home', label: 'Home' },
@@ -22,44 +22,25 @@
 
 	// The vessel opened the ComfortBar panel — they want to see it, not the nav.
 	$effect(() => {
-		if (uiStore.comfortBarExpanded) open = false;
-	});
-
-	onMount(() => {
-		isMobile = window.innerWidth < 768;
+		if (uiStore.comfortBarExpanded) uiStore.setNavOpen(false);
 	});
 
 	function navigate(href: string) {
 		goto(href);
-		open = false;
+		uiStore.setNavOpen(false);
 	}
-
-	function toggle() {
-		open = !open;
+	function onKey(e: KeyboardEvent) {
+		if (e.key === 'Escape' && uiStore.navOpen) uiStore.setNavOpen(false);
 	}
 </script>
 
-<!-- Hamburger (always visible) -->
-<button
-	class="hamburger"
-	onclick={toggle}
-	aria-label={open ? 'Close navigation' : 'Open navigation'}
-	aria-expanded={open}
->
-	{open ? '✕' : '☰'}
-</button>
+<svelte:window onkeydown={onKey} />
 
 {#if open}
-	<!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
-	<div
-		class="backdrop"
-		onclick={() => (open = false)}
-		onkeydown={(e) => { if (e.key === 'Escape') open = false; }}
-		role="presentation"
-	></div>
+	<button class="backdrop" aria-label="Close navigation" onclick={() => uiStore.setNavOpen(false)}></button>
 {/if}
 
-<nav class="sidebar" class:open aria-label="Main navigation">
+<nav class="sidebar" class:open inert={!open} aria-label="Main navigation">
 	<div class="sidebar__header">
 		<span class="sidebar__wordmark cosmic-sparkle-text">Lantern</span>
 	</div>
@@ -81,30 +62,13 @@
 </nav>
 
 <style>
-	.hamburger {
-		position: fixed;
-		bottom: calc(56px + env(safe-area-inset-bottom, 0px));
-		left: 1rem;
-		z-index: 120;
-		background-color: var(--bg-surface);
-		border: 1px solid var(--border-color);
-		color: var(--text);
-		width: 2.5rem;
-		height: 2.5rem;
-		border-radius: 8px;
-		font-size: 1.1rem;
-		cursor: pointer;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		flex-shrink: 0;
-	}
-
 	.backdrop {
 		position: fixed;
 		inset: 0;
 		z-index: 49;
+		border: none;
 		background-color: transparent;
+		cursor: default;
 	}
 
 	.sidebar {
@@ -123,6 +87,7 @@
 		display: flex;
 		flex-direction: column;
 		overflow-y: auto;
+		padding-bottom: calc(48px + env(safe-area-inset-bottom, 0px));
 	}
 
 	.sidebar.open {

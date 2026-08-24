@@ -65,6 +65,12 @@
 		</div>
 	{:else}
 		<div class="comfort-bar__minimized">
+			<button
+				class="comfort-bar__nav"
+				onclick={() => uiStore.toggleNav()}
+				aria-label={uiStore.navOpen ? 'Close navigation' : 'Open navigation'}
+				aria-expanded={uiStore.navOpen}
+			>{uiStore.navOpen ? '✕' : '☰'}</button>
 			<button class="comfort-bar__greeting-btn" onclick={toggleExpanded}>
 				{greeting}
 			</button>
@@ -96,6 +102,21 @@
 		height: 48px;
 		padding: 0 1rem;
 		gap: 0.75rem;
+	}
+
+	.comfort-bar__nav {
+		width: 36px;
+		height: 36px;
+		flex-shrink: 0;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border: 1px solid var(--border-color);
+		border-radius: 8px;
+		background: none;
+		color: var(--text);
+		font-size: 1rem;
+		cursor: pointer;
 	}
 
 	.comfort-bar__greeting-btn {

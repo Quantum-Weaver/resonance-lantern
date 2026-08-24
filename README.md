@@ -3,7 +3,7 @@
 *The Lantern Room of the AudHDities Sanctuary — a steady light for a learning hand.*
 
 [![License](https://img.shields.io/badge/license-MIT%20%2B%20Resonance-blue.svg)](LICENSE)
-[![Version](https://img.shields.io/badge/version-0.1.1-brightgreen.svg)]()
+[![Version](https://img.shields.io/badge/version-0.2.1-brightgreen.svg)]()
 [![Status](https://img.shields.io/badge/status-first%20light-DA219F.svg)]()
 [![Privacy](https://img.shields.io/badge/data%20collected-none-8a2be2.svg)](PRIVACY.md)
 
@@ -18,6 +18,17 @@ Born from **CanvasGuide** — built by the Quantum Weaver for **TJ Darling
 (@TJDPoetry)** and her creative community; a gift inside the family, becoming
 a gift beyond it. Her voice, her pride palette, and her platforms are
 preserved verbatim in this rebuild.
+
+## Screenshots
+
+<p align="center">
+  <img src="screenshots/lantern-01.jpg" width="23%" alt="Resonance Lantern — the live camera lucida: a reference ghost-light over real paper" />
+  <img src="screenshots/lantern-02.jpg" width="23%" alt="Resonance Lantern — the ghost turned down as the hand learns" />
+  <img src="screenshots/lantern-03.jpg" width="23%" alt="Resonance Lantern — Choose your light, the pride palette leading" />
+  <img src="screenshots/lantern-04.jpg" width="23%" alt="Resonance Lantern — the navigation drawer" />
+  <img src="screenshots/lantern-05.jpg" width="23%" alt="Resonance Lantern — Settings, data sovereignty and light" />
+  <img src="screenshots/lantern-06.jpg" width="23%" alt="Resonance Lantern — the lit doorway asks your name" />
+</p>
 
 ## What lives here
 
@@ -59,11 +70,11 @@ on real devices, 2026-07-18.
 ## Camera status (honest)
 
 - **Desktop: works now** — `getUserMedia` webcam preview + capture.
-- **Android: the spike PASSED on real devices 2026-07-18** — the
-  Kotlin-layer permission grant proven on both phones (see
-  `docs/FRAMEWORK-DECISION.md`). The currently signed v0.1.1 build
-  predates it and ships paper mode; the next build carries the live
-  camera. Store ascent on hold at KP's word (honest-listing seam).
+- **Android: live** — the spike passed on real devices 2026-07-18
+  (`docs/FRAMEWORK-DECISION.md`), and the v0.2.0 build carries the
+  camera on-device — the screenshots above are the Weaver's own S25
+  captures of it tracing. The store ascent is underway at KP's own
+  call (the pack: `docs/PLAY-TRACK.md`).
 
 ## Lineage & stack
 
