@@ -1,10 +1,6 @@
 // The Lantern's shared language — the voice, the palette, the outlines.
-// PROVENANCE (corrected by the Weaver, 2026-07-11): CanvasGuide was BUILT BY
-// THE WEAVER (KP) FOR TJ Darling (@TJDPoetry) and her creative community —
-// a gift inside the family, carrying her name, palette, and platforms.
-// The voice lines below are the CanvasGuide originals, preserved verbatim
-// from that gift. The credit line stands: "Born from CanvasGuide, built for
-// @TJDPoetry — tracing is learning, not cheating."
+// CanvasGuide was built by KP for TJ Darling (@TJDPoetry); the voice lines
+// below are the CanvasGuide originals, preserved verbatim.
 
 // ——— The vow (appears in onboarding verbatim — the app's resonance atom) ———
 export const THE_VOW = 'Tracing is learning, not cheating.';
@@ -117,8 +113,7 @@ export const OPACITY_PRESETS: OpacityPreset[] = [
 	{ label: 'checking', value: 0.15 },
 ];
 
-// ——— Practice outlines: real curves, authored by hand (the ancestor's
-//     point-arrays were "geometrically crude — the heart was a hexagon") ———
+// ——— Practice outlines: real curves, authored by hand ———
 export interface Outline {
 	id: string;
 	name: string;

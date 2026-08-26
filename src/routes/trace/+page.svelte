@@ -40,10 +40,8 @@
 	$effect(() => lanternStore.setPref('imgZoom', imgZoom));
 	$effect(() => lanternStore.setPref('viewZoom', viewZoom));
 
-	/** Open a camera stream — and if the DEFAULT camera fails (a ghost
-	 *  device, unplugged but remembered, bit this house: a dead C920
-	 *  standing in front of a healthy Brio), walk EVERY camera before
-	 *  yielding to paper. */
+	/** Open a camera stream — and if the DEFAULT camera fails (a ghost device,
+	 *  unplugged but remembered), walk EVERY camera before yielding to paper. */
 	async function openStream(): Promise<MediaStream> {
 		try {
 			return await navigator.mediaDevices.getUserMedia({
@@ -112,8 +110,7 @@
 		await beginSession();
 	}
 
-	// Hand the current reference to the Projector room (Jessica's wish —
-	// project it straight onto the physical canvas; no camera involved).
+	// Hand the current reference to the Projector room.
 	async function project() {
 		if (sessionId) await lanternStore.endSession(sessionId);
 		const outlineId = page.url.searchParams.get('outline');

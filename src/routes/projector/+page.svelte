@@ -1,12 +1,9 @@
 <script lang="ts">
-	// The Projector room — Jessica's own first wish for her gift, remembered
-	// by the Weaver: "can we enable a projector to be used with the lantern?"
-	// The ancient studio method: point a projector at the canvas and let the
-	// reference land on it directly. Projectors ADD light, so the stage is
-	// pure black (#000) — black projects as nothing; only her reference
-	// appears on the canvas. Same law as the viewfinder (concepts §4.3):
-	// nothing may obstruct the projection — every control collapses away.
-	// No camera involved. No sound, no urgency, ever.
+	// The Projector room — the studio method: point a projector at the canvas
+	// and let the reference land on it directly. Projectors ADD light, so the
+	// stage is pure black (#000) — black projects as nothing; only the
+	// reference appears. Nothing may obstruct the projection — every control
+	// collapses away. No camera involved.
 	import { onMount, onDestroy } from 'svelte';
 	import { browser } from '$app/environment';
 	import { page } from '$app/state';

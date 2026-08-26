@@ -1,9 +1,6 @@
 <script lang="ts">
 	// The lit doorway — three gentle steps, every one skippable.
 	// The vow appears verbatim: it is the app's resonance atom (concepts §4.1).
-	// Dressed in the FAMILY's onboarding shape 2026-08-24 — one full screen
-	// per step, stacked actions, progress dots — the Lantern's own words kept
-	// whole, the pride band held.
 	import { goto } from '$app/navigation';
 	import { themeStore } from '$lib/stores/theme.svelte';
 	import { PRESET_THEMES } from '$lib/theme/theme';

@@ -1,7 +1,6 @@
 <script lang="ts">
-	// The ComfortBar — inherited from Resonance Echoes (the parent codebase),
-	// retuned as the Lantern's voice: warmth at every threshold. It greets,
-	// offers one of the CanvasGuide voice lines, and keeps Trace one tap away.
+	// The ComfortBar — it greets, offers one of the CanvasGuide voice lines,
+	// and keeps Trace one tap away.
 	import { goto } from '$app/navigation';
 	import { page } from '$app/state';
 	import { onMount } from 'svelte';

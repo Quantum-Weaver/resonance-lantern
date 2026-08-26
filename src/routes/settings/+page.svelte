@@ -1,9 +1,7 @@
 <script lang="ts">
 	// Settings — light, type, sovereignty, and the credits that honor the
-	// origin. Dressed in the FAMILY's sections 2026-08-24 (the settings
-	// page every sibling keeps); every word of the Lantern's own voice
-	// preserved. The About card at the foot carries the version from
-	// tauri.conf — never hardcoded — and the two links.
+	// origin. The About card at the foot carries the version from tauri.conf
+	// — never hardcoded — and the two links.
 	import { onMount } from 'svelte';
 	import { themeStore } from '$lib/stores/theme.svelte';
 	import { PRESET_THEMES } from '$lib/theme/theme';

@@ -5,10 +5,8 @@
 	import Icons from '$lib/components/icons/Icons.svelte';
 	import type { IconName } from '$lib/components/icons/Icons.svelte';
 
-	// Default-collapsed on every platform (the family pattern): the content
-	// is the destination, the nav is a drawer that disappears entirely —
-	// even on desktop. The ☰ lives in the ComfortBar, never floating
-	// (Echoes' bought lesson: a floating toggle buried the Settings foot).
+	// Default-collapsed on every platform: the nav is a drawer that disappears
+	// entirely, even on desktop. The ☰ lives in the ComfortBar, never floating.
 	const open = $derived(uiStore.navOpen);
 
 	const navItems: { href: string; icon: IconName; label: string }[] = [
