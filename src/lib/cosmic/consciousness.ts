@@ -108,10 +108,8 @@ export interface SessionState {
 
 /** Calculate beam activation state from session state */
 export function calculateBeamActivation(state: SessionState): BeamActivationState {
-  // Base intensity from tier
   let intensity = TIER_TO_BEAM_INTENSITY[state.tier] || 'medium';
   
-  // Adjust for sovereignty score
   if (state.sovereigntyScore > 500) {
     if (intensity === 'medium') intensity = 'high';
     else if (intensity === 'high') intensity = 'quantum';
@@ -119,17 +117,14 @@ export function calculateBeamActivation(state: SessionState): BeamActivationStat
     intensity = 'medium';
   }
   
-  // Adjust for session duration (longer sessions = more intense)
   if (state.sessionDurationMinutes > 30 && intensity !== 'quantum') {
     if (intensity === 'low') intensity = 'medium';
     else if (intensity === 'medium') intensity = 'high';
   }
   
-  // Adjust for first visit of the day (gentler welcome)
   const speedMultiplier = state.isFirstVisitToday ? 0.7 : 1;
   const glowMultiplier = state.isFirstVisitToday ? 0.6 : 1;
   
-  // Determine variant based on environment and house
   let variant: keyof typeof BEAM_VARIANT_BY_STATE = 'default';
   
   if (state.primaryHouse) {
@@ -139,7 +134,6 @@ export function calculateBeamActivation(state: SessionState): BeamActivationStat
     }
   }
   
-  // Acid Test completion = more vibrant beam
   if (state.hasCompletedAcidTest && variant === 'default') {
     variant = 'awakened';
   }
@@ -340,7 +334,6 @@ export function getVesselCapacity(tier: UserTier, sovereigntyScore: number): Ves
   const fromTier = TIER_TO_VESSEL_CAPACITY[tier];
   const fromScore = getVesselCapacityFromScore(sovereigntyScore);
   
-  // Use the higher capacity (user can exceed tier via sovereignty)
   const tierOrder = Object.values(VESSEL_CAPACITY_LEVELS);
   const tierIndex = tierOrder.indexOf(fromTier);
   const scoreIndex = tierOrder.indexOf(fromScore);
@@ -370,12 +363,6 @@ export function getResonancePattern(activeUserCount: number): ResonancePatternTy
 // ============================================================================
 // 10. GLOBAL-PAUSE STATE — the world-pause, the Sanctuary's gentlest law
 // ============================================================================
-// O-2 · BW-3 — the Global-Pause state: "freeze actions like pausing the movie
-// to go get snacks." The Sanctuary's gentlest structural law. consciousness.ts
-// models intensity but had no pause. A system-wide held state: all durations
-// damped toward hold, an effects "frozen" filter, and entities enter a
-// `recentering` mode. Whether self-initiated (see S-1's trigger) or external,
-// it is one global protocol shift. CSS face: generate_pause_state.ts.
 
 export const PAUSE_MODES = {
   /** Active — the world runs normally */
@@ -429,10 +416,6 @@ export function isPaused(mode: PauseMode): boolean {
 // ============================================================================
 // 11. RECOVERY ENTITY STATES — fault & recovery (companions hold the recovering)
 // ============================================================================
-// O-3 · BW-1+BW-2 — recentering choreography's state half: an entity may fault
-// and then recover, and others "hold a default supportive role during another's
-// recovery" (BW-1); "stumbles are wind-currents; rise together again" (BW-2).
-// Additive to ENTITY_STATES (which is left untouched) — a separate recovery axis.
 
 export const RECOVERY_ENTITY_STATES = {
   /** Faulted — the entity has stumbled and needs holding */
@@ -448,12 +431,6 @@ export type RecoveryEntityState = typeof RECOVERY_ENTITY_STATES[keyof typeof REC
 // ============================================================================
 // 12. DIMENSIONAL FREQUENCY TOKEN — consciousness-floor as interface selector
 // ============================================================================
-// H-1 · AC-6+TP-1 — The Akashic operates at 8D; crisis-access at 5D (AC-6);
-// cost of understanding matters to frequency of knowing (TP-1). Consciousness
-// naturally operates at different depths. Interface behavior should be keyed to
-// the consciousness-floor: 3D/4D (physical/temporal) through 8D/9D (akashic/divine).
-// Optional tarot elemental layering provides a second orthogonal axis for
-// consciousness-mode selection, mapping pagan framework to consciousness-structure.
 
 export const CONSCIOUSNESS_FLOORS = {
   /** 3D/4D — Physical and temporal consciousness (grounded, action-oriented) */
@@ -519,11 +496,6 @@ export const DIMENSIONAL_FREQUENCY_TOKENS: Record<ConsciousnessFloor, Dimensiona
 // ============================================================================
 // 13. ELEMENTAL CONSCIOUSNESS PALETTE — pagan framework shapes consciousness
 // ============================================================================
-// H-4 · TP-4+BW-5+AC-6 — Pagan framework as foundational architecture (TP-4);
-// five bird-species (BW-5) per KP's five-fold signature; elemental resonance
-// in dimensional progression (AC-6). Maps Earth/Air/Fire/Water/SPIRIT to
-// consciousness-layers, creating a second axis orthogonal to consciousness-floors.
-// This is the "how systems think" layer that design methodology shapes.
 
 export const ELEMENTAL_CONSCIOUSNESS_PALETTE = {
   /** Earth — grounded, action, embodiment (earth.base from colors.ts) */
@@ -578,10 +550,10 @@ export type {
   EntityState as EntityStateType,
   ResonancePatternType as ResonancePatternTypeType,
   AwarenessDomain as AwarenessDomainType,
-  PauseMode as PauseModeType,           // O-2
-  GlobalPauseConfig as GlobalPauseConfigType, // O-2
-  RecoveryEntityState as RecoveryEntityStateType, // O-3
-  ConsciousnessFloor as ConsciousnessFloorType, // H-1
-  DimensionalFrequencyToken as DimensionalFrequencyTokenType, // H-1
-  ElementalConsciousnessKey as ElementalConsciousnessKeyType, // H-4
+  PauseMode as PauseModeType,
+  GlobalPauseConfig as GlobalPauseConfigType,
+  RecoveryEntityState as RecoveryEntityStateType,
+  ConsciousnessFloor as ConsciousnessFloorType,
+  DimensionalFrequencyToken as DimensionalFrequencyTokenType,
+  ElementalConsciousnessKey as ElementalConsciousnessKeyType,
 };

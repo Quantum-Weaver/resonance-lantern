@@ -4,29 +4,6 @@
 // Polyhedra as vertices and faces. Pure numbers: no colour, no rendering,
 // no DOM, no clock. A consumer projects them; this file only knows shape.
 // ============================================================================
-//
-// WHY THIS FILE EXISTS (2026-08-17, at KP's ⚛ word — "this will be the
-// house's first 3d experience", and "if more needs authored into our cosmic
-// system, that is fine, just not from within an app, at the source, as
-// additions"). The dice room in resonance-tarocchi is the first consumer.
-// It is not the only intended one: KP's own facet-object design at
-// well/geode/skapa.md:244 asks for exactly this — "a mind may envision
-// through a decahedron", "many shapes of dice" — and it is the geometry a
-// flattened net needs as much as a tumbling die does.
-//
-// THE LIMIT IS HIS, AND IT IS HONOURED RATHER THAN HIDDEN. KP, same page:
-// "the limit is only the mathmetical imposibility to produce a 'dice' of the
-// equal sided shape." True — only five solids are face-transitive, and a fair
-// die of arbitrary N cannot be built from them. So arbitrary N is built as a
-// BARREL, which is precisely how the physical world makes a d3, a d5 or a d7:
-// a prism whose numbered faces are its sides, capped so it cannot rest on an
-// end. The impossibility keeps its place; the shape is still delivered.
-//
-// DERIVED, NOT TRANSCRIBED. The dodecahedron is built from the icosahedron by
-// duality and the trapezohedron's apex is solved from its own planarity
-// condition — both verified numerically at module load — because a hand-typed
-// table of twenty pentagons is a typo waiting to be shipped to eighteen repos.
-// ============================================================================
 
 // ============================================================================
 // VECTORS — the smallest possible arithmetic

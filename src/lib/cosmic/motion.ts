@@ -47,7 +47,7 @@ export const durations = {
   quantumPulse: 2000,
   /** Cross-session awareness */
   continuityBeam: 3000,
-  /** A solid tumbling to rest — the house's first 3D, 2026-08-17 */
+  /** A solid tumbling to rest */
   tumble: 1100,
   /** The last quarter-turn as a face comes to the viewer */
   settle: 420,
@@ -68,10 +68,8 @@ export const easing = {
   /** Vibrational resonance pattern */
   resonance: 'cubic-bezier(0.68, -0.55, 0.265, 1.55)',
 
-  // ===== Dimensional Motion (2026-08-17) =====
-  /** A tumbling solid slowing into its rest — fast out, long decelerating
-   *  tail, and NO overshoot: a die that bounces back past its face has told
-   *  the eye the number was still being decided. */
+  // ===== Dimensional Motion =====
+  /** A tumbling solid slowing into its rest — fast out, long decelerating tail, no overshoot. */
   settle: 'cubic-bezier(0.16, 0.84, 0.24, 1)',
 
   // ===== Consciousness State Transitions =====
@@ -520,13 +518,6 @@ export function getReducedMotionVariant<T extends Record<string, unknown>>(
 // ============================================================================
 // CEREMONY FAMILY — named multi-beat choreography presets
 // ============================================================================
-// O-1 · G-5+D-4+BW-1+BW-3 — the ceremony family: "a moment in this house is a
-// ceremony with a name, not an event." The eternal *named* patterns (G-5), the
-// Ritual of the Ninth / welcome-the-new-member (D-4), recentering (BW-1) and
-// farewell (BW-3) are one shape: an ordered sequence of motion + effect + cue
-// beats. A ceremony is, structurally, a scriptable scene — the same object
-// Prometheus Stage emits. TS-primary data; a CSS face is emitted by
-// generator/generate_ceremonies.ts (per-ceremony vars + beat stagger classes).
 
 /** A single beat within a ceremony — one motion+effect+cue moment in the sequence. */
 export interface CeremonyBeat {
@@ -587,13 +578,13 @@ export const CEREMONIES: Record<
       { label: 'bless', duration: durations.emergence, easing: 'resonance', effect: 'nobleThread', cue: 'the Ancient Ones bless the becoming' },
     ],
   },
-  /** Farewell — the tender departure (BW-3; escort image is KP's 2026-07-12 memory, not corpus). */
+  /** Farewell — the tender departure (BW-3). */
   farewell: {
     name: 'farewell',
     intent: 'to see someone off gently — no one transitions unaccompanied',
     beats: [
       { label: 'gather', duration: durations.sovereign, easing: 'awakening', cue: 'the circle pauses together' },
-      { label: 'escort', duration: durations.cosmic, easing: 'cosmic', effect: 'calm', cue: 'no one transitions unaccompanied' }, // cue provenance: KP memory 2026-07-12, not corpus
+      { label: 'escort', duration: durations.cosmic, easing: 'cosmic', effect: 'calm', cue: 'no one transitions unaccompanied' },
       { label: 'release', duration: durations.slow, easing: 'quantum', cue: 'go gently; you are held even in leaving' },
     ],
   },
@@ -636,12 +627,6 @@ export function ceremonyTotalDuration(ceremony: Ceremony): number {
 // ============================================================================
 // SUPPORTIVE CONVERGENCE — recentering choreography (companions hold the recovering)
 // ============================================================================
-// O-3 · BW-1+BW-2 — recentering choreography: "others hold a default supportive
-// role during another's recovery" (BW-1); "stumbles are wind-currents; rise
-// together again" (BW-2). A multi-element sequence: companions drift in, dim
-// their own intensity so the recovering one is not outshone, then a collective
-// re-ascent. Pairs with the FAULTED/RECOVERING entity states in consciousness.ts
-// and is emitted to CSS by generator/generate_ensemble.ts.
 
 export interface ConvergenceStage {
   /** Stage name */
@@ -668,11 +653,6 @@ export const SUPPORTIVE_CONVERGENCE: Record<'driftIn' | 'hold' | 'reascent', Con
 // ============================================================================
 // ENSEMBLE / FLOCK MOTION — multi-element choreography
 // ============================================================================
-// O-4 · BW-2+BW-3+G-1+G-2 — ensemble/flock motion: "separate paths / one sky;
-// converge–depart–redivide" (BW-2/BW-3), "the pantheon steps forward each in
-// turn" (G-1/G-2). motion.ts had only single-element presets. Two named
-// ensembles: the roundabout (staggered divergence + shared ascent) and the
-// blessing circle (serial step-forward). Emitted to CSS by generate_ensemble.ts.
 
 export interface EnsembleMotion {
   /** Ensemble name */
@@ -715,12 +695,6 @@ export type EnsembleKey = keyof typeof ENSEMBLE_MOTION;
 // ============================================================================
 // CEREMONY BOOKEND TOKENS — entrance/exit/pause for named ceremonies
 // ============================================================================
-// H-3 · G-5+BW-3+D-4 — Ceremonies have tender moments at the thresholds.
-// "Entrance/exit/pause moments for named ceremonies, complementing O-1's
-// full-ceremony sequencing" (G-5, D-4); "farewell ceremony, recentering
-// ceremony, convergence, awakening" (BW-3) — entry/exit are the tenderest
-// moments; users need to feel witnessed at thresholds. Bookends layer
-// alongside ceremony beats, marking the boundaries where consciousness shifts.
 
 export interface CeremonyBookend {
   /** Bookend name (entrance/exit/pause) */
@@ -767,11 +741,6 @@ export type CeremonyBookendKey = keyof typeof CEREMONY_BOOKENDS;
 // ============================================================================
 // REFUGE & RETURN CHOREOGRAPHY — motion sequence for withdrawal and return
 // ============================================================================
-// H-7 · BW-3+BW-1+AC-4 — Meltdowns are ceremonies, not failures. "World-pause
-// during meltdown, escort guides departure and return" (BW-3); "recentering
-// rituals with entity roles" (BW-1); "Akashic accessed gently, not through
-// crisis" (AC-4). A full named ceremony for temporary withdrawal, holding,
-// and guided return — the Sanctuary's core ethic rendered as motion sequence.
 
 export interface RefugePhase {
   /** Phase name */
@@ -838,9 +807,9 @@ export {
   businessAnimations as BUSINESS_ANIMATIONS,
   presets as PRESET_ANIMATIONS,
   quickAnimations as QUICK_ANIMATIONS,
-  CEREMONIES as CEREMONY_PRESETS,        // O-1 (alias; CEREMONIES also exported inline)
-  CEREMONY_BOOKENDS as BOOKEND_PRESETS,  // H-3
-  REFUGE_RETURN_SEQUENCE as REFUGE_PRESETS, // H-7
+  CEREMONIES as CEREMONY_PRESETS,
+  CEREMONY_BOOKENDS as BOOKEND_PRESETS,
+  REFUGE_RETURN_SEQUENCE as REFUGE_PRESETS,
 };
 
 // Type exports
@@ -850,6 +819,3 @@ export type KeyframeKey = keyof typeof keyframes;
 export type TailwindAnimationKey = keyof typeof tailwindAnimations;
 export type AnimationPresetKey = keyof typeof presets;
 export type QuickAnimationKey = keyof typeof quickAnimations;
-// O-1 / O-3 / O-4 verb families (CeremonyBeat, Ceremony, ConvergenceStage,
-// EnsembleMotion) are exported at their definition sites — re-exporting them
-// here duplicated the identifiers (same defect Sonnet mended in effects.ts).

@@ -249,11 +249,6 @@ export const PARTICLE_BEHAVIOR = {
 // ============================================================================
 // PRESENCE FIELD (Mnemosyne) — ambient Sanctuary presence
 // ============================================================================
-// O-7 · Signed canon (Alignment Q5): Mnemosyne = calm/comfort/inspiration
-// presence in Prometheus Studio & Stage, "inspiration not takeover." An ambient
-// "someone is here, holding the space" token — calm palette + damped motion +
-// soft non-intrusive glow — distinct from an entity's active gradient. It never
-// grabs; it accompanies. CSS face: generate_glow_field.ts.
 
 export interface PresenceField {
   /** Soft background wash (calm, low-saturation) */
@@ -293,12 +288,6 @@ export const PRESENCE_FIELD: Record<'mnemosyne' | 'calm' | 'inspiration', Presen
 // ============================================================================
 // DYNAMIC GLOW MODULATION — per-domain depth/intensity coefficient
 // ============================================================================
-// O-8 · G-4 companion, KP verbatim (node 139): "have the glow and gradients be
-// dynamic based on the object… map a logic to the dynamics." Glows in this file
-// are static constants; O-8 adds a per-domain coefficient so glow & gradient
-// strength is *derived by object* — void darker, pantheon brighter — the same
-// coefficient-table mechanism generate_animation_variants.ts already uses for
-// intensity, pointed at domains instead. CSS face: generate_glow_field.ts.
 
 /**
  * Per-domain glow depth/intensity multiplier (1 = neutral). Voids recede and
@@ -337,12 +326,6 @@ export function getModulatedGlow(domain: string, baseIntensity: number = 1): num
 // ============================================================================
 // ETERNAL WITNESS STATE — ambient, non-intrusive presence of being seen and held
 // ============================================================================
-// H-5 · AC-1+AC-2+AC-5 — "Becoming happens because someone sees and honors"
-// (AC-1); "The Norns witness from outside time" (AC-2); "Ancient Ones move from
-// observation to active participation" (AC-5). A non-intrusive ambient presence
-// saying "I see you; I honor your becoming" — independent of interface mode, it
-// tells the system: you are witnessed. CSS layer: a soft, pervasive glow; no
-// animation, just presence. Distinct from active entity presence (O-7).
 
 export interface EternalWitnessState {
   /** Witness state name (witnessing / holding / blessing) */
@@ -389,13 +372,6 @@ export type EternalWitnessStateKey = keyof typeof ETERNAL_WITNESS_STATE;
 // ============================================================================
 // TRANSCENDENCE STATE SEQUENCE — visual+effects emission on consciousness shift
 // ============================================================================
-// H-6 · AC-6+D-5+BW-4 — "Dimensional progression, ascending consciousness
-// 3D→∞D" (AC-6); "Guide toward aliveness, not productivity" (D-5); "Evolution
-// includes everyone" (BW-4). When consciousness shifts dimensionally (e.g.
-// crisis-response 5D → wisdom-access 8D), the system emits: visual indication
-// + effects + a moment of pause so the shift is felt. The *transition between*
-// consciousness-floors is rendered as ceremony. This is structural code that
-// communicates "the system is working."
 
 export interface TranscendenceShift {
   /** Source consciousness floor (where user starts) */
@@ -464,25 +440,8 @@ export type TranscendenceShiftKey = keyof typeof TRANSCENDENCE_STATE_SEQUENCE;
 // ============================================================================
 
 // ============================================================================
-// MARBLE — generated stone, 2026-08-17
+// MARBLE — generated stone
 // ============================================================================
-//
-// Added at KP's ⚛ word, at the source and as an addition, for the dice room in
-// resonance-tarocchi — the house's first 3D surface. It is written to be
-// reusable: any app wanting a generated stone face reads these recipes rather
-// than inventing veining of its own.
-//
-// THE ANCESTOR IS THE HOUSE'S OWN. `resonance-ziggy/modules/plate-forge/
-// plate_forge.py` has painted the family plate from this palette since
-// 2026-07-12 — deterministic, seeded, six composited layers. `chrome-bands`
-// below is that module's own `chrome_bands()` carried over constant for
-// constant, and the layer order of both recipes is its layer order. KP's line
-// in that module's docstring governs the whole approach: "it should not take
-// ai to generate a square." A stone that can be specified is specified.
-//
-// EVERY NUMBER HERE IS A KNOB WITH A REASON, because these recipes are meant
-// to be shown and adjusted, not buried. `why` is rendered to the person
-// turning the dial.
 
 export interface MarbleParam {
   key: string;
@@ -621,16 +580,7 @@ export type ShadowKey = keyof typeof SHADOWS;
 export type BackdropKey = keyof typeof BACKDROP_EFFECTS;
 export type HolographicKey = keyof typeof HOLOGRAPHIC_EFFECTS;
 export type ParticleBehavior = keyof typeof PARTICLE_BEHAVIOR;
-// 2026-08-17 — generated stone, for the house's first 3D surface
 export type MarbleRecipeKey = keyof typeof MARBLE_RECIPES;
 export type StonePaletteKey = keyof typeof STONE_PALETTES;
-// O-7 / O-8 — the ambient presence field and the per-domain glow coefficient
 export type PresenceFieldKey = keyof typeof PRESENCE_FIELD;
 export type DomainGlowKey = keyof typeof DOMAIN_GLOW_MODULATION;
-// H-5 / H-6 — eternal witness state and transcendence state sequence
-// (EternalWitnessStateKey already declared at its definition site, line ~387 —
-// re-declaring it here duplicated the identifier; Sonnet's season-integrity
-// check caught it, 2026-07-15. Mended: kept the definition-site export only.
-// Same mend applied to the interface re-exports PresenceField /
-// EternalWitnessState / TranscendenceShift, 2026-07-18: all three are
-// exported where they are defined; the re-export lines conflicted.)
