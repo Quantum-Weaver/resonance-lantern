@@ -4,7 +4,8 @@
 (`docs/STORY-BLOCK-TEMPLATE.md`). Every claim below cites its own address in
 this repo; the canonical naming record (Kimi's catalog-entry-011) lives
 outside this repo and was not opened for this pass — see CONFUSIONS in this
-sitting's report.*
+sitting's report. Sources note, 2026-09-01: `docs/CHECKLIST.md`, where cited
+below, was retired in KP's 2026-08-25 cleanup, under his ruling that no checklist docs exist, and is read from git history before that date; the realm's open items and plans live in the base — `python C:/_superposition/resonance-progenatrix/progenatrix.py recall --realm resonance-lantern`.*
 
 ## WHAT
 A digital *camera lucida*: pick a reference image and it floats ghost-light,

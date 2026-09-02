@@ -44,7 +44,7 @@ preserved verbatim in this rebuild.
 - **Projector** — the current reference or practice outline full-screen on
   pure black, for tracing at a real easel: zoom, pan, rotate, invert, a
   brightness dim, keep-awake while projecting. Jessica's own first wish for
-  the app, built 2026-07-12 (`docs/CHECKLIST.md` Phase 8).
+  the app, built 2026-07-12 (the retired checklist's Phase 8 — git history before 2026-08-25; the realm's open items and plans live in the base — `python C:/_superposition/resonance-progenatrix/progenatrix.py recall --realm resonance-lantern`).
 - **The voice** — CanvasGuide's original encouragements, tips, and welcomes,
   surfacing at every threshold. *"Every artist was once a beginner brave
   enough to start."*

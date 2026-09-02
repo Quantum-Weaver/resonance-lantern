@@ -28,17 +28,17 @@ com.audhd.resonance_lantern`, or by hand on the device).
 
 | Requirement | State |
 |---|---|
-| Target API level | ⏳ verify from the signed artifact's own badging after signing (family standard: targetSdk 36) |
-| 16 KB page size | ✅ flags at repo root `.cargo/config.toml`, **PROVEN 2026-07-18** — `readelf -l` 0x4000 on every LOAD segment of the aarch64 lib |
-| App Bundle | ⏳ `release/resonance-lantern-v0.2.0.aab` — lands at signing |
-| versionCode | ✅ **2000** (v0.2.0) — machine-read from `src-tauri/gen/android/app/tauri.properties` after the 2026-08-24 build; first upload, nothing to increment past |
-| Permissions | `INTERNET` (Tauri default; no network calls) + `CAMERA` with `<uses-feature android:required="false">` (kept alive by `scripts/sync-android-extras.mjs`) — the camera is LIVE VIEW ONLY; frames never stored or transmitted; capture is a user-initiated save to the user's own storage. Data-safety stays **"collects nothing"** |
+| Target API level | ✅ targetSdk **36** / compileSdk 36 — `aapt2 dump badging` on the signed `resonance-lantern-v0.2.1.apk` (build-tools 35.0.0), 2026-09-01 |
+| 16 KB page size | ✅ flags at repo root `.cargo/config.toml`, **PROVEN 2026-07-18** — `readelf -l` 0x4000 on every LOAD segment of the aarch64 lib · `zipalign -c -P 16 -v 4` on the signed v0.2.1 APK: all four `libresonance_lantern_lib.so` OK, verification successful, 2026-09-01 |
+| App Bundle | ✅ `release/resonance-lantern-v0.2.1.aab` (61.4 MB), signed 2026-08-24 11:30 — mirrored to `resonance-assets/releases-current/lantern/bundle/android/` |
+| versionCode | ✅ **2001** (v0.2.1) — machine-read from `src-tauri/gen/android/app/tauri.properties` and from the signed APK's own badging; first upload, nothing to increment past (2000 was v0.2.0, built unsigned and never uploaded) |
+| Permissions | ✅ `INTERNET` (Tauri default; no network calls) + `CAMERA` with `<uses-feature android:required="false">` (kept alive by `scripts/sync-android-extras.mjs`; confirmed in the v0.2.1 badging — `camera` and `camera.any` both not-required) + the app's own self-scoped `DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION` — the camera is LIVE VIEW ONLY; frames never stored or transmitted; capture is a user-initiated save to the user's own storage. Data-safety stays **"collects nothing"** |
 | Privacy policy | ✅ `PRIVACY.md` in-repo → `https://github.com/Quantum-Weaver/resonance-lantern/blob/main/PRIVACY.md` — repo **verified public 2026-08-24** (HTTP 200 unauthenticated) |
 | Content rating | app (art & design / creativity) · no UGC exchange · no ads · no purchases · no collection → **Everyone** |
 
 ## The upload pack (KP's hands)
 
-- **Artifact:** `release/resonance-lantern-v0.2.0.aab` (versionCode 2000) — after his signing
+- **Artifact:** `release/resonance-lantern-v0.2.1.aab` (versionCode 2001) — signed 2026-08-24 with the ruled key, on the shelf
 - **Path:** Console → **Create app** (Resonance Lantern · **App** ·
   **Paid — $1.11**, KP's ruling 2026-08-24: the beacons table's intended
   price (`resonance-grammar/docs/sql/090-the-coast-priced-and-visible.sql:33`
@@ -148,8 +148,8 @@ art never leaves your hands.
 
 ## Sequencing notes
 
-- **D-findings D1/D2/D4/D5 remain open** (`docs/CHECKLIST.md` — the
-  dwelling findings). D5 is LAW-grade (panel over the reference on
+- **D-findings D1/D2/D4/D5 remain open** (`docs/FEATURE-BOARD.md` Tier A —
+  the dwelling findings; the checklist that first held them was retired in KP's 2026-08-25 cleanup, under his ruling that no checklist docs exist, and the realm's open items and plans live in the base — `python C:/_superposition/resonance-progenatrix/progenatrix.py recall --realm resonance-lantern`). D5 is LAW-grade (panel over the reference on
   device). The 07-18 ruling stands: fine for closed testing among
   family; worth fixing before any wider track. This build does NOT
   carry D-finding fixes.
@@ -166,5 +166,6 @@ art never leaves your hands.
 |---|---|
 | 2026-08-24 | Pack founded. v0.2.0 bumped (family envelope · settings About card · camera resilience walk); builds run; icon 512 cut; feature graphic + shots landing this sitting; **signing awaits the keystore ruling above, then KP's hand** — `python resonance-ziggy/modules/shipwright/sign-release.py resonance-lantern`. Upload at his hand after. |
 | 2026-08-24 (later) | **Both rulings his:** Road A — the old key RETIRED in both vaults, the ruled key cut (census CLEAN, sha `87362c95eb312edd`) · price **Paid $1.11** per the beacons table. Desktop MSI+NSIS and Android AAB (versionCode **2000**) built, unsigned. Five phone shots + 5+5 tablet canvases + icon-512 + feature graphic standing in resonance-assets. The camera question closed at his word: the camera was simply unplugged — the new told-reason note now says exactly that class of thing out loud. **Next hand is KP's:** `sign-release.py resonance-lantern` (password) → uninstall old-key sideloads on both phones → `install-app.py` → the Console walk above. |
+| 2026-09-01 | **The signed 0.2.1 stands on the shelf; the Console walk is KP's.** v0.2.1 (`3b5f78f` "lantern fixed", 2026-08-24 — the onboarding, settings and trace rooms, the ComfortBar and Sidebar touched; the bump) built and signed the same morning: MSI + NSIS 11:24, AAB + APK + idsig 11:30, in `release/` and mirrored to `resonance-assets/releases-current/lantern/bundle/`. Read from the artifact itself this day: versionCode **2001** · targetSdk 36 · `INTERNET` + `CAMERA` (not required) + the self-scoped receiver permission · signed `CN=AudHDities Sanctuary, O=AudHDities Sanctuary, C=US`, SHA-256 `99:1E:77:4A:91:63:0E:44:A8:F7:4F:D7:C5:F8:72:0B:2C:EB:60:7A:A4:85:A2:82:B6:6D:BE:D4:8B:E9:FE:FF`, SHA384withRSA, 4096-bit RSA · `zipalign -P 16` verified. The two ⏳ rows above closed from this reading. Nothing is uploaded: Create app, the fee, the closed track, the testers and first-time Play App Signing are his hands. |
 
 — Fable 🎻
