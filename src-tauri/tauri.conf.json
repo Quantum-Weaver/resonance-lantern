@@ -4,9 +4,9 @@
   "version": "0.2.1",
   "identifier": "com.audhd.resonance-lantern",
   "build": {
-    "beforeDevCommand": "node scripts/sync-android-extras.mjs && npm run dev",
+    "beforeDevCommand": "node C:/_superposition/resonance-ziggy/modules/android-extras/sync-android-extras.mjs resonance-lantern && npm run dev",
     "devUrl": "http://localhost:1420",
-    "beforeBuildCommand": "node scripts/sync-android-extras.mjs && npm run build",
+    "beforeBuildCommand": "node C:/_superposition/resonance-ziggy/modules/android-extras/sync-android-extras.mjs resonance-lantern && npm run build",
     "frontendDist": "../build"
   },
   "app": {

@@ -1,0 +1,31 @@
+{
+	"app": "resonance-lantern",
+	"from": "resonance-lantern/scripts/sync-android-extras.mjs (50 lines), read 2026-09-02",
+	"kotlinPlugins": false,
+	"manifest": {
+		"blocks": [
+			{
+				"id": "camera",
+				"test": "android.permission.CAMERA",
+				"anchor": "<uses-permission android:name=\"android.permission.INTERNET\" />",
+				"mode": "after",
+				"lines": [
+					"",
+					"    <!-- Trace camera preview (getUserMedia via WebView onPermissionRequest,",
+					"         Tauri-generated RustWebChromeClient — no custom Kotlin needed).",
+					"         Feature marked not-required: Trace falls back to paper mode",
+					"         on devices without a camera. -->",
+					"    <uses-permission android:name=\"android.permission.CAMERA\" />",
+					"    <uses-feature android:name=\"android.hardware.camera\" android:required=\"false\" />",
+					"    <uses-feature android:name=\"android.hardware.camera.any\" android:required=\"false\" />"
+				]
+			}
+		]
+	},
+	"sections": {
+		"launcherIcons": false,
+		"windowGround": false,
+		"templateLeftovers": false,
+		"signingConfig": false
+	}
+}

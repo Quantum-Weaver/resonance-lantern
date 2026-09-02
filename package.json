@@ -10,7 +10,7 @@
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
     "tauri": "tauri",
-    "sync-android": "node scripts/sync-android-extras.mjs"
+    "sync-android": "node C:/_superposition/resonance-ziggy/modules/android-extras/sync-android-extras.mjs resonance-lantern"
   },
   "license": "SEE LICENSE IN LICENSE",
   "dependencies": {
