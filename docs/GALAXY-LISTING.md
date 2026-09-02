@@ -44,7 +44,7 @@ collection → Everyone.
 Collects: nothing · Shares: nothing · Camera: live view for tracing;
 captures save only on user action, to user storage. Privacy policy
 (public, verified):
-https://github.com/Quantum-Weaver/resonance-lantern/blob/main/PRIVACY.md
+https://audhdities.com/apps/privacy
 
 ## Assets
 Icon: 512×512 gold-band lantern (`resonance-assets/logo-icons/

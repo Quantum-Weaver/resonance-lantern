@@ -12,6 +12,12 @@ deliberately parked until v3.*
 > artifacts below stay ready; nothing regresses. Hold-note + shot-list:
 > chamber `idavoll/sproutlings/THE-STORE-ASCENTS.md`. (Echoes v1.2.0's
 > own track update is NOT held by this note.)
+>
+> **Beside — 2026-09-01:** the hold above was lifted 2026-08-24 at his
+> own call (`PLAY-TRACK.md`); the Console reads Lantern in Closed testing
+> (Console, Aug 24, 2026; KP's paste 09-01) and Compass too (Console,
+> Aug 30, 2026; KP's paste 09-01) — so the compass park above now names
+> only the PRODUCTION/public listing decision, not the closed track.
 
 ## The artifacts
 
@@ -46,7 +52,7 @@ Play Console → Create app:
    app, no user-generated content exchange, no ads → Everyone.
 3. **Privacy policy URL:** verified publicly reachable (repo is public,
    same as the siblings — Compass's listing uses this exact pattern):
-   `https://github.com/Quantum-Weaver/resonance-lantern/blob/main/PRIVACY.md`
+   `https://audhdities.com/apps/privacy`
 4. **Store listing:** short + full description (the story is ready-made:
    a tracing lantern for artists — reference ghost overlay, practice
    outlines, projector mode; built with love for a poet-artist).
@@ -72,3 +78,7 @@ sitting.
 
 v2.2.0 stays sideload-only for the family. The Play track updates when
 the Musician's Compass (v3) is live — KP's word, 2026-07-18.
+
+*Beside, 2026-09-01: the Play closed track already carries compass (Console:
+Closed testing, Aug 30, 2026; KP's paste 09-01) — the park now names only the
+PRODUCTION/public listing decision, not the closed track.*

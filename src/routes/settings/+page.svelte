@@ -11,7 +11,7 @@
 	import { writeTextFile } from '@tauri-apps/plugin-fs';
 	import { openUrl } from '@tauri-apps/plugin-opener';
 
-	const PRIVACY_URL = 'https://github.com/Quantum-Weaver/resonance-lantern/blob/main/PRIVACY.md';
+	const PRIVACY_URL = 'https://audhdities.com/apps/privacy';
 	const SANCTUARY_URL = 'https://audhdities.com';
 
 	let vesselName = $state('');

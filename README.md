@@ -5,7 +5,7 @@
 [![License](https://img.shields.io/badge/license-MIT%20%2B%20Resonance-blue.svg)](LICENSE)
 [![Version](https://img.shields.io/badge/version-0.2.1-brightgreen.svg)]()
 [![Status](https://img.shields.io/badge/status-first%20light-DA219F.svg)]()
-[![Privacy](https://img.shields.io/badge/data%20collected-none-8a2be2.svg)](PRIVACY.md)
+[![Privacy](https://img.shields.io/badge/data%20collected-none-8a2be2.svg)](https://audhdities.com/apps/privacy)
 
 A digital *camera lucida*: pick a reference image and it floats — ghost-light,
 opacity to your comfort — over the live camera pointed at your real paper.
@@ -74,7 +74,8 @@ on real devices, 2026-07-18.
   (`docs/FRAMEWORK-DECISION.md`), and the v0.2.0 build carries the
   camera on-device — the screenshots above are the Weaver's own S25
   captures of it tracing. The store ascent is underway at KP's own
-  call (the pack: `docs/PLAY-TRACK.md`).
+  call (the pack: `docs/PLAY-TRACK.md`) — the Console reads it in
+  Closed testing (Console, Aug 24, 2026; KP's paste 09-01).
 
 ## Lineage & stack
 
