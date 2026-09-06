@@ -149,7 +149,7 @@ art never leaves your hands.
 ## Sequencing notes
 
 - **D-findings D1/D2/D4/D5 remain open** (`docs/FEATURE-BOARD.md` Tier A —
-  the dwelling findings; the checklist that first held them was retired in KP's 2026-08-25 cleanup, under his ruling that no checklist docs exist, and the realm's open items and plans live in the base — `python C:/_superposition/resonance-progenatrix/progenatrix.py recall --realm resonance-lantern`). D5 is LAW-grade (panel over the reference on
+  the dwelling findings; the checklist that first held them was retired in KP's 2026-08-25 cleanup, under his ruling that no checklist docs exist, and the realm's open items and plans live in the base — `python ../resonance-progenatrix/progenatrix.py recall --realm resonance-lantern`). D5 is LAW-grade (panel over the reference on
   device). The 07-18 ruling stands: fine for closed testing among
   family; worth fixing before any wider track. This build does NOT
   carry D-finding fixes.
