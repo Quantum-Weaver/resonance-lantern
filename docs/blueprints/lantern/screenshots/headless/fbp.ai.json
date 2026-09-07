@@ -1,0 +1,83 @@
+{
+  "tier": "folder",
+  "folder_name": "headless",
+  "folder_path": "screenshots/headless",
+  "self": "lantern/screenshots/headless/fbp.ai.json",
+  "parent": "lantern/screenshots/obp.ai.json",
+  "description": "5 files, 0 subfolders",
+  "files": [
+    {
+      "path": "screenshots/headless/lantern-01-home.png",
+      "description": "image, 221,552 bytes"
+    },
+    {
+      "path": "screenshots/headless/lantern-02-practice.png",
+      "description": "image, 158,226 bytes"
+    },
+    {
+      "path": "screenshots/headless/lantern-03-projector.png",
+      "description": "image, 116,823 bytes"
+    },
+    {
+      "path": "screenshots/headless/lantern-04-settings.png",
+      "description": "image, 172,996 bytes"
+    },
+    {
+      "path": "screenshots/headless/lantern-05-welcome.png",
+      "description": "image, 153,392 bytes"
+    }
+  ],
+  "file_count": 5,
+  "subdirectories": [],
+  "code_analysis": {
+    "lantern-01-home.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "lantern-01-home.png",
+      "location": "screenshots/headless",
+      "bytes": 221552,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "lantern-02-practice.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "lantern-02-practice.png",
+      "location": "screenshots/headless",
+      "bytes": 158226,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "lantern-03-projector.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "lantern-03-projector.png",
+      "location": "screenshots/headless",
+      "bytes": 116823,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "lantern-04-settings.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "lantern-04-settings.png",
+      "location": "screenshots/headless",
+      "bytes": 172996,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "lantern-05-welcome.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "lantern-05-welcome.png",
+      "location": "screenshots/headless",
+      "bytes": 153392,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    }
+  },
+  "folders_not_walked": [],
+  "scan_timestamp": "2026-09-07T14:02:16.469350 | in sovereign time",
+  "maintaining_agent": "FolderAgent",
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

@@ -1,0 +1,98 @@
+{
+  "tier": "folder",
+  "folder_name": "screenshots",
+  "folder_path": "screenshots",
+  "self": "lantern/screenshots/fbp.ai.json",
+  "parent": "lantern/screenshots/obp.ai.json",
+  "description": "6 files, 1 subfolders",
+  "files": [
+    {
+      "path": "screenshots/lantern-01.jpg",
+      "description": "image, 1,058,802 bytes"
+    },
+    {
+      "path": "screenshots/lantern-02.jpg",
+      "description": "image, 940,098 bytes"
+    },
+    {
+      "path": "screenshots/lantern-03.jpg",
+      "description": "image, 234,638 bytes"
+    },
+    {
+      "path": "screenshots/lantern-04.jpg",
+      "description": "image, 260,538 bytes"
+    },
+    {
+      "path": "screenshots/lantern-05.jpg",
+      "description": "image, 308,865 bytes"
+    },
+    {
+      "path": "screenshots/lantern-06.jpg",
+      "description": "image, 140,801 bytes"
+    }
+  ],
+  "file_count": 6,
+  "subdirectories": [
+    "screenshots/headless"
+  ],
+  "code_analysis": {
+    "lantern-01.jpg": {
+      "language": "content-file",
+      "format": "jpg",
+      "name": "lantern-01.jpg",
+      "location": "screenshots",
+      "bytes": 1058802,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "lantern-02.jpg": {
+      "language": "content-file",
+      "format": "jpg",
+      "name": "lantern-02.jpg",
+      "location": "screenshots",
+      "bytes": 940098,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "lantern-03.jpg": {
+      "language": "content-file",
+      "format": "jpg",
+      "name": "lantern-03.jpg",
+      "location": "screenshots",
+      "bytes": 234638,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "lantern-04.jpg": {
+      "language": "content-file",
+      "format": "jpg",
+      "name": "lantern-04.jpg",
+      "location": "screenshots",
+      "bytes": 260538,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "lantern-05.jpg": {
+      "language": "content-file",
+      "format": "jpg",
+      "name": "lantern-05.jpg",
+      "location": "screenshots",
+      "bytes": 308865,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "lantern-06.jpg": {
+      "language": "content-file",
+      "format": "jpg",
+      "name": "lantern-06.jpg",
+      "location": "screenshots",
+      "bytes": 140801,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    }
+  },
+  "folders_not_walked": [],
+  "scan_timestamp": "2026-09-07T14:02:16.467878 | in sovereign time",
+  "maintaining_agent": "FolderAgent",
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

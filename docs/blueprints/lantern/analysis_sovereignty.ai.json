@@ -5,10 +5,18 @@
   "parent": "lantern/pbp.ai.json",
   "law": "Trees this repo's .gitignore declares uncommittable must not be tracked.",
   "git_available": true,
-  "ignored_trees": {},
+  "ignored_trees": {
+    "release": {
+      "address": "release",
+      "files_on_disk": 5,
+      "walked": false,
+      "reason": "gitignored by this repo's own .gitignore \u2014 named and counted, never described, never opened",
+      "tracked_files_LEAKED": []
+    }
+  },
   "secret_files": [],
   "secret_files_found": 0,
   "note": "Existence reported, contents never read. NEVER A VALUE.",
   "verdict": "HELD",
-  "scan_timestamp": "2026-08-21T15:19:45.615885 | in sovereign time"
+  "scan_timestamp": "2026-09-07T14:02:16.667730 | in sovereign time"
 }

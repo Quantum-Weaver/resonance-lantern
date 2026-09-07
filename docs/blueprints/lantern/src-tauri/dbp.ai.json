@@ -16,9 +16,9 @@
     {
       "blueprint": "lantern/src-tauri/android-extras/obp.ai.json",
       "object_path": "src-tauri/android-extras",
-      "description": "0 files, 0 subfolders",
+      "description": "1 files, 0 subfolders",
       "folder_count": 1,
-      "total_files": 0
+      "total_files": 1
     },
     {
       "blueprint": "lantern/src-tauri/capabilities/obp.ai.json",
@@ -60,8 +60,8 @@
     }
   ],
   "total_folders": 55,
-  "total_files": 110,
-  "integration_timestamp": "2026-08-21T15:19:45.593042 | in sovereign time",
+  "total_files": 111,
+  "integration_timestamp": "2026-09-07T14:02:16.631435 | in sovereign time",
   "maintaining_agent": "DomainAgent",
   "note": "Links only. Every object's details live at its own address."
 }

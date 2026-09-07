@@ -8,7 +8,7 @@
   "files": [
     {
       "path": "src/lib/components/ComfortBar.svelte",
-      "description": "surface, 4,837 bytes"
+      "description": "surface, 5,240 bytes"
     },
     {
       "path": "src/lib/components/GradientPulse.svelte",
@@ -16,7 +16,7 @@
     },
     {
       "path": "src/lib/components/Sidebar.svelte",
-      "description": "surface, 4,183 bytes"
+      "description": "surface, 3,619 bytes"
     }
   ],
   "file_count": 3,
@@ -26,7 +26,7 @@
   "code_analysis": {
     "ComfortBar.svelte": {
       "language": "svelte",
-      "lines": 202,
+      "lines": 222,
       "uses_runes": [
         "$derived",
         "$effect",
@@ -46,17 +46,17 @@
     },
     "Sidebar.svelte": {
       "language": "svelte",
-      "lines": 190,
+      "lines": 153,
       "uses_runes": [
-        "$effect",
-        "$state"
+        "$derived",
+        "$effect"
       ],
       "fetch_calls": [],
       "has_style_block": true
     }
   },
   "folders_not_walked": [],
-  "scan_timestamp": "2026-08-21T15:19:45.374553 | in sovereign time",
+  "scan_timestamp": "2026-09-07T14:02:16.477170 | in sovereign time",
   "maintaining_agent": "FolderAgent",
   "note": "The details live here. Upper tiers link to this address; they do not copy this body."
 }

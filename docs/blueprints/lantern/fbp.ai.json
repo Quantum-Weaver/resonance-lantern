@@ -11,14 +11,6 @@
       "description": "ignore rules, 1,716 bytes"
     },
     {
-      "path": "CLAUDE.md",
-      "description": "CLAUDE.md"
-    },
-    {
-      "path": "FABLE-KERNEL.md",
-      "description": "FABLE-KERNEL"
-    },
-    {
       "path": "HANDS.md",
       "description": "The Hands"
     },
@@ -32,7 +24,7 @@
     },
     {
       "path": "package.json",
-      "description": "data, 1,245 bytes"
+      "description": "data, 1,297 bytes"
     },
     {
       "path": "PHILOSOPHY.md",
@@ -59,73 +51,19 @@
       "description": "script, 873 bytes"
     }
   ],
-  "file_count": 13,
+  "file_count": 11,
   "subdirectories": [
     ".cargo",
     ".claude",
+    ".journals",
     "docs",
-    "release",
+    "screenshots",
     "scripts",
     "src",
     "src-tauri",
     "static"
   ],
   "code_analysis": {
-    "CLAUDE.md": {
-      "language": "markdown",
-      "lines": 95,
-      "words": 676,
-      "heading_count": 7,
-      "headings": [
-        "CLAUDE.md \u2014 Resonance Lantern",
-        "Essential Rules",
-        "Structure",
-        "Tools",
-        "CURRENT STATE \u2014 as of 2026-08-14",
-        "Standards",
-        "The forge and the link tender"
-      ],
-      "links_external": 1,
-      "links_site_absolute": [],
-      "links_internal": [],
-      "links_internal_unresolved": [],
-      "links_internal_outside_checkout": [],
-      "code_fences": 0,
-      "table_rows": 0,
-      "checkboxes": {
-        "open": 0,
-        "done": 0
-      },
-      "has_story_block": false,
-      "declares_mirror_class": false
-    },
-    "FABLE-KERNEL.md": {
-      "language": "markdown",
-      "lines": 54,
-      "words": 404,
-      "heading_count": 6,
-      "headings": [
-        "FABLE-KERNEL \u2014 resonance-lantern",
-        "What this is",
-        "State (2026-07-09)",
-        "Build path (when its turn comes)",
-        "Dispatch notes",
-        "Read first"
-      ],
-      "links_external": 0,
-      "links_site_absolute": [],
-      "links_internal": [],
-      "links_internal_unresolved": [],
-      "links_internal_outside_checkout": [],
-      "code_fences": 0,
-      "table_rows": 0,
-      "checkboxes": {
-        "open": 0,
-        "done": 0
-      },
-      "has_story_block": false,
-      "declares_mirror_class": false
-    },
     "HANDS.md": {
       "language": "markdown",
       "lines": 67,
@@ -260,18 +198,19 @@
     },
     "README.md": {
       "language": "markdown",
-      "lines": 91,
-      "words": 576,
-      "heading_count": 6,
+      "lines": 103,
+      "words": 698,
+      "heading_count": 7,
       "headings": [
         "\ud83c\udfee Resonance Lantern",
+        "Screenshots",
         "What lives here",
         "THE STORY",
         "Camera status (honest)",
         "Lineage & stack",
         "License"
       ],
-      "links_external": 5,
+      "links_external": 6,
       "links_site_absolute": [],
       "links_internal": [
         {
@@ -323,12 +262,6 @@
       "reason": "package-class tree (dependency or build output) \u2014 not counted, because counting it means walking it"
     },
     {
-      "name": ".svelte-kit",
-      "address": ".svelte-kit",
-      "walked": false,
-      "reason": "package-class tree (dependency or build output) \u2014 not counted, because counting it means walking it"
-    },
-    {
       "name": "build",
       "address": "build",
       "walked": false,
@@ -339,9 +272,16 @@
       "address": "node_modules",
       "walked": false,
       "reason": "package-class tree (dependency or build output) \u2014 not counted, because counting it means walking it"
+    },
+    {
+      "name": "release",
+      "address": "release",
+      "files_on_disk": 5,
+      "walked": false,
+      "reason": "gitignored by this repo's own .gitignore \u2014 named and counted, never described, never opened"
     }
   ],
-  "scan_timestamp": "2026-08-21T15:19:45.348747 | in sovereign time",
+  "scan_timestamp": "2026-09-07T14:02:16.450461 | in sovereign time",
   "maintaining_agent": "FolderAgent",
   "note": "The details live here. Upper tiers link to this address; they do not copy this body."
 }

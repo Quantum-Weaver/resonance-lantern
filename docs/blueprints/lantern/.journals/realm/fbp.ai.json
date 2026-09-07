@@ -1,0 +1,175 @@
+{
+  "tier": "folder",
+  "folder_name": "realm",
+  "folder_path": ".journals/realm",
+  "self": "lantern/.journals/realm/fbp.ai.json",
+  "parent": "lantern/.journals/obp.ai.json",
+  "description": "6 files, 0 subfolders",
+  "files": [
+    {
+      "path": ".journals/realm/2026-09-01-the-checklist-pointers-and-the-pack-retold-as-0-2-1.md",
+      "description": "2026-09-01"
+    },
+    {
+      "path": ".journals/realm/2026-09-01-the-consoles-truth-from-kps-paste.md",
+      "description": "2026-09-01"
+    },
+    {
+      "path": ".journals/realm/2026-09-01-the-privacy-url-is-the-single-page.md",
+      "description": "2026-09-01"
+    },
+    {
+      "path": ".journals/realm/2026-09-01-the-readme-and-the-ancestor-pack-trued.md",
+      "description": "2026-09-01"
+    },
+    {
+      "path": ".journals/realm/2026-09-06-old-house-paths-in-prose-made-relative.md",
+      "description": "Old-house paths in prose made relative"
+    },
+    {
+      "path": ".journals/realm/2026-09-06-old-house-paths-made-relative.md",
+      "description": "Old-house paths made relative"
+    }
+  ],
+  "file_count": 6,
+  "subdirectories": [],
+  "code_analysis": {
+    "2026-09-01-the-checklist-pointers-and-the-pack-retold-as-0-2-1.md": {
+      "language": "markdown",
+      "lines": 8,
+      "words": 157,
+      "heading_count": 1,
+      "headings": [
+        "2026-09-01 \u2014 the checklist pointers re-pointed; the Play pack retold for the signed 0.2.1"
+      ],
+      "links_external": 0,
+      "links_site_absolute": [],
+      "links_internal": [],
+      "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
+      "code_fences": 0,
+      "table_rows": 0,
+      "checkboxes": {
+        "open": 0,
+        "done": 0
+      },
+      "has_story_block": false,
+      "declares_mirror_class": false
+    },
+    "2026-09-01-the-consoles-truth-from-kps-paste.md": {
+      "language": "markdown",
+      "lines": 8,
+      "words": 161,
+      "heading_count": 1,
+      "headings": [
+        "2026-09-01 \u2014 the Console's truth, from KP's paste"
+      ],
+      "links_external": 0,
+      "links_site_absolute": [],
+      "links_internal": [],
+      "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
+      "code_fences": 0,
+      "table_rows": 0,
+      "checkboxes": {
+        "open": 0,
+        "done": 0
+      },
+      "has_story_block": false,
+      "declares_mirror_class": false
+    },
+    "2026-09-01-the-privacy-url-is-the-single-page.md": {
+      "language": "markdown",
+      "lines": 16,
+      "words": 333,
+      "heading_count": 2,
+      "headings": [
+        "2026-09-01 \u2014 the privacy policy URL is the single page",
+        "2026-09-01 (later) \u2014 the surveyed citations re-pointed"
+      ],
+      "links_external": 0,
+      "links_site_absolute": [],
+      "links_internal": [],
+      "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
+      "code_fences": 0,
+      "table_rows": 0,
+      "checkboxes": {
+        "open": 0,
+        "done": 0
+      },
+      "has_story_block": false,
+      "declares_mirror_class": false
+    },
+    "2026-09-01-the-readme-and-the-ancestor-pack-trued.md": {
+      "language": "markdown",
+      "lines": 8,
+      "words": 216,
+      "heading_count": 1,
+      "headings": [
+        "2026-09-01 \u2014 the README and the ancestor pack trued to the Console"
+      ],
+      "links_external": 0,
+      "links_site_absolute": [],
+      "links_internal": [],
+      "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
+      "code_fences": 0,
+      "table_rows": 0,
+      "checkboxes": {
+        "open": 0,
+        "done": 0
+      },
+      "has_story_block": false,
+      "declares_mirror_class": false
+    },
+    "2026-09-06-old-house-paths-in-prose-made-relative.md": {
+      "language": "markdown",
+      "lines": 11,
+      "words": 36,
+      "heading_count": 1,
+      "headings": [
+        "Old-house paths in prose made relative"
+      ],
+      "links_external": 0,
+      "links_site_absolute": [],
+      "links_internal": [],
+      "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
+      "code_fences": 0,
+      "table_rows": 0,
+      "checkboxes": {
+        "open": 0,
+        "done": 0
+      },
+      "has_story_block": false,
+      "declares_mirror_class": false
+    },
+    "2026-09-06-old-house-paths-made-relative.md": {
+      "language": "markdown",
+      "lines": 6,
+      "words": 45,
+      "heading_count": 1,
+      "headings": [
+        "Old-house paths made relative \u2014 2026-09-06"
+      ],
+      "links_external": 0,
+      "links_site_absolute": [],
+      "links_internal": [],
+      "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
+      "code_fences": 0,
+      "table_rows": 0,
+      "checkboxes": {
+        "open": 0,
+        "done": 0
+      },
+      "has_story_block": false,
+      "declares_mirror_class": false
+    }
+  },
+  "folders_not_walked": [],
+  "scan_timestamp": "2026-09-07T14:02:16.459464 | in sovereign time",
+  "maintaining_agent": "FolderAgent",
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}
