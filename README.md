@@ -62,8 +62,7 @@ the Weaver threw together as a break from building the Sanctuary itself, a
 gift for TJ Darling (@TJDPoetry) and her creative community. Named by the
 Council, 2026-07-03, it completes the original triad: Echoes looks back,
 Compass looks around, Lantern looks forward. Rebuilt on the family's own
-stack rather than kept in Expo, gated by one honest camera spike that closed
-on real devices, 2026-07-18.
+stack rather than kept in Expo.
 
 📖 [Full Story Block](docs/STORY-BLOCK.md)
 
