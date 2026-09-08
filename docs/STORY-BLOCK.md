@@ -39,7 +39,7 @@ Her voice — CanvasGuide's original encouragements, tips, and welcomes,
 surfacing at every threshold: *"Every artist was once a beginner brave
 enough to start."* The pride palette as the default theme. The credit line,
 corrected and kept exact: *"Born from CanvasGuide by @TJDPoetry: tracing is
-learning, not cheating."* (`README.md`)
+learning, not cheating."*
 
 ## WEAVER THREAD
 The Weaver built the original CanvasGuide in four days as a break from
@@ -54,4 +54,4 @@ rebuild decision and the framework choice were recorded by Fable, 2026-07-03.
 ## ETYMOLOGY
 Discovered, not invented: "the lamp lit before anyone arrived; the light you
 draw by; the Hearth-Keeper's own image." The tagline *"a steady light for a
-learning hand"* ports intact from the original concepts document. (`README.md`)
+learning hand"* ports intact from the original concepts document.

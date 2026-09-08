@@ -6,8 +6,7 @@ google play" — **the 2026-07-19 hold ("we will not rush to the play store
 then") lifted at his own call**, the hand that set it. Companion shape to
 bubbles' and echoes' PLAY-TRACK.md — the Console is the truth; this file
 is the pack KP transcribes from, so his hands never have to compose at
-the upload screen. Ancestor: `docs/PLAY-RELEASE.md` (2026-07-18), whose
-console steps this pack carries forward.*
+the upload screen.*
 
 ## ✅ THE KEYSTORE RULING — Road A, landed 2026-08-24
 
@@ -148,8 +147,7 @@ art never leaves your hands.
 
 ## Sequencing notes
 
-- **D-findings D1/D2/D4/D5 remain open** (`docs/FEATURE-BOARD.md` Tier A —
-  the dwelling findings; the checklist that first held them was retired in KP's 2026-08-25 cleanup, under his ruling that no checklist docs exist, and the realm's open items and plans live in the base — `python ../resonance-progenatrix/progenatrix.py recall --realm resonance-lantern`). D5 is LAW-grade (panel over the reference on
+- **D-findings D1/D2/D4/D5 remain open** (the dwelling findings; the checklist that first held them was retired in KP's 2026-08-25 cleanup, under his ruling that no checklist docs exist, and the realm's open items and plans live in the base — `python ../resonance-progenatrix/progenatrix.py recall --realm resonance-lantern`). D5 is LAW-grade (panel over the reference on
   device). The 07-18 ruling stands: fine for closed testing among
   family; worth fixing before any wider track. This build does NOT
   carry D-finding fixes.

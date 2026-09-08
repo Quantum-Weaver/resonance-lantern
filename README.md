@@ -69,8 +69,8 @@ stack rather than kept in Expo.
 ## Camera status (honest)
 
 - **Desktop: works now** — `getUserMedia` webcam preview + capture.
-- **Android: live** — the spike passed on real devices 2026-07-18
-  (`docs/FRAMEWORK-DECISION.md`), and the v0.2.0 build carries the
+- **Android: live** — the spike passed on real devices 2026-07-18,
+  and the v0.2.0 build carries the
   camera on-device — the screenshots above are the Weaver's own S25
   captures of it tracing. The store ascent is underway at KP's own
   call (the pack: `docs/PLAY-TRACK.md`) — the Console reads it in
